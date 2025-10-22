@@ -1,107 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TASK-4</title>
-</head>
-<body>
+  </head>
+  <body>
     <fieldset>
-        <div>
-            <table border="1" cellspacing="1" cellpadding="0">
-                <div>
-                    <tr>
-                        <th colspan="4"><h2>Registration Form</h2></th>
-                    </tr>
-                </div>
-                <div>
-                    <tr>
-                        <th>Student Name</th>
-                        <td><input type="text" name="name" id="name" placeholder="First Name"></td>
-                        <td><input type="text" name="name" id="name" placeholder="Middle Name"></td>
-                        <td><input type="text" name="name" id="name" placeholder="Last Name"></td>
-                    </tr>
-                    <tr>
-                        <th>Father's Name</th>
-                        <td><input type="text" name="name" id="name" placeholder="Enter your father's Name"></td>
-                        <th>Mother's Name</th>
-                        <td><input type="text" name="name" id="name" placeholder="Enter your mother's Name"></td>
-                    </tr>
-                    <tr>
-                        <th>Date of Birth</th>
-                        <td><input type="date" name="date" id="name"></td>
-                        <th>Gender</th>
-                        <td>
-                            <span>Male</span><input type="radio" name="gender" id="gender" value="Male">
-                            <span>Female</span><input type="radio" name="gender" id="gender" value="Female">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Category</th>
-                        <td>
-                            <span>Gen</span><input type="radio" name="category" id="category" value="Gen">
-                            <span>OBC</span><input type="radio" name="category" id="category" value="OBC">
-                            <span>SC/ST</span><input type="radio" name="category" id="category" value="SC/ST">
-                        </td>
-                        <th>Handicapped</th>
-                        <td>
-                            <span>Yes</span><input type="radio" name="category" id="category" value="option">
-                            <span>No</span><input type="radio" name="category" id="category" value="option">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Ex-Serviceman</th>
-                        <td>
-                            <span>Yes</span><input type="radio" name="category" id="category" value="option">
-                            <span>No</span><input type="radio" name="category" id="category" value="option">
-                        </td>
-                        <th>EWS</th>
-                        <td>
-                            <span>Yes</span><input type="radio" name="category" id="category" value="option">
-                            <span>No</span><input type="radio" name="category" id="category" value="option">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Email ID</th>
-                        <td><input type="email" name="email" id="email"></td>
-                       <th>Mobile No.</th>
-                        <td><input type="number" name="number" id="number"></td>
-                    </tr>
-                    <tr>
-                        <th>State</th>
-                        <td>
-                            <select name="choose" id="">choose
-                                <option value="">Select Any One</option>
-                                <option value="">M.P.</option>
-                                <option value="">U.P.</option>
-                            </select>
-                        </td>
-                        <th>City</th>
-                        <td>
-                            <select name="choose" id="">choose
-                                <option value="">Select Any One</option>
-                                <option value="">Bhopal</option>
-                                <option value="">Indore</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Upload Photo</th>
-                        <td>
-                            <input type="file" name="photo" id="photo">
-                        </td>
-                        
-                        <th>Upload Signature</th>
-                        <td><input type="file" name="photo" id="photo"></td>
-                        
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="3" align="center"><button>Submit</button></td>
-                    </tr>
-                </div>
-            </table>
-        </div>
+      <div>
+        <table border="1" cellspacing="1" cellpadding="0">
+          <div>
+            <tr>
+              <th colspan="4"><h2>Registration Form</h2></th>
+            </tr>
+          </div>
+          <div>
+            <tr>
+              <th>Student Name</th>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="First Name"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Middle Name"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Last Name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Father's Name</th>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your father's Name"
+                />
+              </td>
+              <th>Mother's Name</th>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your mother's Name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td><input type="date" name="date" id="name" /></td>
+              <th>Gender</th>
+              <td>
+                <span>Male</span
+                ><input type="radio" name="gender" id="gender" value="Male" />
+                <span>Female</span
+                ><input type="radio" name="gender" id="gender" value="Female" />
+              </td>
+            </tr>
+            <tr>
+              <th>Category</th>
+              <td>
+                <span>Gen</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="Gen"
+                />
+                <span>OBC</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="OBC"
+                />
+                <span>SC/ST</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="SC/ST"
+                />
+              </td>
+              <th>Handicapped</th>
+              <td>
+                <span>Yes</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="option"
+                />
+                <span>No</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="option"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Ex-Serviceman</th>
+              <td>
+                <span>Yes</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="option"
+                />
+                <span>No</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="option"
+                />
+              </td>
+              <th>EWS</th>
+              <td>
+                <span>Yes</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="option"
+                />
+                <span>No</span
+                ><input
+                  type="radio"
+                  name="category"
+                  id="category"
+                  value="option"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Email ID</th>
+              <td><input type="email" name="email" id="email" /></td>
+              <th>Mobile No.</th>
+              <td><input type="number" name="number" id="number" /></td>
+            </tr>
+            <tr>
+              <th>State</th>
+              <td>
+                <select name="choose" id="">
+                  choose
+                  <option value="">Select Any One</option>
+                  <option value="">M.P.</option>
+                  <option value="">U.P.</option>
+                </select>
+              </td>
+              <th>City</th>
+              <td>
+                <select name="choose" id="">
+                  choose
+                  <option value="">Select Any One</option>
+                  <option value="">Bhopal</option>
+                  <option value="">Indore</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Upload Photo</th>
+              <td>
+                <input type="file" name="photo" id="photo" />
+              </td>
+
+              <th>Upload Signature</th>
+              <td><input type="file" name="photo" id="photo" /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="3" align="center"><button>Submit</button></td>
+            </tr>
+          </div>
+        </table>
+      </div>
     </fieldset>
-</body>
+  </body>
 </html>
