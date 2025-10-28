@@ -12,17 +12,17 @@
       <legend><b>Personal Details</b></legend>
       <table cellspacing="10">
         <tr>
-          <td>Applicant's Full Name</td>
-          <td>
+          <td width="300px">Applicant's Full Name</td>
+          <td width="300px">
             <select>
               <option value="">--Select--</option>
             </select>
             <input type="text" placeholder="Full Name" />
           </td>
-          <td>Care Of</td>
-          <td>
-            <input type="radio" name="careof" value="Parents" /> Parents
-            <input type="radio" name="careof" value="Guardian" /> Guardian
+          <td width="300px">Care Of</td>
+          <td width="300px">
+            Parents<input type="radio" name="careof" value="Parents" /> Guardian
+            <input type="radio" name="careof" value="Guardian" />
           </td>
         </tr>
 
@@ -46,9 +46,12 @@
         <tr>
           <td>Gender</td>
           <td>
-            <input type="radio" name="gender" value="Male" /> Male
-            <input type="radio" name="gender" value="Female" /> Female
-            <input type="radio" name="gender" value="Others" /> Others
+            Male<input type="radio" name="gender" value="Male" /> Female<input
+              type="radio"
+              name="gender"
+              value="Female"
+            />
+            Others<input type="radio" name="gender" value="Others" />
           </td>
           <td>Date of Birth</td>
           <td><input type="date" /></td>
@@ -72,21 +75,30 @@
         <tr>
           <td>Handicapped</td>
           <td>
-            <input type="radio" name="handicapped" value="No" /> No
-            <input type="radio" name="handicapped" value="Yes" /> Yes
+            No<input type="radio" name="handicapped" value="No" /> Yes<input
+              type="radio"
+              name="handicapped"
+              value="Yes"
+            />
           </td>
           <td>Ex-Serviceman</td>
           <td>
-            <input type="radio" name="ex" value="No" /> No
-            <input type="radio" name="ex" value="Yes" /> Yes
+            No<input type="radio" name="ex" value="No" /> Yes<input
+              type="radio"
+              name="ex"
+              value="Yes"
+            />
           </td>
         </tr>
 
         <tr>
           <td>EWS</td>
           <td>
-            <input type="radio" name="ews" value="No" /> No
-            <input type="radio" name="ews" value="Yes" /> Yes
+            No<input type="radio" name="ews" value="No" /> Yes<input
+              type="radio"
+              name="ews"
+              value="Yes"
+            />
           </td>
           <td>Religion</td>
           <td>
@@ -104,10 +116,10 @@
       <legend><b>Contact Details</b></legend>
       <table cellspacing="10">
         <tr>
-          <td>Mobile Number</td>
-          <td><input type="number" placeholder="Mobile" /></td>
-          <td>Email ID</td>
-          <td><input type="email" placeholder="Email" /></td>
+          <td width="300px">Mobile Number</td>
+          <td width="300px"><input type="number" /></td>
+          <td width="300px">Email ID</td>
+          <td width="300px"><input type="email" /></td>
         </tr>
         <tr>
           <td>Address Line 1</td>
@@ -117,7 +129,7 @@
         </tr>
         <tr>
           <td>City</td>
-          <td><input type="text" placeholder="City" /></td>
+          <td><input type="text" /></td>
           <td>State</td>
           <td>
             <select>
@@ -127,7 +139,7 @@
         </tr>
         <tr>
           <td>Pin Code</td>
-          <td><input type="number" placeholder="Code" /></td>
+          <td><input type="number" /></td>
         </tr>
       </table>
     </fieldset>
@@ -138,13 +150,13 @@
       <legend><b>Qualification Details</b></legend>
       <table cellspacing="0" cellpadding="5">
         <tr>
-          <th>Sr.No.</th>
-          <th>Qualification</th>
-          <th>Board/University</th>
-          <th>Passing Year</th>
-          <th>Max Marks</th>
-          <th>Marks Obtained</th>
-          <th>Percentage</th>
+          <th width="100px">Sr.No.</th>
+          <th width="150px">Qualification</th>
+          <th width="200px">Board/University</th>
+          <th width="150px">Passing Year</th>
+          <th width="200px">Max Marks</th>
+          <th width="200px">Marks Obtained</th>
+          <th width="200px">Percentage</th>
         </tr>
         <tr align="center">
           <td>1</td>
@@ -173,7 +185,7 @@
           <td><input type="text" /></td>
           <td>
             <select>
-              <option value=""></option>
+              <option value="">2000</option>
             </select>
           </td>
           <td><input type="number" /></td>
@@ -190,12 +202,12 @@
           <td><input type="text" /></td>
           <td>
             <select>
-              <option value=""></option>
+              <option value="">2022</option>
             </select>
           </td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
+          <td><input type="number" /></td>
+          <td><input type="number" /></td>
+          <td><input type="number" /></td>
         </tr>
         <tr align="center">
           <td>4</td>
@@ -207,12 +219,12 @@
           <td><input type="text" /></td>
           <td>
             <select>
-              <option value=""></option>
+              <option value="">2021</option>
             </select>
           </td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
-          <td><input type="text" /></td>
+          <td><input type="number" /></td>
+          <td><input type="number" /></td>
+          <td><input type="number" /></td>
         </tr>
       </table>
     </fieldset>
@@ -223,16 +235,10 @@
       <legend><b>Language Knowledge</b></legend>
       <table cellspacing="0" cellpadding="5">
         <tr>
-          <th>Language</th>
-          <th>Read</th>
-          <th>Write</th>
-          <th>Speak</th>
-        </tr>
-        <tr align="center">
-          <td>English</td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
+          <th width="300px">Language</th>
+          <th width="300px">Reading</th>
+          <th width="300px">Writing</th>
+          <th width="300px">Spoken</th>
         </tr>
         <tr align="center">
           <td>Hindi</td>
@@ -241,7 +247,13 @@
           <td><input type="checkbox" /></td>
         </tr>
         <tr align="center">
-          <td>Other</td>
+          <td>English</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+        </tr>
+        <tr align="center">
+          <td>Urdu</td>
           <td><input type="checkbox" /></td>
           <td><input type="checkbox" /></td>
           <td><input type="checkbox" /></td>
@@ -255,10 +267,26 @@
       <legend><b>Identification Details</b></legend>
       <table cellspacing="10">
         <tr>
-          <td>Aadhar Card No.</td>
-          <td><input type="number" /></td>
-          <td>PAN Card No.</td>
-          <td><input type="text" /></td>
+          <td width="300px">Aadhar Card Number</td>
+          <td width="300px"><input type="number" /></td>
+          <td width="300px">PAN Card Number</td>
+          <td width="300px"><input type="text" /></td>
+        </tr>
+        <tr>
+          <td>Upload Photo</td>
+          <td>
+            <input type="file" name="photo" id="photo" />
+          </td>
+
+          <td align="start">Upload Signature</td>
+          <td>
+            <input
+              type="file"
+              name="photo"
+              id="photo"
+              placeholder="Browse..."
+            />
+          </td>
         </tr>
       </table>
     </fieldset>
