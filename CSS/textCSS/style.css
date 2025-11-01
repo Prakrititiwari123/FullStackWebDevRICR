@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=WDXL+Lubrifont+SC&display=swap');
+
+*{
+    background-color: rgb(122, 222, 222);
+}
+#head1{
+    background-color: blueviolet;
+}
+.A{
+    background-color: beige;
+}
+#head2{
+    background-color: rgb(176, 24, 218);
+}
+#head4{
+    background: linear-gradient(90deg,red 0%,blue 35%,green 50%,yellow 90%);
+    font-family: "WDXL Lubrifont SC", sans-serif;
+}
+#para1{
+    font-family:"Bitcount Grid Single", system-ui;
+
+    font-size: xx-large;
+
+    font-weight: bolder;
+
+
+}
+#head3{
+    color: red;
+    font-size: 50px;
+    text-shadow:2px 2px 3px rgb(52, 52, 52);
+}
+#d1{
+    width: 500px;
+    height: 500px;
+    background-color: coral;
+    border: 10px double black;
+    box-shadow: 2px 2px 5px 2px black;
+}
