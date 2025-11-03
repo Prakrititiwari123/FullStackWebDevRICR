@@ -1,5 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .container{
-    background-color:rgba(0, 0, 255, 0.827);
-    height: 600px;
-    width: 780px;
+    background-color:rgb(0, 0, 255);
+    height: 670px;
+    width: 99%;  
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    height: 350px;
+    width: 320px;
+    background-color: white;
+    margin-top: 200px;   
+    padding: 25px;
+    font-family: "Noto Sans", sans-serif;
+
+}
+.box1{
+    height: 505px;
+    width: 380px;
+    background-color: white;
+    margin-top: 50px;
+    padding: 20px;
+    font-family: "Noto Sans", sans-serif;
+}
+.it{
+    border : none;
+}
+.clr{
+    color: blue;
+    font-family: "Lato", sans-serif;
+}
+.button{
+    border: none;
+    height: 30px;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    font-family: "Lato", sans-serif;
 }
