@@ -1,0 +1,82 @@
+body{
+    background: url(image.png);
+    background-size: cover;
+}
+#mainBox{
+    border: 1px solid #000;
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 0 grey;
+    background-color: hsla(0, 0%, 100%, 0.266);
+}
+
+#formHeading{
+    color: blue;
+    text-align: center;
+}
+#loginForm{
+    width: fit-content;
+    margin: 10px auto;
+}
+.formField{
+    margin: 20px;
+    label{
+        color: blueviolet;
+        font-size: large
+    };
+    input{
+        padding: 5px;
+        border-radius: 10px;
+        border: 2px solid #020109;
+        outline-color: blueviolet;
+    }
+}
+#formControl{
+    text-align: center;
+    button{
+        margin: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+#cancelButton {
+    border: 1px solid red;
+    background-color: rgb(226, 140, 140);
+    color: aliceblue;
+}
+#loginButton {
+    border: 1px solid green;
+    background-color: rgb(153, 237, 153);
+    color: aliceblue;
+}
+#cancelButton:hover {
+    color: rgb(226, 140, 140);
+    background-color: aliceblue;
+}
+#loginButton:hover {
+    color: rgb(153, 237, 153);
+    background-color: aliceblue;
+}
+/* #cancelButton:hover {
+    border: 1px solid red;
+    background-color: rgb(226, 140, 140);
+    color: aliceblue;
+}
+#loginButton:hover {
+    border: 1px solid green;
+    background-color: rgb(153, 237, 153);
+    color: aliceblue; */
+/* } */
+#cancelButton:active {
+    background-color: blue;
+    color: aliceblue;
+}
+#loginButton:active {
+    background-color: blue;
+    color: aliceblue;
+}
+
+
