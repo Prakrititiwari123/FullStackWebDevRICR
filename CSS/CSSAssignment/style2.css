@@ -1,0 +1,46 @@
+body{
+    background-color: blue;
+}
+.box{
+    width: 500px;
+    height: 500px;
+    background-color:white;
+    border-radius: 10px;
+    padding: 40px;
+    margin: 50px auto;
+}
+.button{
+    background-color: blue;
+    width: 90%;
+    height: 35px;
+    border-radius:5px ;
+    color: white;
+    font-size: medium;
+}
+.button:hover{
+    color: blueviolet;
+}
+.button:active{
+    color: rgba(24, 171, 239, 0.863);
+}
+.clr{
+    color: blue;
+    font-size: large;
+}
+.clr:hover{
+    color: rgb(151, 8, 8);
+}
+.clr:active{
+    color: rgba(42, 6, 187, 0.796);
+}
+#lastLine{
+    font-size: large;
+    text-align: center;
+}
+input{
+   border: none;
+   font-size: medium;
+}
+#cbox{
+    font-size: medium;
+}
