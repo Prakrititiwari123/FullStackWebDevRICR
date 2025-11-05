@@ -1,0 +1,74 @@
+body{
+    background-color: rgba(12, 12, 243, 0.781);
+}
+#mainbox{
+    height:400px;
+    width:400px;
+    background-color: white;
+    margin: 150px auto;
+    padding: 10px;
+    border-radius: 4px;
+}
+#formHeading{
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 5px;
+}
+.formField{
+    margin: 20px;
+    border: none;
+    label
+    {
+        font-size: large
+    };
+    input{
+        border: none;
+        font-size: medium;
+    }
+}
+
+#formControl{
+    text-align: center;
+    button{
+        background-color:  rgba(12, 12, 243, 0.781);
+        width: 90%;
+        height: 40px;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        font-size: large;
+    }
+}
+#formControl :hover{
+    color: black;
+}
+#formControl :active{
+    color: rgba(32, 8, 249, 0.547);
+}
+
+#forgetpassword{
+    color: rgba(49, 15, 239, 0.784);
+}
+#forgetpassword:hover {
+    
+    color: rgb(179, 35, 237);
+}
+#forgetpassword:active{
+    color: rgba(17, 17, 241, 0.441);
+}
+#createAccount{
+    text-align: center;
+    margin: 10px;
+    font-size: large;
+}
+#createAccount span {
+   color: blue;
+}
+#createAccount span:hover{
+   color: rgb(86, 17, 222);
+}
+#createAccount span:active {
+   color: rgb(178, 178, 238);
+}
