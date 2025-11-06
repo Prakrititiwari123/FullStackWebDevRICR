@@ -9,6 +9,9 @@ body{
     padding: 40px;
     margin: 50px auto;
 }
+#registration u{
+    text-decoration-color: blue;
+}
 .button{
     background-color: blue;
     width: 90%;
