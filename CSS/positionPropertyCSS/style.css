@@ -1,26 +1,52 @@
+:root{
+    --primary:blue;
+    --secondary:grey;
+    --tertiary:darkgrey;
+    --text:whitesmoke;
+    
+}
+
 *{
     margin: 0;
     padding: 0;
 }
 .navBar{
+    --abc:center;
     border: 1px solid #000;
-    background-color: rgba(0, 0, 255, 0.678);
-    color: aliceblue;
+    background-color: var(--primary);
+    color: var(--secondary);
     padding: 10px 50px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: var(--abc);
     position: sticky;
     top: 0;
-    
+    z-index: 99;
 }
 #links{
     display: flex;
     gap: 20px;
 }
-button{
+#helpbtn{
     background-color: red;
     position: fixed;
     bottom: 40px;
     right: 40px;
+}
+#d2{
+    width: 600px;
+    height: 500px;
+    border: 1px solid #000;
+    background-color: aqua;
+    position: relative;
+    margin: auto;
+}
+#d2btn{
+    padding: 5px;
+    border: 1px solid #000;
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: 450px;
+
 }
