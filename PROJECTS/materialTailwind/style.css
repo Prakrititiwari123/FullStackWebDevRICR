@@ -8,10 +8,11 @@
     width: 100vw;
     height: 71px;
     background-color: white;
-    border: 1px solid #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 99;
 }
 
 #heading{
@@ -30,7 +31,7 @@
 }
 
 #navBtn{
-    padding: 70px;
+    padding: 115px;
 }
 #signIn{
     border:  none;
@@ -60,30 +61,85 @@
     height: 36px;
     width: 200px;
 }
-#mainPhoto{
-    height: 600px;
-    width: 600px;
-    padding-left: 250px;
-   
 
-}
 #secA{
     display: flex;
     justify-content:center;
     gap: 100px;
     align-items: center;
+    padding-top: 90px;
+    
+}
+#mainPhoto{
+    height: 576px;
+    width: 640px;
+    padding-left: 50px;
+    margin-top: 10px;
+    border-radius: 20px;
+   
+
 }
 
 #welcome{
-    font-size: larger;
-    padding-left: 10px;
+    
     padding-top: 10px;
-    gap: 20px;
     position: relative;
-    left: 70px;
+    left: 0px;
+}
+
+#line{
+    color: grey;
+    line-height: 15px;
+    font-size: 20px;
+}
+
+#mail{
+    position: relative;
+    width: 380px;
 }
 
 #mailAndOffer{
     justify-content: center;
     gap:200px;
 }
+/* ........................................................................................................................................................................... */
+#client{
+    margin-top: 100px;
+    text-align: center;
+}
+#clientsPhotos{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    margin-top: 40px;
+    padding-left: 190px;
+    padding-right: 190px;
+    list-style: none;
+    margin-bottom: 90px;
+}
+.clientsPho{
+    height: 80px;
+    width: 160px;
+}
+#mySkill{
+    
+    margin-top: 100px;
+    text-align: center;
+}
+#whatIDo{
+    text-align: center;
+    line-height: 100px;
+}
+#para1{
+    color: grey;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.skill{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 20px;
+    padding-left: 100px;
+    padding-right: 70px;
+
+}
+
