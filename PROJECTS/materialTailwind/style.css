@@ -1,0 +1,89 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+#navbar{
+    width: 100vw;
+    height: 71px;
+    background-color: white;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#heading{
+    padding: 100px;
+}
+
+#list{
+    display: flex;
+    gap: 48px;
+    list-style: none;
+}
+
+.dot{
+    text-decoration: none;
+
+}
+
+#navBtn{
+    padding: 70px;
+}
+#signIn{
+    border:  none;
+    background-color: white;
+    padding: 20px;
+    font-size: medium;
+}
+
+#blocks{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+#offerBtn{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 7px;
+}
+
+/* .................................................................................................................. */
+#mail{
+    height: 36px;
+    width: 200px;
+}
+#mainPhoto{
+    height: 600px;
+    width: 600px;
+    padding-left: 250px;
+   
+
+}
+#secA{
+    display: flex;
+    justify-content:center;
+    gap: 100px;
+    align-items: center;
+}
+
+#welcome{
+    font-size: larger;
+    padding-left: 10px;
+    padding-top: 10px;
+    gap: 20px;
+    position: relative;
+    left: 70px;
+}
+
+#mailAndOffer{
+    justify-content: center;
+    gap:200px;
+}
