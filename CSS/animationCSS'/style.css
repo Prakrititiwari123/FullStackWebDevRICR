@@ -1,0 +1,17 @@
+h1{
+    width: 200px;
+    border: 1px solid #000;
+    margin-left: 0px;
+}
+
+/* box movement k liye when hovering */
+/* h1:hover{
+    margin-left: 180px;
+    transition: margin-left 5s; 
+} */
+
+/* width movement k liye when text is fixed and hover it */
+h1:hover{ 
+    width: 600px;
+    transition: width 5s;
+}

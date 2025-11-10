@@ -1,0 +1,12 @@
+#d1{
+    border: 1px solid #000;
+    font-size: xx-large;
+    width: 60px;
+    height: 60px;
+    transform: rotateZ(90deg);
+    
+}
+#d1:hover{
+    transform: rotateZ(180deg);
+    transition: transform 2s;
+}
