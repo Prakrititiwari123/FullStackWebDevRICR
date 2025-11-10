@@ -142,4 +142,352 @@
     padding-right: 70px;
 
 }
+/* ..............................................////////////////////////////////////////////////////////////// */
 
+#projects {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#projectContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.projectCard {
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+}
+
+.projectImg {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.projectTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.projectDesc {
+    color: grey;
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+
+.detailsBtn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+}
+
+
+
+/* ................................................................/////////////////////////////////////////////////////////////////////// */
+
+#resumeSection {
+    margin-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#resumeContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 100px;
+    margin-bottom: 80px;
+}
+
+#resumeLeft {
+    width: 45%;
+}
+
+#resumeRight {
+    width: 45%;
+}
+
+#resumePara {
+    color: grey;
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#viewMore {
+    font-size: 14px;
+    color: black;
+}
+
+.resumeBox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.resumeIcon {
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+#clientsay {
+    text-align: center;
+    margin-top: 80px;
+}
+
+#clientPara {
+    color: grey;
+    font-size: 16px;
+    line-height: 25px;
+    width: 60%;
+    margin: 10px auto;
+}
+
+/* .............................................................................////////////////////////////////////////////////////////////// */
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background-color: #fff;
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+}
+
+.section-title p {
+  font-size: 15px;
+  color: #555;
+  line-height: 22px;
+  margin-top: 10px;
+}
+
+/* Testimonials Section */
+#testimonials-section .testimonial-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.testimonial-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.testimonial-text h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.testimonial-text p {
+  color: #444;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.client-name {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.client-avatars {
+  margin-top: 20px;
+}
+
+.client-avatars img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.testimonial-image {
+  flex: 1;
+  text-align: right;
+}
+
+.testimonial-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Clients Section */
+#clients-section {
+  background-color: #f8f8f8;
+  padding: 70px 0;
+  text-align: center;
+}
+
+#clients-section .small-heading {
+  font-size: 14px;
+  color: #777;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#clients-section h2 {
+  margin-top: 10px;
+  font-size: 28px;
+  color: #111;
+}
+
+.client-logos {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.client-logos img {
+  width: 100px;
+  height: auto;
+  opacity: 0.9;
+}
+
+/* Contact Section */
+#contact-section {
+  padding: 80px 0;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.contact-info-box {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contact-info-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-info-box p {
+  color: #555;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.contact-details li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form .form-row {
+  margin-bottom: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.contact-form label {
+  font-size: 14px;
+  color: #333;
+}
+
+.contact-form input[type="radio"] {
+  margin: 0 8px 0 0;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.btn-send {
+  background-color: #222;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.btn-send:active {
+  background-color: #444;
+}
+
+/*  making Responsive */
+@media (max-width: 768px) {
+  .testimonial-content,
+  .contact-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonial-image {
+    text-align: center;
+  }
+
+  .testimonial-image img {
+    width: 250px;
+  }
+}
