@@ -388,106 +388,196 @@ body {
 }
 
 /* Contact Section */
-#contact-section {
-  padding: 80px 0;
+#contactHeading {
+  text-align: center;
+  margin: 80px 0 50px 0;
+  font-family: 'Inter', sans-serif;
 }
 
-.contact-content {
+#contactHeading h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1e2a2f;
+  margin-bottom: 20px;
+}
+
+#contactHeading p {
+  color: #777;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-section {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 50px;
+  justify-content: center;
+  margin: 80px 0;
 }
 
-.contact-info-box {
+.contact-container {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  gap: 30px;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.contact-info {
+  background: #1e1e1e;
+  color: #fff;
   flex: 1;
-  min-width: 280px;
+  border-radius: 10px;
+  padding: 40px;
 }
 
-.contact-info-box h3 {
-  font-size: 20px;
+.contact-info h2 {
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
-.contact-info-box p {
-  color: #555;
-  font-size: 14px;
-  line-height: 22px;
+.contact-info p {
+  color: #bdbdbd;
+  font-size: 16px;
+  margin-bottom: 25px;
 }
 
-.contact-details {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-weight: 600;
 }
 
-.contact-details li {
-  font-size: 14px;
-  margin-bottom: 8px;
+.icon {
+  font-size: 20px;
 }
 
 .contact-form {
-  flex: 1;
-  min-width: 300px;
+  flex: 2;
+  display: flex;
+  align-items: center;
 }
 
-.contact-form .form-row {
-  margin-bottom: 15px;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
+form {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  flex: 100%;
+}
+
+label {
+  font-size: 14px;
+  color: #607080;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  border: none;
+  border-bottom: 2px solid #b0bec5;
+  padding: 10px 0;
   outline: none;
-  font-size: 14px;
-  border-radius: 4px;
+  font-size: 15px;
 }
 
-.contact-form label {
-  font-size: 14px;
-  color: #333;
-}
-
-.contact-form input[type="radio"] {
-  margin: 0 8px 0 0;
-}
-
-.contact-form textarea {
-  height: 100px;
+textarea {
+  height: 80px;
   resize: none;
 }
 
-.btn-send {
-  background-color: #222;
+.radio-group {
+  display: flex;
+  gap: 25px;
+  margin-top: 8px;
+  color: #607080;
+}
+
+.radio-group input {
+  margin-right: 6px;
+  accent-color: #000;
+}
+
+.send-btn {
+  background: #1e1e1e;
   color: #fff;
-  padding: 12px 25px;
   border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+/* .............footer....................... */
+
+/* Footer Section */
+#footerSection {
+  border-top: 1px solid #eee;
+  padding: 20px 40px;
+  font-family: 'Inter', sans-serif;
+  color: #555;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left {
   font-size: 15px;
-  border-radius: 4px;
+  line-height: 1.5;
 }
 
-.btn-send:active {
-  background-color: #444;
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
-/*  making Responsive */
-@media (max-width: 768px) {
-  .testimonial-content,
-  .contact-content {
-    flex-direction: column;
-    text-align: center;
-  }
+.footer-right a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
 
-  .testimonial-image {
-    text-align: center;
-  }
+.footer-right a:hover {
+  color: #000;
+}
 
-  .testimonial-image img {
-    width: 250px;
-  }
+#subscribeBtn {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#subscribeBtn:hover {
+  background-color: #000;
 }
