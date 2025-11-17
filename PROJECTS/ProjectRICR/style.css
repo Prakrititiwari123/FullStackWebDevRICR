@@ -1,0 +1,175 @@
+#container{
+    background-color: white;
+}
+
+#navBar{
+    width: 100%;
+    height: 90px;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    /* position: fixed; */
+}
+
+#navId{
+    display: flex;
+    list-style: none;
+    margin-right: 250px;
+    gap: 50px;
+    font-size: 20px;
+    
+}
+
+
+#navId2{
+    padding-right: 70px;
+}
+
+#navItm1{
+    padding-right: 28px;
+    font-size: 20px;
+}
+
+#navItm2{
+    font-size: 20px;
+    border: none;
+    background-color: #125785;
+    color: white;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    border-radius: 8px;
+}
+
+#navItm2:hover {
+    color: rgba(16, 4, 49, 0.782);
+}
+
+#navItm2:active {
+    color: rgba(58, 14, 181, 0.782);
+}
+
+#enquiryForm{
+    align-items: center;
+    background-color: rgba(135, 207, 235, 0.153);
+    margin: 20px 290px 20px 290px;
+    border-radius: 8px;
+    height: fit-content;
+    padding-left: 60px;
+    padding-right: 50px;
+}
+
+#headingEnquiryForm{
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+#para1{
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+#nameNumber{
+    display: flex;
+    padding-left: 10px;
+    gap: 35px;
+    font-size: 16px;
+}
+
+#personName{
+    width: 400px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.personalName{
+    margin-top: 10px;
+}
+
+#personNumber{
+    width: 375px;
+    border-radius: 5px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.personalNumber{
+    margin-top: 10px;
+}
+
+#mailQualifi{
+    display: flex;
+    padding-left: 10px;
+    gap: 35px;
+    font-size: 16px;
+}
+
+#personMail{
+    width: 550px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.personalMail{
+    margin-top: 10px;
+}
+
+#personQualify{
+    width: 225px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.personQualification{
+    margin-top: 10px;
+}
+
+#clgSchool{
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+#clgId{
+    font-size: 16px;
+    border-radius: 5px;
+    height: 50px;
+    width: 815px;
+    margin-top: 10px;
+}
+
+#yearBranch{
+    display: flex;
+    padding-left: 10px;
+    gap: 35px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#personYear{
+    width: 400px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.personalYear{
+    margin-top: 10px;
+}
+
+#personBranch{
+    width: 375px;
+    border-radius: 5px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.personalBranch{
+    margin-top: 10px;
+}
+
+
