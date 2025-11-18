@@ -1,175 +1,321 @@
-#container{
-    background-color: white;
+#container {
+  background-color: white;
 }
 
-#navBar{
-    width: 100%;
-    height: 90px;
-    align-items: center;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #000;
-    /* position: fixed; */
+.navhead{
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-#navId{
-    display: flex;
-    list-style: none;
-    margin-right: 250px;
-    gap: 50px;
-    font-size: 20px;
-    
+#navBar {
+  width: 100%;
+  height: 90px;
+  align-items: center;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  
 }
 
-
-#navId2{
-    padding-right: 70px;
+#navId {
+  display: flex;
+  list-style: none;
+  margin-right: 250px;
+  gap: 50px;
+  font-size: 20px;
 }
 
-#navItm1{
-    padding-right: 28px;
-    font-size: 20px;
+#navId2 {
+  padding-right: 70px;
 }
 
-#navItm2{
-    font-size: 20px;
-    border: none;
-    background-color: #125785;
-    color: white;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 5px;
-    padding-bottom: 6px;
-    border-radius: 8px;
+#navItm1 {
+  padding-right: 28px;
+  font-size: 20px;
+}
+
+#navItm2 {
+  font-size: 20px;
+  border: none;
+  background-color: #125785;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  border-radius: 8px;box-shadow: 6px 6px 1px #8ec4e6;  
 }
 
 #navItm2:hover {
-    color: rgba(16, 4, 49, 0.782);
+  color: rgba(16, 4, 49, 0.782);
 }
 
 #navItm2:active {
-    color: rgba(58, 14, 181, 0.782);
+  color: rgba(58, 14, 181, 0.782);
 }
 
-#enquiryForm{
-    align-items: center;
-    background-color: rgba(135, 207, 235, 0.153);
-    margin: 20px 290px 20px 290px;
-    border-radius: 8px;
-    height: fit-content;
-    padding-left: 60px;
-    padding-right: 50px;
+#enquiryForm {
+  align-items: center;
+  background-color: rgba(47, 142, 180, 0.153);
+  margin: 20px 290px 20px 290px;
+  border-radius: 12px;
+  height: fit-content;
+  padding-left: 60px;
+  padding-right: 50px;
 }
 
-#headingEnquiryForm{
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 40px;
+#headingEnquiryForm {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+#para1 {
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+#nameNumber {
+  display: flex;
+  padding-left: 10px;
+  gap: 35px;
+  font-size: 16px;
+}
+
+#personName {
+  width: 400px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.personalName {
+  margin-top: 10px;
+}
+
+#personNumber {
+  width: 375px;
+  border-radius: 5px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.personalNumber {
+  margin-top: 10px;
+}
+
+#mailQualifi {
+  display: flex;
+  padding-left: 10px;
+  gap: 35px;
+  font-size: 16px;
+}
+
+#personMail {
+  width: 550px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.personalMail {
+  margin-top: 10px;
+}
+
+#personQualify {
+  width: 225px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.personQualification {
+  margin-top: 10px;
+}
+
+#clgSchool {
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+#clgId {
+  font-size: 16px;
+  border-radius: 5px;
+  height: 50px;
+  width: 815px;
+  margin-top: 10px;
+}
+
+#yearBranch {
+  display: flex;
+  padding-left: 10px;
+  gap: 35px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#yyear {
+  width: 400px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.personalYear {
+  margin-top: 10px;
+}
+
+#personBranch {
+  width: 375px;
+  border-radius: 5px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.personalBranch {
+  margin-top: 10px;
+}
+
+.coursesAndSources {
+  display: flex;
+  padding-left: 10px;
+  gap: 38px;
+  font-size: 16px;
+}
+
+.aboutCourses {
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.intrestedCourse {
+  margin-bottom: 10px;
+}
+
+.course {
+  margin-bottom: 10px;
+}
+
+.aboutSources {
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+#callus {
+  padding-top: 10px;
+}
+
+#sourceInfo {
+  width: 380px;
+  border-radius: 5px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.nameExecutive {
+  margin-top: 10px;
+}
+
+#executiveName {
+  width: 380px;
+  border-radius: 5px;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: rgba(128, 128, 128, 0.321);
+}
+
+.submitBtn {
+  text-align: center;
+  padding: 40px;
+  font-size: 22px;
+  
+}
+
+#sbmitBtn {
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 130px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#sbmitBtn:hover {
+  background-color: rgba(0, 0, 0, 0.666);
+  border: none;
+}
+
+.aboutUUSS{
+    background-color: #125785;
+    height: auto;
+}
+
+.about {
+  display: flex;
+  gap: 40px;
+  margin-top: 150px;
+  height: auto;
+  padding-top: 80px;
+  padding-left: 100px;
+}
+
+#paraAboutUs {
+  margin-top: 20px;
+  color: white;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.quickLinks {
+  padding-top: 10px;
+  padding-bottom: 40px;
+  padding-left: 80px;
+  color: white;
+  line-height: 40px;
+  list-style: none;
+}
+
+.otherLinks {
+  padding-top: 10px;
+  padding-bottom: 40px;
+  padding-left: 50px;
+  color: white;
+  line-height: 40px;
+  list-style: none;
+}
+
+.addressInfo {
+  padding-top: 10px;
+  padding-bottom: 60px;
+  padding-left: 100px;
+  color: white;
+  line-height: 40px;
+  list-style: none;
+  line-height: 45px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  height: 50px;
+  width: 200px;
+  padding-top: 10px;    
+
+}
+
+.footer{
+    color: white;
+    padding-left: 80px;
     padding-bottom: 10px;
+
 }
 
-#para1{
-    text-align: center;
-    font-size: 16px;
-    padding-bottom: 10px;
-}
-
-#nameNumber{
-    display: flex;
-    padding-left: 10px;
-    gap: 35px;
-    font-size: 16px;
-}
-
-#personName{
-    width: 400px;
-    border-radius: 5px;
-    height: 50px;
-}
-
-.personalName{
-    margin-top: 10px;
-}
-
-#personNumber{
-    width: 375px;
-    border-radius: 5px;
-    height: 50px;
-    margin-bottom: 20px;
-}
-
-.personalNumber{
-    margin-top: 10px;
-}
-
-#mailQualifi{
-    display: flex;
-    padding-left: 10px;
-    gap: 35px;
-    font-size: 16px;
-}
-
-#personMail{
-    width: 550px;
-    border-radius: 5px;
-    height: 50px;
-}
-
-.personalMail{
-    margin-top: 10px;
-}
-
-#personQualify{
-    width: 225px;
-    border-radius: 5px;
-    height: 50px;
-}
-
-.personQualification{
-    margin-top: 10px;
-}
-
-#clgSchool{
-    margin-top: 20px;
-    padding-left: 10px;
-}
-
-#clgId{
-    font-size: 16px;
-    border-radius: 5px;
-    height: 50px;
-    width: 815px;
-    margin-top: 10px;
-}
-
-#yearBranch{
-    display: flex;
-    padding-left: 10px;
-    gap: 35px;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-#personYear{
-    width: 400px;
-    border-radius: 5px;
-    height: 50px;
-}
-
-.personalYear{
-    margin-top: 10px;
-}
-
-#personBranch{
-    width: 375px;
-    border-radius: 5px;
-    height: 50px;
-    margin-bottom: 20px;
-}
-
-.personalBranch{
-    margin-top: 10px;
+.siteMap{
+    position: relative;
+    left: 870px;
 }
 
 

@@ -18,25 +18,39 @@
   </head>
   <body>
     <div id="container">
-      <nav id="navBar">
-        <div id="ricrLogo">
-            <img src="/PROJECTS/ricrLogo.png" alt="" style="height: 45px; width: 160px; margin-bottom: 11px;margin-top: 11px; margin-left: 80px;">
-            <!-- <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFu2Yo9eYXhIw/company-logo_200_200/company-logo_200_200/0/1707841546116?e=2147483647&v=beta&t=Gv0zvBN-1IyePr3KCQpKForCY-X7Q2R8wT7A_0ImR70" alt="" style="height: 40px;"> -->
-        </div>
-        <div>
-          <ul id="navId">
-            <li class="navItm">Home</li>
-            <li class="navItm">About</li>
-            <li class="navItm">Courses</li>
-            <li class="navItm">IDE</li>
-            <li class="navItm">Contact Us</li>
-          </ul>
-        </div>
-        <div id="navId2">
-          <span class="navItmL" id="navItm1"><i class="bi bi-telephone-fill"></i> +91 8234567890</span>
-          <button class="navItmL" id="navItm2">Student Login</button>
-        </div>
-      </nav>
+
+      <div class="navhead">
+        <nav id="navBar">
+          <div id="ricrLogo">
+            <img
+              src="/PROJECTS/ricrLogo.png"
+              alt=""
+              style="
+                height: 45px;
+                width: 160px;
+                margin-bottom: 11px;
+                margin-top: 11px;
+                margin-left: 80px;
+              "
+            />
+          </div>
+          <div>
+            <ul id="navId">
+              <li class="navItm">Home</li>
+              <li class="navItm">About</li>
+              <li class="navItm">Courses</li>
+              <li class="navItm">IDE</li>
+              <li class="navItm">Contact Us</li>
+            </ul>
+          </div>
+          <div id="navId2">
+            <span class="navItmL" id="navItm1"
+              ><i class="bi bi-telephone-fill"></i> +91 8889991736</span
+            >
+            <button class="navItmL" id="navItm2">Student Login</button>
+          </div>
+        </nav>
+      </div>
 
       <div id="enquiryForm">
         <h1 id="headingEnquiryForm">Enquiry Form</h1>
@@ -46,39 +60,62 @@
         </p>
         <div id="nameNumber">
           <div>
-            <label for="">Person Name <sup>*</sup></label> <br>
-            <input type="text" id="personName" class="personalName" placeholder="Person Name"/>
+            <label for="">Person Name <sup>*</sup></label> <br />
+            <input
+              type="text"
+              id="personName"
+              class="personalName"
+              placeholder="Person Name"
+            />
           </div>
           <div>
-            <label for="">Contact Number <sup>*</sup></label> <br>
-            <input type="number" id="personNumber" class="personalNumber" placeholder="Contact Number" />
+            <label for="">Contact Number <sup>*</sup></label> <br />
+            <input
+              type="number"
+              id="personNumber"
+              class="personalNumber"
+              placeholder="Contact Number"
+            />
           </div>
         </div>
 
         <div id="mailQualifi">
           <div>
-            <label for="">Email<sup>*</sup></label> <br>
-            <input type="mail" id="personMail" class="personalMail" placeholder="Email"/>
+            <label for="">Email<sup>*</sup></label> <br />
+            <input
+              type="mail"
+              id="personMail"
+              class="personalMail"
+              placeholder="Email"
+            />
           </div>
           <div>
             <label for="">Qualification<sup>*</sup></label>
-            <input type="qualify" id="personQualify" class="personQualification" placeholder="Qualification" />
+            <input
+              type="qualify"
+              id="personQualify"
+              class="personQualification"
+              placeholder="Qualification"
+            />
           </div>
         </div>
 
         <div id="clgSchool">
           <div>
-            <label for="">College/School Name<sup>*</sup></label> <br>
-            <input type="text" id="clgId" class="clgMail" placeholder="College/School Name"/>
+            <label for="">College/School Name<sup>*</sup></label> <br />
+            <input
+              type="text"
+              id="clgId"
+              class="clgMail"
+              placeholder="College/School Name"
+            />
           </div>
         </div>
 
         <div id="yearBranch">
           <div>
-            <label for="">Year<sup>*</sup></label> <br>
-            <input type="text" id="personYear" class="personalYear" placeholder="Year"/>
-            <select name="yyear" id="yyear">
-              <option value=""></option>
+            <label for="">Year<sup>*</sup></label> <br />
+            <select name="yyear" id="yyear" class="personalYear">
               <option value="">Year</option>
               <option value="1">First Year</option>
               <option value="2">Second Year</option>
@@ -89,15 +126,208 @@
             </select>
           </div>
           <div>
-            <label for="">Branch <sup>*</sup></label> <br>
-            <input type="text" id="personBranch" class="personalBranch" placeholder="Branch" />
+            <label for="">Branch <sup>*</sup></label> <br />
+            <input
+              type="text"
+              id="personBranch"
+              class="personalBranch"
+              placeholder="Branch"
+            />
           </div>
         </div>
 
-        <div>
-          <label for="">Interested in Which Course <sup>*</sup></label>
+
+        <div class="coursesAndSources">
+          <div class="aboutCourses">
+            <div class="intrestedCourse">
+              <label for="">Interested in Which Course <sup>*</sup></label>
+            </div>
+            <div>
+              <input
+                class="course"
+                type="checkbox"
+                name="fullSWD"
+                id="fswd"
+                value="Full Stack Web Development - Placement Oriented"
+              /><span> Full Stack Web Development - Placement Oriented</span>
+              <br />
+              <input
+                type="checkbox"
+                name="DSWP"
+                class="course"
+                id="DSwithPython"
+                value="Data Science with Python - Placement Oriented"
+              /><span> Data Science with Python - Placement Oriented</span>
+              <br />
+              <input
+                type="checkbox"
+                name="DAWP"
+                class="course"
+                id="DAwithPyhton"
+                value="Data Analytics with Python - Placement Oriented"
+              /><span> Data Analytics with Python - Placement Oriented</span>
+              <br />
+              <input
+                type="checkbox"
+                name="ba"
+                class="course"
+                id="businessA"
+                value="Business Analyst"
+              /><span> Business Analyst</span>
+              <br />
+              <input
+                type="checkbox"
+                name="java"
+                class="course"
+                id="javaProg"
+                value="Java Programming"
+              /><span> Java Programming</span>
+              <br />
+              <input
+                type="checkbox"
+                name="python"
+                id="pythonProg"
+                class="course"
+                value="Python Programming"
+              /><span> Python Programming</span>
+              <br />
+              <input
+                type="checkbox"
+                name="c/c++"
+                class="course"
+                id="c/c++Prog"
+                value="C/C++ Programming"
+              /><span> C/C++ Programming</span>
+              <br />
+              <input
+                type="checkbox"
+                name="Other"
+                class="course"
+                id="other"
+                value="Other"
+              /><span> Other</span>
+              <br />
+            </div>
+          </div>
+
+          <div class="aboutSources">
+            <div class="source">
+              <span>Source of Information</span>
+              <p
+                id="callus"
+                style="font-weight: bold"
+                class="text-body-secondary"
+              >
+                (Only choose 'Received call from institute' if you <br />
+                actually got a call from us)*
+              </p>
+            </div>
+
+            <div class="info">
+              <select name="Source" id="sourceInfo">
+                <option value="">Source of Information</option>
+                <option value="News Paper/Print Media">News Paper/Print Media</option>
+                <option value="Friends/Relatives">Friends/Relatives</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Workshop/Seminar">Workshop/Seminar</option>
+                <option value="Received call from institute (Only choose if you actually got a call from us)">
+                  Received call from institute (Only choose if you actually got
+                  a call from us)
+                </option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="executive" id="NameOfExecutive">
+              <label for="">Name of Executive<sup>*</sup></label> <br />
+              <select
+                name="nameExecutive"
+                id="executiveName"
+                class="nameExecutive"
+              >
+                <option value="Name of Executive">Name of Executive</option>
+              </select>
+            </div>
+          </div>
         </div>
 
+        <div class="submitBtn">
+          <button id="sbmitBtn" onclick="submit()">Submit</button>
+        </div>
+      </div>
+
+      <div class="aboutUUSS">
+        <div class="about">
+          <div>
+            <img
+              src="/PROJECTS/logoRICRWhite.png"
+              alt=""
+              style="
+                height: 45px;
+                width: 160px;
+                margin-bottom: 11px;
+                margin-top: 10px;
+              "
+            />
+            <p id="paraAboutUs">
+              RICR is a subsidiary of Raj Digital <br />
+              Private Limited. It is a premier coding <br />
+              and robotics institute, empowering <br />
+              students with cutting-edge education <br />
+              and real-world skills for a tech-driven <br />
+              future.
+            </p>
+          </div>
+
+          <div class="quickLinks">
+            <h3>Quick Links</h3>
+            <li><a href=""></a>Courses</li>
+            <li><a href=""></a>Host a Workshop</li>
+            <li><a href=""></a>Community Ambassador</li>
+            <li><a href=""></a>Work With Us</li>
+            <li><a href=""></a>Contact Us</li>
+          </div>
+
+          <div class="otherLinks">
+            <h3>Other Links</h3>
+            <li><a href=""></a>Edunest Facility</li>
+
+            <hr />
+            <h3>Policies</h3>
+            <li><a href=""></a>Terms Of Services</li>
+            <li><a href=""></a>Privacy Policy</li>
+          </div>
+
+          <div class="addressInfo">
+            <h3>Informations</h3>
+            <li>
+              <a href=""></a> <i class="bi bi-geo-alt"></i> Minal Mall, 4th
+              Floor, Minal Residency, JK Road,<br />
+              Bhopal Pincode (462023)
+            </li>
+            <li>
+              <a href=""></a><i class="bi bi-envelope"></i> contact@ricr.in
+            </li>
+            <li>
+              <a href=""></a><i class="bi bi-chat-square-dots"></i> +91
+              8889991736
+            </li>
+            <div class="icons">
+              <li id="fb"><i class="bi bi-facebook"></i></li>
+              <li><i class="bi bi-instagram"></i></li>
+              <li><i class="bi bi-youtube"></i></li>
+              <li><i class="bi bi-linkedin"></i></li>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <hr style="color: white; margin-left: 85px; margin-right: 115px" />
+        <div class="footer">
+          <span
+            >© 2024 - Raj Digital Private Limited | All Rights Reserved</span
+          >
+          <span class="siteMap">Sitemap</span>
+        </div>
       </div>
     </div>
 
