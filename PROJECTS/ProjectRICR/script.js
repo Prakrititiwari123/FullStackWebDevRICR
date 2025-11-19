@@ -31,26 +31,26 @@ function submit() {
   const course0=document.getElementById("fswd").value;
   console.log("Course: "+course0)
 
-  const course1=document.getElementById("DSwithPython").value;
-  console.log("Course: "+course1)
+  // const course1=document.getElementById("DSwithPython").value;
+  // console.log("Course: "+course1)
 
-  const course2=document.getElementById("DAwithPyhton").value;
-  console.log("Course: "+course2)
+  // const course2=document.getElementById("DAwithPyhton").value;
+  // console.log("Course: "+course2)
 
-  const course3=document.getElementById("businessA").value;
-  console.log("Course: "+course3)
+  // const course3=document.getElementById("businessA").value;
+  // console.log("Course: "+course3)
 
-  const course4=document.getElementById("javaProg").value;
-  console.log("Course: "+course4)
+  // const course4=document.getElementById("javaProg").value;
+  // console.log("Course: "+course4)
 
-  const course5=document.getElementById("pythonProg").value;
-  console.log("Course: "+course5)
+  // const course5=document.getElementById("pythonProg").value;
+  // console.log("Course: "+course5)
 
-  const course6=document.getElementById("c/c++Prog").value;
-  console.log("Course: "+course6)
+  // const course6=document.getElementById("c/c++Prog").value;
+  // console.log("Course: "+course6)
   
-  const course7=document.getElementById("other").value;
-  console.log("Course: "+course7)
+  // const course7=document.getElementById("other").value;
+  // console.log("Course: "+course7)
   
 
 
