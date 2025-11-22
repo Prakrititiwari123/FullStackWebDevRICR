@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="container">
+    <div id="calculator">
+      <div>
+        <input type="text" id="screen">
+      </div>
+      <div id="Btns">
+        <div class="btn" id="NumberBtn">
+          <button class="bt" onclick="clickA('7')">7</button>
+          <button class="bt" onclick="clickA('8')">8</button>
+          <button class="bt" onclick="clickA('9')">9</button>
+          <button class="bt" onclick="clickA('/')">/</button>
+        </div>
+        <br>
+        <div class="btn" id="NumberBtn">
+          <button class="bt" onclick="clickA('4')">4</button>
+          <button class="bt" onclick="clickA('5')">5</button>
+          <button class="bt" onclick="clickA('6')">6</button>
+          <button class="bt" onclick="clickA('*')">*</button>
+        </div>
+        <br>
+        <div class="btn" id="NumberBtn">
+          <button class="bt" onclick="clickA('1')">1</button>
+          <button class="bt" onclick="clickA('2')">2</button>
+          <button class="bt" onclick="clickA('3')">3</button>
+          <button class="bt" onclick="clickA('-')">-</button>
+        </div>
+        <br>
+        <div class="btn" id="NumberBtn">
+          <button class="bt" onclick="clickA('.')">.</button>
+          <button class="bt" onclick="clickA('0')">0</button>
+          <button class="bt" onclick="clickA('+')">+</button>
+          <button class="bt clear" onclick="clearDisplay()" id="clear">C</button>
+        </div>
+        <br>
+        <div id="equal">
+          <button class="submitBtn" onclick="calculateBtn()" >=</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
