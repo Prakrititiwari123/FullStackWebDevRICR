@@ -9,7 +9,7 @@
   <body id="container">
     <div id="calculator">
       <div>
-        <input type="text" id="screen" placeholder="0">
+        <input type="text" id="screen" name="screen" placeholder="0">
       </div>
       <div id="Btns">
         <div class="btn" id="NumberBtn">
@@ -37,11 +37,11 @@
           <button class="bt" onclick="clickA('.')">.</button>
           <button class="bt" onclick="clickA('0')">0</button>
           <button class="bt" onclick="clickA('+')">+</button>
-          <button class="bt clear" onclick="clearDisplay()" id="clear">C</button>
+          <button class="bt clear" onclick="clickA('C')" id="clear">C</button>
         </div>
         <br>
-        <div id="equal">
-          <button class="submitBtn" onclick="calculateBtn()" >=</button>
+        <div id="NumberBtn">
+          <button class="submitBtn" onclick="clickA('=')" >=</button>
         </div>
       </div>
     </div>

@@ -43,6 +43,9 @@
   width: 100px;
   font-size: 20px;
 }
+.bt:hover{
+    background-color: rgba(141, 235, 235, 0.984);
+}
 
 #clear{
     background-color: rgb(164, 13, 13); 
