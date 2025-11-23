@@ -5,7 +5,7 @@ function clickA(char) {
       document.getElementById("screen").value
     );
     } catch (error) {
-        alert("Invalid error");
+        alert("Invalid Expression");
         document.getElementById("screen").value = "";
     }
   } else if (char === "C") {
@@ -14,7 +14,7 @@ function clickA(char) {
 
     // let exp= document.getElementById("screen").value;
     // exp=exp+char;
-    
+
     document.getElementById("screen").value =
       document.getElementById("screen").value + char;
   }
