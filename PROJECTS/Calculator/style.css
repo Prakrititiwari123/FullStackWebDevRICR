@@ -11,6 +11,7 @@
     border-radius: 20px;
     margin: 80px 250px 40px 550px;
     padding: 10px;
+    box-shadow:10px 10px 10px rgb(8, 89, 89);
 }
 
 #screen{
@@ -20,6 +21,7 @@
     height: 68px;
     margin-left: 20px;
     margin-bottom: 20px;
+    font-size: 20px;
     
 }
 

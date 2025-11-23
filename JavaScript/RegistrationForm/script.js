@@ -27,7 +27,7 @@ function submit() {
   const course = document.getElementById("course").value;
   console.log("Available Course: "+course);
   let selectedBatchTiming = [];
-  document
+  document 
     .querySelectorAll("input[name='batch']:checked")
     .forEach((element) => {
       selectedBatchTiming.push(element.value);
