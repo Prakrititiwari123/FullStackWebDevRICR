@@ -50,6 +50,7 @@ function submit() {
 
 
 
+
 //   let selectedBatchTiming = [];
 //   document
 //     .querySelectorAll("input[name='batch']:checked")
