@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div id="dicegame">
+      <div class="container-fluid text-center py-3 bg-primary text-light">
+        <h1>Dice Game</h1>
+      </div>
+
+      <div class="container d-flex justify-content-around">
+        <div
+          class="w-50 text-center d-grid justify-content-center mt-5 px-5 py-4 border border-2 border-black rounded-2 m-5 shadow"
+        >
+          <h1 class="">Player 1</h1>
+          <img src="/PROJECTS/diceGameProject/image.png" alt="" width="100px" class="ms-3" />
+          <button
+            class="d-block bg-primary text-light py-1 px-4 rounded-2 border-0"
+          >
+            Roll Dice
+          </button>
+        </div>
+
+        <div
+          class="w-50 text-center d-grid justify-content-center mt-5  px-5 py-4  border border-2 border-black rounded-2 m-5 shadow"
+        >
+          <h1>Player 2</h1>
+          <img src="/PROJECTS/diceGameProject/image.png" alt="" width="100px" class="ms-3" />
+          <button
+            class="d-block bg-primary text-light py-1 px-4 rounded-2 border-0"
+          >
+            Roll Dice
+          </button>
+        </div>
+      </div>
+      <div class="container text-center w-50">
+        <h2 class="fw-bold">Score Board</h2>
+        <div class="d-flex justify-content-around">
+          <div>
+            <h4>Player 1</h4>
+            <h4>0</h4>
+          </div>
+
+          <div>
+            <h4>Player 2</h4>
+            <h4>0</h4>
+          </div>
+        </div>
+        <div>
+          <button
+            class="bg-success text-light px-2 py-2 border-0 rounded-2 m-2"
+          >
+            Start Game
+          </button>
+          <button class="bg-danger text-light px-2 py-2 border-0 rounded-2 m-2">
+            Restart Game
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
