@@ -41,10 +41,17 @@
             id="image"
             class="border object-fit-contain"
           />
-          <label class="btn btn-outline-primary" for="upload">
+          <label class="btn btn-outline-primary" for="upload" id="uploadLabel">
             <i class="bi bi-camera"></i> Upload Image</label
           >
-          <input type="file" name="upload" id="upload" class="d-none" />
+          <input 
+          type="file" 
+          name="upload" 
+          id="upload" 
+          class="d-none" 
+          onchange="uploadImage()" 
+          accept="image/*" 
+          />
         </div>
       </div>
     </main>
