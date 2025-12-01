@@ -8,7 +8,7 @@ const img = document.getElementById("image");
 
 console.log(img.src);
 
-if (img.src === "http://127.0.0.1:5500/JavaScript/imageEditor/index.html") {
+if (img.src === "http://127.0.0.1:5500/JavaScript/imageEditorTool/index.html") {
   document.getElementById("image").style.display = "none";
 }
 
