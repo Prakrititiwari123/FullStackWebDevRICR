@@ -29,46 +29,30 @@
         <input
           type="text"
           name="newTask"
-          id="newTask"
+          id="NewTask"
           placeholder="Add Your New Task"
           class="form-control"
         />
-        <button class="btn btn-primary w-25">
+        <button class="btn btn-primary w-25" onclick="AddTask()">
           <i class="bi bi-plus-circle"></i> Add Task
         </button>
       </div>
 
       <div class="container p-5 fs-4">
-        <ol class="list-unstyled">
-            <li>Task-1 <button class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></li>
-            <li>Task-2 <button class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></li>
-            <li>Task-3 <button class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></li>
-            <li>Task-4 <button class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></li>
-            <li>Task-5 <button class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></li>
-            <li>Task-6 <button class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></li>
+        <ol id="TaskList">
+          <!-- <li class="p-2 d-flex align-items-center border-bottom">
+            <div class="w-75">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis,
+              iure? Iste praesentium sint voluptatibus in.
+            </div>
+            <button class="btn btn-danger ms-3">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </li> -->
+
         </ol>
       </div>
-
-
-
-      
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
