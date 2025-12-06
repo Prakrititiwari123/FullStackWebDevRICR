@@ -43,6 +43,10 @@ function SB_Control2() {
 }
 
 
+
+
+//EVENT BY MOUSE
+
 document.getElementById("c1").addEventListener("mouseenter",()=>{
   fillColour("violet")
 })
