@@ -30,3 +30,10 @@ boxes.forEach((box)=>{
         checkWinner();
     });
 });
+
+const checkWinner=()=>{
+    for(let patterns of winPatterns){
+        console.log(boxes[patterns[0]].innerText,boxes[patterns[1]].innerText,boxes[patterns[2]].innerText);
+        
+    }
+}
