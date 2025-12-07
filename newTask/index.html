@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive India Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-flag"></i> Interactive India Map</h1>
+            <p class="subtitle">Search for any Indian state or city to place a flag on the map</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-box" 
+                       placeholder="Type state or city name (Delhi, Mumbai, Rajasthan, etc.)">
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button id="clearBtn" class="clear-btn">
+                    <i class="fas fa-times"></i> Clear Flag
+                </button>
+            </div>
+            
+            <div class="suggestions">
+                <p>Try: Delhi, Mumbai, Bangalore, Chennai, Kolkata, Hyderabad, Rajasthan, Kerala, etc.</p>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="map-container">
+                <!-- India Map Image -->
+                <div class="india-map" id="indiaMap">
+                    <img src="Map.jpg" alt="India Map" class="map-image" id="mapImage">
+                    <!-- Flags will be placed here dynamically -->
+                    <div id="flagContainer"></div>
+                </div>
+                
+                <div class="map-controls">
+                    <div class="zoom-controls">
+                        <button id="zoomIn" class="zoom-btn"><i class="fas fa-search-plus"></i></button>
+                        <button id="zoomOut" class="zoom-btn"><i class="fas fa-search-minus"></i></button>
+                        <button id="resetZoom" class="zoom-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="current-location">
+                    <h3><i class="fas fa-map-marker-alt"></i> Current Flag Location</h3>
+                    <div id="locationInfo">
+                        <p class="no-location">No flag placed yet. Search for a location!</p>
+                    </div>
+                </div>
+                
+                <div class="recent-searches">
+                    <h3><i class="fas fa-history"></i> Recent Searches</h3>
+                    <div id="recentSearches">
+                        <p class="no-recent">No recent searches</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <h3><i class="fas fa-bolt"></i> Quick Select States</h3>
+            <div class="state-buttons" id="stateButtons">
+                <!-- State buttons will be added by JavaScript -->
+            </div>
+        </div>
+
+        <footer>
+            <p>Interactive India Map | Search and place flags on states and cities</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
