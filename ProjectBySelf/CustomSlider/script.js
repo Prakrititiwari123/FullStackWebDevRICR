@@ -19,3 +19,18 @@ const slideImage = () => {
     slide.style.transform = `translateX(-${counter * 100}%)`;
   });
 };
+
+// i want ki jb slides khtm ho jaaye tb..y to phir s starting s aa jaye slides y phir uske baad next disabled ho jaaye...to kya kre?
+
+// const goNext1 = () => {
+// if (counter < slides.length - 1) {
+// counter++;
+// slideImage();
+// }
+// };
+// const goPrev1 = () => {
+// if (counter != 0) {
+// counter--;
+// slideImage();
+// }
+// };
