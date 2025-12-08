@@ -1,0 +1,20 @@
+#addBtn:hover {
+    background-color: #FF8040;
+    border: none;
+}
+
+#addBtn:active {
+    background-color: #001BB7;
+    border: none;
+}
+
+
+#downloadBtn:hover {
+    background-color: #FF8040;
+    border: none;
+}
+
+#downloadBtn:active {
+    background-color: #001BB7;
+    border: none;
+}

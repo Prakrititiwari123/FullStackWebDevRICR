@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Password Manager</title>
 
+    <link rel="stylesheet" href="style.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
@@ -16,12 +17,11 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body style="background-color: #F5F1DC;">
     <header>
-      <div
-        class="container-fluid bg-primary px-3 py-3 text-center display-6 fw-bold text-light"
-      >
-        Password Manager
+      <div class="container-fluid bg-primary d-flex gap-3 justify-content-center align-items-baseline px-3 py-2 text-center text-light">
+        <h1>Password Manager</h1>
+        <h5>Developed by Prakriti Tiwari</h5>
       </div>
     </header>
 
@@ -58,11 +58,11 @@
         </div>
 
         <div class="text-center mt-3">
-          <button class="btn btn-primary w-25" onclick="AddData()">Add</button>
+          <button id="addBtn" class="btn btn-primary w-25" onclick="AddData()">Add</button>
         </div>
 
         <div class="text-center mt-3">
-          <button class="btn btn-primary w-25" onclick="DownloadFile()">Download Data</button>
+          <button id="downloadBtn" class="btn btn-primary w-25" onclick="DownloadFile()">Download Data</button>
         </div>
       </section>
 
