@@ -1,64 +1,62 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    background-color: #628141;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #628141;
 }
 
-main{
-    width: 60%;
-    height: 500px;
-    margin: auto;
-    box-shadow: 0px 0px 3px grey;
-    margin-top: 100px; 
-    position: relative; 
-    overflow: hidden;
+main {
+  width: 60%;
+  height: 500px;
+  margin: auto;
+  box-shadow: 0px 0px 3px grey;
+  margin-top: 100px;
+  position: relative;
+  overflow: hidden;
 }
 
-.slide{
-    width: 100%;
-    height: 100%;
-    transition: 1s;
-    position: absolute;
+.slide {
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  position: absolute;
 }
 
-.nav{
-    text-align: center;
-    margin-top: 15px;   
+.nav {
+  text-align: center;
+  margin-top: 15px;
 }
 
-.nav button{
-    font-size: 25px;
-    padding: 5px;
-
+.nav button {
+  font-size: 25px;
+  padding: 5px;
 }
 
-#prev{
-    border-radius: 5px;
-    background-color: #8BAE66;
-    
+#prev {
+  border-radius: 5px;
+  background-color: #8bae66;
 }
 
-#prev:hover{
-    background-color: #EBD5AB;
-    color: #1B211A;
+#prev:hover {
+  background-color: #ebd5ab;
+  color: #1b211a;
 }
 
-#prev:active{
-    background-color: #ebd5ab4c;
-    color: #1B211A;
+#prev:active {
+  background-color: #ebd5ab4c;
+  color: #1b211a;
 }
-#next{
-    border-radius: 5px;
-    background-color: #8BAE66;
-}
-
-#next:hover{
-    background-color: #EBD5AB;
-    color: #1B211A;
+#next {
+  border-radius: 5px;
+  background-color: #8bae66;
 }
 
-#next:active{
-    background-color: #ebd5ab4c;
-    color: #1B211A;
+#next:hover {
+  background-color: #ebd5ab;
+  color: #1b211a;
+}
+
+#next:active {
+  background-color: #ebd5ab4c;
+  color: #1b211a;
 }
