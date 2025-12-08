@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>State in Map</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,15 +17,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container d-flex mb-2 mt-4">
+    <div class="container d-flex mb-1 mt-3">
       <div id="parent">
-        <select name="state" id="state" onchange="search()">
+        <select
+          name="state"
+          id="state"
+          class="px-2 py-1 m-3 border-black w-25 rounded"
+          onclick="search()"
+        >
           <option value="-">-Select-</option>
           <option value="Andhra Pradesh">Andhra Pradesh</option>
           <option value="Arunachal Pradesh">Arunachal Pradesh</option>
           <option value="Assam">Assam</option>
           <option value="Bihar">Bihar</option>
-          <option value="Chandigarh">Chandigarh</option>
+          <option value="Punjab">Punjab</option>
           <option value="Chhattisgarh">Chhattisgarh</option>
           <option value="Delhi">Delhi</option>
           <option value="Goa">Goa</option>
@@ -44,7 +49,6 @@
           <option value="Mizoram">Mizoram</option>
           <option value="Nagaland">Nagaland</option>
           <option value="Odisha">Odisha</option>
-          <option value="Punjab">Punjab</option>
           <option value="Rajasthan">Rajasthan</option>
           <option value="Sikkim">Sikkim</option>
           <option value="Tamil Nadu">Tamil Nadu</option>
@@ -54,6 +58,10 @@
           <option value="Uttarakhand">Uttarakhand</option>
           <option value="West Bengal">West Bengal</option>
         </select>
+        <button id="reset" onclick="resetFlags()" class="px-2 py-1 m-3 border-1 rounded">
+          Reset
+        </button>
+        <!-- <button class="btn btn-primary w-25" onclick="all()">All States</button> -->
       </div>
     </div>
     <div
@@ -63,7 +71,6 @@
       style="position: relative"
     >
       <img src="./Map.jpg" alt="" id="img" />
-      <!-- <div style="position: absolute; top: 80%; left: 35%">⛳️</div> -->
     </div>
 
     <script
