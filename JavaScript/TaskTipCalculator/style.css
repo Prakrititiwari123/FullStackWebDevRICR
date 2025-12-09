@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #1F2544;
+    color: white;
+}
+
+h1{
+    background-color: #474F7A;
+}
+
+#container{
+    background-color: #81689D;
+}
+
+#con{
+    width: 500px;
+   height: 100px;
+}
