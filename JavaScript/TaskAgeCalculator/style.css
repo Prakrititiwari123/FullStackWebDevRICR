@@ -1,0 +1,60 @@
+*{
+    background-color: rgb(98, 223, 242);
+    color: white;
+}
+
+
+
+#main{
+    padding: 8px;
+    width: 600px;
+    height: 400px;
+    margin-left: 500px;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(9, 139, 225);
+    
+    
+}
+
+#dateTimeB{
+    border-radius: 5px;
+    width: 150px;
+    height: 20px;
+    border: 2px solid #000;
+}
+
+#dob{
+    margin-bottom: 8px;
+}
+
+#ct{
+     margin-bottom: 8px;
+}
+
+#dateTimeC{
+    border-radius: 5px;
+    width: 150px;
+    height: 20px;
+    border: 2px solid #000;
+}
+
+#Btn{
+    margin-top: 50px;
+}
+
+#btn{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #000;
+}
+
+#btn:hover{
+    background-color: aqua;
+}
+
+#btn:active{
+    background-color: blue;
+}
