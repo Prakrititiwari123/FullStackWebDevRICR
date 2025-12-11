@@ -1,19 +1,89 @@
-*{
-    margin: 0;
-    padding: 0;
-    background-color: #1F2544;
-    color: white;
+#cont{
+   background-color: #9CC6DB;
+   height: 480px;
+   width: 500px;
+   margin-top: 60px;
+   margin-left: 500px;
+   border-radius: 5px;
+   padding: 15px;
 }
 
 h1{
-    background-color: #474F7A;
+    height: 60px;
+    text-align: center;
+    padding: 10px 0px 0px 10px;
+    background-color: #FCF6D9;
+    border-radius: 25px 25px 0px 0px;
 }
+
+
+
+#service{
+    margin-top: 10px;
+}
+#billAmount{
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+#billAmount:hover{
+    background-color: #FCF6D9;
+}
+
+#select{
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+}
+
+
+
+#select:hover{
+    background-color: #FCF6D9;
+}
+
 
 #container{
-    background-color: #81689D;
+    height: 300px;
+    width: 470px;
+    font-size: 20px;
+    padding: 18px;
+    background-color: #DDBA7D;
+    border-radius: 0px 0px 10px 10px;
 }
 
-#con{
-    width: 500px;
-   height: 100px;
+#tno{
+    margin-top: 10px;
+}
+
+#totalNumber{
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+}
+
+#totalNumber:hover{
+    background-color: #FCF6D9;
+}
+
+#btn{
+    margin-top: 15px;
+    /* text-align: center; */
+}
+
+
+#calBtn{
+    border: none;
+    border-radius: 5px;
+}
+
+#calBtn:hover{
+    background-color: #FCF6D9;
+}
+
+#calBtn:active{
+    background-color: #CF4B00;
 }

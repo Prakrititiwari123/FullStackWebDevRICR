@@ -17,34 +17,37 @@
     />
   </head>
   <body>
-    <div id="con">
-      <h1>TIP CALCULATOR</h1>
-      <div id="container">
-        <div>
-          <label for="billAmount">Bill Amount</label> <br />
-          <input type="number" id="billAmount" name="billAmount" /><i class="bi bi-currency-rupee"></i>
-        </div>
-        <div>
-            <label for="service">How was the service?</label> <br>
-            <select>
-                <option value="">Select</option>
-                <option value="">25%-Top Notch</option>
-                <option value="">20%-Excellent</option>
-                <option value="">15%-Good</option>
-                <option value="">10%-Bad</option>
-                <option value="">5%-Worst</option>
+    <div id="main">
+      <div id="cont">
+        <h1>TIP CALCULATOR</h1>
+        <div id="container">
+          <div>
+            <label for="billAmount" id="ba">Bill Amount</label> <br />
+            <input type="number" id="billAmount" name="billAmount" /><i
+              class="bi bi-currency-rupee"
+            ></i>
+          </div>
+          <div>
+            <label for="service" id="service">How was the service?</label> <br />
+            <select id="select">
+              <option value="">Select</option>
+              <option value="">25%-Top Notch</option>
+              <option value="">20%-Excellent</option>
+              <option value="">15%-Good</option>
+              <option value="">10%-Bad</option>
+              <option value="">5%-Worst</option>
             </select>
-            
-        </div>
+          </div>
 
-        <div>
-            <label for="totalNumber">Total numbers of persons</label> <br>
-            <input type="number" name="totalNumber" id="totalNumber">
-        </div>
-      </div>
+          <div>
+            <label for="totalNumber" id="tno">Total numbers of persons</label> <br />
+            <input type="number" name="totalNumber" id="totalNumber" />
+          </div>
 
-      <div>
-        <button>Calculate</button>
+          <div id="btn">
+            <button id="calBtn">Calculate</button>
+          </div>
+        </div>
       </div>
     </div>
 
