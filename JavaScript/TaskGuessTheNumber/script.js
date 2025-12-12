@@ -1,214 +1,214 @@
 // Game variables
-let randomNumber;
-let attempts;
-const maxAttempts = 10;
-let gameActive = true;
-let previousGuesses = [];
+// let randomNumber;
+// let attempts;
+// const maxAttempts = 10;
+// let gameActive = true;
+// let previousGuesses = [];
 
-// DOM elements
-const numberInput = document.getElementById('number');
-const submitButton = document.getElementById('btn');
-const attemptCountElement = document.getElementById('attempt-count');
-const guessHistoryElement = document.getElementById('guess-history');
-const messageContainer = document.getElementById('message-container');
+// // DOM elements
+// const numberInput = document.getElementById('number');
+// const submitButton = document.getElementById('btn');
+// const attemptCountElement = document.getElementById('attempt-count');
+// const guessHistoryElement = document.getElementById('guess-history');
+// const messageContainer = document.getElementById('message-container');
 
-// Initialize game
-function initGame() {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
-    attempts = 0;
-    gameActive = true;
-    previousGuesses = [];
+// // Initialize game
+// function initGame() {
+//     randomNumber = Math.floor(Math.random() * 100) + 1;
+//     attempts = 0;
+//     gameActive = true;
+//     previousGuesses = [];
     
-    // Update UI
-    attemptCountElement.textContent = '0';
-    guessHistoryElement.innerHTML = '';
-    messageContainer.innerHTML = '';
+//     // Update UI
+//     attemptCountElement.textContent = '0';
+//     guessHistoryElement.innerHTML = '';
+//     messageContainer.innerHTML = '';
     
-    // Enable input and button
-    numberInput.disabled = false;
-    numberInput.style.opacity = '1';
-    submitButton.disabled = false;
-    submitButton.style.opacity = '1';
-    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Guess';
+//     // Enable input and button
+//     numberInput.disabled = false;
+//     numberInput.style.opacity = '1';
+//     submitButton.disabled = false;
+//     submitButton.style.opacity = '1';
+//     submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Guess';
     
-    // Clear input and focus
-    numberInput.value = '';
-    numberInput.focus();
+//     // Clear input and focus
+//     numberInput.value = '';
+//     numberInput.focus();
     
-    // Show welcome message
-    showMessage('🎮 Game Started! Guess a number between 1 and 100.', 'info');
+//     // Show welcome message
+//     showMessage('🎮 Game Started! Guess a number between 1 and 100.', 'info');
     
-    console.log('Secret number (for testing):', randomNumber); // Remove in production
-}
+//     console.log('Secret number (for testing):', randomNumber); // Remove in production
+// }
 
-// Submit guess function
-function submitGuess() {
-    if (!gameActive) return;
+// // Submit guess function
+// function submitGuess() {
+//     if (!gameActive) return;
     
-    const inputElement = document.getElementById('number');
-    const userGuess = parseInt(inputElement.value);
+//     const inputElement = document.getElementById('number');
+//     const userGuess = parseInt(inputElement.value);
     
-    // Input validation
-    if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-        showMessage('❌ Please enter a valid number between 1 and 100!', 'error');
-        inputElement.value = '';
-        inputElement.focus();
-        return;
-    }
+//     // Input validation
+//     if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+//         showMessage('❌ Please enter a valid number between 1 and 100!', 'error');
+//         inputElement.value = '';
+//         inputElement.focus();
+//         return;
+//     }
     
-    // Add to previous guesses
-    previousGuesses.push(userGuess);
-    attempts++;
-    attemptCountElement.textContent = attempts;
+//     // Add to previous guesses
+//     previousGuesses.push(userGuess);
+//     attempts++;
+//     attemptCountElement.textContent = attempts;
     
-    // Check the guess
-    let message = '';
-    let messageType = '';
-    let guessClass = '';
+//     // Check the guess
+//     let message = '';
+//     let messageType = '';
+//     let guessClass = '';
     
-    if (userGuess === randomNumber) {
-        message = `🎉 Congratulations! You guessed the correct number ${randomNumber} in ${attempts} attempt${attempts > 1 ? 's' : ''}!`;
-        messageType = 'correct';
-        guessClass = 'correct';
-        endGame(true);
-    } else if (userGuess > randomNumber) {
-        message = '📈 OOPS! SORRY!!! TRY A SMALLER NUMBER.';
-        messageType = 'wrong';
-        guessClass = 'high';
-    } else {
-        message = '📉 OOPS! SORRY!!! TRY A LARGER NUMBER.';
-        messageType = 'wrong';
-        guessClass = 'low';
-    }
+//     if (userGuess === randomNumber) {
+//         message = `🎉 Congratulations! You guessed the correct number ${randomNumber} in ${attempts} attempt${attempts > 1 ? 's' : ''}!`;
+//         messageType = 'correct';
+//         guessClass = 'correct';
+//         endGame(true);
+//     } else if (userGuess > randomNumber) {
+//         message = '📈 OOPS! SORRY!!! TRY A SMALLER NUMBER.';
+//         messageType = 'wrong';
+//         guessClass = 'high';
+//     } else {
+//         message = '📉 OOPS! SORRY!!! TRY A LARGER NUMBER.';
+//         messageType = 'wrong';
+//         guessClass = 'low';
+//     }
     
-    // Show message
-    showMessage(message, messageType);
+//     // Show message
+//     showMessage(message, messageType);
     
-    // Add to guess history
-    addToGuessHistory(userGuess, guessClass);
+//     // Add to guess history
+//     addToGuessHistory(userGuess, guessClass);
     
-    // Check if maximum attempts reached
-    if (attempts >= maxAttempts && userGuess !== randomNumber) {
-        showMessage(`😞 Game Over! The correct number was ${randomNumber}. You've used all ${maxAttempts} attempts.`, 'error');
-        endGame(false);
-    }
+//     // Check if maximum attempts reached
+//     if (attempts >= maxAttempts && userGuess !== randomNumber) {
+//         showMessage(`😞 Game Over! The correct number was ${randomNumber}. You've used all ${maxAttempts} attempts.`, 'error');
+//         endGame(false);
+//     }
     
-    // Clear input and focus for next guess
-    inputElement.value = '';
-    inputElement.focus();
-}
+//     // Clear input and focus for next guess
+//     inputElement.value = '';
+//     inputElement.focus();
+// }
 
-// Show message function
-function showMessage(text, type = 'info') {
-    // Clear previous message
-    messageContainer.innerHTML = '';
+// // Show message function
+// function showMessage(text, type = 'info') {
+//     // Clear previous message
+//     messageContainer.innerHTML = '';
     
-    // Create message element
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${type}`;
-    messageDiv.textContent = text;
+//     // Create message element
+//     const messageDiv = document.createElement('div');
+//     messageDiv.className = `message ${type}`;
+//     messageDiv.textContent = text;
     
-    // Add animation
-    messageDiv.style.animation = 'fadeIn 0.5s ease';
+//     // Add animation
+//     messageDiv.style.animation = 'fadeIn 0.5s ease';
     
-    // Add to container
-    messageContainer.appendChild(messageDiv);
+//     // Add to container
+//     messageContainer.appendChild(messageDiv);
     
-    // Add pulse animation for correct guess
-    if (type === 'correct') {
-        messageDiv.classList.add('pulse');
-    }
-}
+//     // Add pulse animation for correct guess
+//     if (type === 'correct') {
+//         messageDiv.classList.add('pulse');
+//     }
+// }
 
-// Add guess to history
-function addToGuessHistory(guess, guessClass) {
-    const guessItem = document.createElement('div');
-    guessItem.className = `guess-item ${guessClass}`;
+// // Add guess to history
+// function addToGuessHistory(guess, guessClass) {
+//     const guessItem = document.createElement('div');
+//     guessItem.className = `guess-item ${guessClass}`;
     
-    // Choose icon based on guess type
-    let icon = '';
-    if (guessClass === 'correct') {
-        icon = '<i class="fas fa-check-circle"></i>';
-    } else if (guessClass === 'high') {
-        icon = '<i class="fas fa-arrow-up"></i>';
-    } else {
-        icon = '<i class="fas fa-arrow-down"></i>';
-    }
+//     // Choose icon based on guess type
+//     let icon = '';
+//     if (guessClass === 'correct') {
+//         icon = '<i class="fas fa-check-circle"></i>';
+//     } else if (guessClass === 'high') {
+//         icon = '<i class="fas fa-arrow-up"></i>';
+//     } else {
+//         icon = '<i class="fas fa-arrow-down"></i>';
+//     }
     
-    guessItem.innerHTML = `${icon} ${guess}`;
-    guessHistoryElement.appendChild(guessItem);
+//     guessItem.innerHTML = `${icon} ${guess}`;
+//     guessHistoryElement.appendChild(guessItem);
     
-    // Scroll to bottom of guess history
-    guessHistoryElement.scrollTop = guessHistoryElement.scrollHeight;
-}
+//     // Scroll to bottom of guess history
+//     guessHistoryElement.scrollTop = guessHistoryElement.scrollHeight;
+// }
 
-// End game function
-function endGame(win) {
-    gameActive = false;
+// // End game function
+// function endGame(win) {
+//     gameActive = false;
     
-    // Disable input and button
-    numberInput.disabled = true;
-    numberInput.style.opacity = '0.7';
-    submitButton.disabled = true;
-    submitButton.style.opacity = '0.7';
+//     // Disable input and button
+//     numberInput.disabled = true;
+//     numberInput.style.opacity = '0.7';
+//     submitButton.disabled = true;
+//     submitButton.style.opacity = '0.7';
     
-    // Change button text
-    if (win) {
-        submitButton.innerHTML = '<i class="fas fa-trophy"></i> You Won!';
-    } else {
-        submitButton.innerHTML = '<i class="fas fa-times-circle"></i> Game Over';
-    }
-}
+//     // Change button text
+//     if (win) {
+//         submitButton.innerHTML = '<i class="fas fa-trophy"></i> You Won!';
+//     } else {
+//         submitButton.innerHTML = '<i class="fas fa-times-circle"></i> Game Over';
+//     }
+// }
 
-// Give hint function
-function giveHint() {
-    if (!gameActive || attempts === 0) {
-        showMessage('🔍 Make at least one guess before getting a hint!', 'info');
-        return;
-    }
+// // Give hint function
+// function giveHint() {
+//     if (!gameActive || attempts === 0) {
+//         showMessage('🔍 Make at least one guess before getting a hint!', 'info');
+//         return;
+//     }
     
-    const lastGuess = previousGuesses[previousGuesses.length - 1];
-    let hint = '';
+//     const lastGuess = previousGuesses[previousGuesses.length - 1];
+//     let hint = '';
     
-    if (lastGuess > randomNumber) {
-        hint = `💡 Hint: The number is less than ${lastGuess}.`;
-    } else if (lastGuess < randomNumber) {
-        hint = `💡 Hint: The number is greater than ${lastGuess}.`;
-    } else {
-        hint = '🎯 You already guessed it!';
-    }
+//     if (lastGuess > randomNumber) {
+//         hint = `💡 Hint: The number is less than ${lastGuess}.`;
+//     } else if (lastGuess < randomNumber) {
+//         hint = `💡 Hint: The number is greater than ${lastGuess}.`;
+//     } else {
+//         hint = '🎯 You already guessed it!';
+//     }
     
-    showMessage(hint, 'info');
-}
+//     showMessage(hint, 'info');
+// }
 
-// Restart game function
-function restartGame() {
-    initGame();
-}
+// // Restart game function
+// function restartGame() {
+//     initGame();
+// }
 
-// Keyboard event listener
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize game
-    initGame();
+// // Keyboard event listener
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Initialize game
+//     initGame();
     
-    // Enter key to submit
-    numberInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            submitGuess();
-        }
-    });
+//     // Enter key to submit
+//     numberInput.addEventListener('keypress', function(event) {
+//         if (event.key === 'Enter') {
+//             event.preventDefault();
+//             submitGuess();
+//         }
+//     });
     
-    // Input validation to only allow numbers 1-10
-    numberInput.addEventListener('input', function() {
-        let value = parseInt(this.value);
-        if (value < 1) this.value = 1;
-        if (value > 100) this.value = 100;
-    });
-});
+//     // Input validation to only allow numbers 1-10
+//     numberInput.addEventListener('input', function() {
+//         let value = parseInt(this.value);
+//         if (value < 1) this.value = 1;
+//         if (value > 100) this.value = 100;
+//     });
+// });
 
-// Add event listener to submit button (alternative to onclick)
-submitButton.addEventListener('click', submitGuess);
+// // Add event listener to submit button (alternative to onclick)
+// submitButton.addEventListener('click', submitGuess);
 
 
 
