@@ -1,22 +1,32 @@
+const inputBox = document.querySelector("#number");
+const submit = document.querySelector("#submitBtn");
+const chances = document.querySelector(".chances");
+
 let secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempt = 0;
 let maxAttempt = 7;
 
-while (attempt < maxAttempt) {
-  let guess = prompt("Enter your guess (1-100):");
-  let userGuess = parseInt(guess);
-  if (secretNumber > userGuess) {
-    console.log("try a bigger number");
-    attempt++;
-  } else if (secretNumber === userGuess) {
-    console.log("you won the match");
-    attempt++;
-    break;
-  } else {
-    console.log("try a smaller number");
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let userGuess = inputBox.value;
+
+  if (userGuess == "") {
+    alert("Please enter some value between 0 and 100");
+  }
+  else if (userGuess == secretNumber) {
+    chances.innerHTML=`You won the game, correct number is ${userGuess} and your attempt is ${attempt}`
+  }
+  else if (userGuess > 100) {
+    alert("Please enter some value between 0 and 100");
+  }
+  else if (userGuess < secretNumber) {
+    chances.innerHTML="try a bigger number";
     attempt++;
   }
-}
-if (attempt >= maxAttempt && secretNumber !== userGuess) {
-    console.log(`Game Over! The number was ${secretNumber}`);
-}
+  else
+  {
+    chances.innerHTML="try a smaller number";
+    attempt++;
+  }
+});

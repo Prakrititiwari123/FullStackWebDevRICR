@@ -28,19 +28,27 @@ h1{
     border: 2px solid #018790;
     border-radius: 5px;
     height: 18px;
+    width: 130px;
+    padding-left: 15px;
 }
 
-#btn{
+#submitBtn{
+    height: 38px;
+    width: 180px;
     border: 2px solid #018790;
     padding: 5px;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 20px;
+    color: #F4F4F4;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+    
 }
 
-#btn:hover{
+#submitBtn:hover{
     background-color: #00B7B5;
 }
-#btn:active{
-    background-color: #F4F4F4;
+#submitBtn:active{
+    background-color: #115352;
 } 
+
