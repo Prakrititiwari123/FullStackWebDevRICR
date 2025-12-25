@@ -13,20 +13,15 @@ submit.addEventListener("click", (e) => {
 
   if (userGuess == "") {
     alert("Please enter some value between 0 and 100");
-  }
-  else if (userGuess == secretNumber) {
-    chances.innerHTML=`You won the game, correct number is ${userGuess} and your attempt is ${attempt}`
-  }
-  else if (userGuess > 100) {
+  } else if (userGuess == secretNumber) {
+    chances.innerHTML = `You won the game,<i class="bi bi-trophy"></i> correct number is ${userGuess} and your attempt is ${attempt}`;
+  } else if (userGuess > 100) {
     alert("Please enter some value between 0 and 100");
-  }
-  else if (userGuess < secretNumber) {
-    chances.innerHTML="try a bigger number";
+  } else if (userGuess < secretNumber) {
+    chances.innerHTML = "try a bigger number";
     attempt++;
-  }
-  else
-  {
-    chances.innerHTML="try a smaller number";
+  } else {
+    chances.innerHTML = "try a smaller number";
     attempt++;
   }
 });
