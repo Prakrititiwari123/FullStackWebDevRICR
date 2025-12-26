@@ -52,7 +52,7 @@ function App() {
         quibusdam vitae quae! Nisi maxime quis unde enim amet perspiciatis
         praesentium obcaecati quia consequatur perferendis aut illum nesciunt
         consectetur repudiandae ipsum ab soluta sunt ex illo doloremque,
-        deserunt dolor totam. 
+        deserunt dolor totam.
       </p>
       <Header />
       <p>
@@ -65,9 +65,8 @@ function App() {
         eveniet earum totam quasi? Sit, perferendis ullam. Veniam omnis,
         consequatur architecto saepe velit fuga, porro atque blanditiis dolorem
         officia ut inventore quis officiis! Nostrum inventore iure voluptatibus
-        vitae commodi.lorem
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, maxime?
-        Lorem ipsum dolor sit amet.
+        vitae commodi.lorem Lorem, ipsum dolor sit amet consectetur adipisicing
+        elit. Temporibus, maxime? Lorem ipsum dolor sit amet.
       </p>
       <Footer />
     </>
