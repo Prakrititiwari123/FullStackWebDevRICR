@@ -10,8 +10,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="bg-primary text-light">This is my first React App</div>
-      <Header />
+      <div className="bg-secondary text-light">This is my first React App</div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto eum
         necessitatibus suscipit nobis molestias natus doloribus? Qui,
@@ -37,6 +36,7 @@ function App() {
         molestias eligendi nostrum voluptates repellendus, quod corporis quae
         harum.
       </p>
+      <Header />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium eum
         quaerat facere sed voluptatum dolorem temporibus optio incidunt? Iure
@@ -52,15 +52,9 @@ function App() {
         quibusdam vitae quae! Nisi maxime quis unde enim amet perspiciatis
         praesentium obcaecati quia consequatur perferendis aut illum nesciunt
         consectetur repudiandae ipsum ab soluta sunt ex illo doloremque,
-        deserunt dolor totam. Delectus iste aliquam ipsum aut commodi ex modi
-        hic sapiente officia? Nihil totam tempore explicabo quasi. Ipsum unde
-        adipisci est quis laudantium natus distinctio culpa provident numquam
-        ab? Eaque hic unde dolores ab officiis cumque eius harum, voluptate
-        beatae est provident libero possimus vitae fugiat nobis natus quas alias
-        earum perspiciatis fuga similique? Praesentium architecto consequatur
-        cum sint voluptatum, perspiciatis vitae quos incidunt aut laboriosam
-        qui, reprehenderit commodi cumque!
+        deserunt dolor totam. 
       </p>
+      <Header />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
         molestias repellendus velit deleniti. Ab laudantium itaque ipsam, illo
