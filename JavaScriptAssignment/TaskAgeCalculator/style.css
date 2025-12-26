@@ -1,84 +1,73 @@
-*{
-    background-color: rgb(98, 223, 242);
-    color: white;
+* {
+  background-color: rgb(98, 223, 242);
+  color: white;
 }
 
-
-
-#main{
-    padding: 8px;
-    width: 600px;
-    height: 400px;
-    margin-left: 500px;
-    text-align: center;
-    margin-top: 150px;
-    font-size: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgb(9, 139, 225);
-    
-    
+#main {
+  padding: 8px;
+  width: 600px;
+  height: 400px;
+  margin-left: 500px;
+  text-align: center;
+  margin-top: 150px;
+  font-size: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgb(9, 139, 225);
 }
 
-#dateTimeB{
-    border-radius: 5px;
-    width: 150px;
-    height: 20px;
-    border: 2px solid #000;
+#dateTimeB {
+  border-radius: 5px;
+  width: 150px;
+  height: 20px;
+  border: 2px solid #000;
 }
 
-#dob{
-    margin-bottom: 8px;
+#dob {
+  margin-bottom: 8px;
 }
 
-#ct{
-     margin-bottom: 8px;
+#ct {
+  margin-bottom: 8px;
 }
 
-#dateTimeC{
-    border-radius: 5px;
-    width: 150px;
-    height: 20px;
-    border: 2px solid #000;
+#dateTimeC {
+  border-radius: 5px;
+  width: 150px;
+  height: 20px;
+  border: 2px solid #000;
 }
 
-#Btn{
-    margin-top: 50px;
+#Btn {
+  margin-top: 50px;
 }
 
-#calculateBtn{
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid #000;
+#calculateBtn {
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #000;
 }
 
-#calculateBtn:hover{
-    background-color: aqua;
+#calculateBtn:hover {
+  background-color: aqua;
 }
 
-#calculateBtn:active{
-    background-color: blue;
+#calculateBtn:active {
+  background-color: blue;
 }
 
-
-#clearBtn{
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid #000;
+#clearBtn {
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #000;
 }
 
-#clearBtn:hover{
-    background-color: aqua;
+#clearBtn:hover {
+  background-color: aqua;
 }
 
-#clearBtn:active{
-    background-color: blue;
+#clearBtn:active {
+  background-color: blue;
 }
-
-
-
-
-
-
 
 /* 
 input[type="date"] { background: white; color: #098be1; padding: 5px; } */
