@@ -45,17 +45,32 @@
     margin-top: 50px;
 }
 
-#btn{
+#calculateBtn{
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #000;
 }
 
-#btn:hover{
+#calculateBtn:hover{
     background-color: aqua;
 }
 
-#btn:active{
+#calculateBtn:active{
+    background-color: blue;
+}
+
+
+#clearBtn{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #000;
+}
+
+#clearBtn:hover{
+    background-color: aqua;
+}
+
+#clearBtn:active{
     background-color: blue;
 }
 
