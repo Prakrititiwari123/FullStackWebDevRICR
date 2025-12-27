@@ -16,29 +16,44 @@
     />
   </head>
   <body>
-    <div class="bg-primary p-2 fs-4 fw-bold text-light text-center">
-      Mausam ka Haal ⛅ 🌦️⛈️🌤️🌫️🌞❄️
-    </div>
+    <!-- <div class="bg-image">
+      <img src="image.png" alt="" /> -->
 
-    <main>
-      <div class="container w-50 border p-3 rounded shadow mt-3">
-        <div class="d-flex gap-3">
-          <input
-            type="text"
-            name="city"
-            id="city"
-            placeholder="City Name"
-            class="form-control"
-          />
-          <button class="btn btn-primary w-50" onclick="getWeather()">
-            Get Weather
-          </button>
+      <div
+        class="bg-primary p-2 fs-4 fw-bold text-light text-center d-flex justify-content-center"
+      >
+        <span>Mausam ka Haal </span>
+        <div class="d-flex">
+          <div title="Sunny">🌞</div>
+          <div title="Winter">❄️</div>
+          <div title="Fog">🌫️</div>
+          <div title="Rainy">⛈️</div>
+          <div title="Cloudy">⛅</div>
         </div>
-
-        <div class="p-3 d-flex justify-content-between" id="WeatherData"></div>
       </div>
-    </main>
 
+      <main>
+        <div class="container w-50 border p-3 rounded shadow mt-3">
+          <div class="d-flex gap-3">
+            <input
+              type="text"
+              name="city"
+              id="city"
+              placeholder="City Name"
+              class="form-control"
+            />
+            <button class="btn btn-primary w-50" onclick="getWeather()">
+              Get Weather
+            </button>
+          </div>
+
+          <div
+            class="p-3 d-flex justify-content-between"
+            id="WeatherData"
+          ></div>
+        </div>
+      </main>
+    <!-- </div> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
