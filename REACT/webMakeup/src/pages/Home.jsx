@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <>
-      <h1 className="bg-amber-700 text-white"><span>Home</span></h1>
+      <h1 className="bg-amber-500 text-white text-center text-2xl"><span>This is a MakeUp Website</span></h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
         commodi harum, velit exercitationem quibusdam quam placeat doloribus

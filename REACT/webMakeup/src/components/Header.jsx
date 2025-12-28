@@ -9,7 +9,7 @@ const Header = () => {
       <div className="flex  justify-between p-3 bg-blue-400 text-white text-lg">
         <div className="flex items-center gap-1">
             <DiDebian className="text-blue-700 "/>
-          <span>Glow MakeUp </span>
+          <span className="text-5xl">Glow MakeUp </span>
         </div>
 
         <div className="flex  gap-2 ">
