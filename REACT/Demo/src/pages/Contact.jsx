@@ -54,6 +54,7 @@ const Contact = () => {
                 onChange={(event) => setName(event.target.value)}
                 placeholder="Enter ur name"
                 className="text-primary"
+                required
               />
             </div>
             <div>
@@ -66,6 +67,7 @@ const Contact = () => {
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter ur email"
                 className="text-primary"
+                required
               />
             </div>
             <div>
@@ -77,6 +79,7 @@ const Contact = () => {
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Enter ur message"
                 className="text-primary"
+                required
               ></textarea>
             </div>
             <div>
