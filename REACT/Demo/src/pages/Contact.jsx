@@ -5,25 +5,36 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleClearForm=()=>{
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClearForm = () => {
     setName("");
     setEmail("");
     setMessage("");
-  }
+  };
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data={
-      Name,
-      email,
-      message,
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://official-joke-api.appspot.com/jokes/random"
+      );
+
+      const data = {
+        Name,
+        email,
+        message,
+      };
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setIsLoading(false);
     }
-    console.log(data);
 
     handleClearForm();
-  }
-
-
+  };
 
   return (
     <>
@@ -69,8 +80,12 @@ const Contact = () => {
               ></textarea>
             </div>
             <div>
-              <button type="reset">Clear Form</button>
-              <button type="submit">Submit</button>
+              <button type="reset" className="btn btn-danger">
+                Clear Form
+              </button>
+              <button type="submit" className="btn btn-success">
+                {isLoading ? "Loading" : "Submit"}
+              </button>
             </div>
           </form>
         </div>
