@@ -1,60 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    
+  };
+
+  const handleClear = () => {
+    setEmail("");
+    setPassword("");
+  };
+
   return (
     <>
-      <div className="m-15  w-fit p-5 rounded-xl border grid gap-4 justify-between mx-auto ">
-        <h1 className="text-5xl">Login</h1>
-        <div>
-          <label htmlFor="fullName">Full Name: </label>
-          <input
-            type="text"
-            name="fullName"
-            id="fullName"
-            // value={fullName}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Enter your fullName"
-            className="text-primary"
-            required
-          />
-        </div>
+      <form
+        onSubmit={handleLogin}
+        className="m-15 h-80 w-fit p-4 rounded-xl border-2 grid justify-between mx-auto"
+      >
+        <h1 className="text-4xl font-bold font-serif">Login</h1>
 
         <div>
-          <label htmlFor="email">Email: </label>
+          <label className="font-serif" htmlFor="email">
+            Email:
+          </label>
           <input
             type="email"
-            name="email"
             id="email"
-            // value={email}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Enter your email"
-            className="text-primary"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder=" Enter your email"
+            className="text-primary font-serif border rounded"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="password">Password: </label>
+          <label className="font-serif" htmlFor="password">
+            Password:
+          </label>
           <input
             type="password"
-            name="password"
             id="password"
-            // value={password}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Enter your password"
-            className="text-primary"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder=" Enter your password"
+            className="text-primary font-serif border rounded"
             required
           />
         </div>
-        <div className="flex gap-18 w-max">
-          <button className="bg-blue-700 rounded-xl w-20 border hover:bg-blue-500 ">
+
+        <div className="flex gap-4 w-max mt-4">
+          <button
+            type="submit"
+            className="bg-blue-700 ms-3 rounded-xl w-20 h-8 border hover:bg-blue-500 text-white"
+          >
             Login
           </button>
-          <button className="bg-blue-700 rounded-xl w-20 border hover:bg-blue-500 text-black ">
+
+          <button
+            type="button"
+            onClick={handleClear}
+            className="bg-blue-700 rounded-xl w-20 h-8 border hover:bg-blue-500 text-white"
+          >
             Clear
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 };

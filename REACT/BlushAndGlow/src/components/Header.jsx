@@ -6,53 +6,53 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <navbar className="flex item-center">
-        <div className="flex  justify-between p-3 bg-blue-400 text-white text-lg">
-          <div className="flex items-center gap-1">
-            <span className="text-5xl">Blush&Glow </span>
+      <navbar className="bg-red">
+        <div className="">
+          <div className="">
+            <span className="">Blush&Glow </span>
           </div>
 
-          <div className="flex  gap-2 ">
+          <div className="">
             <div>
-              <Link to={"/story"} className="flex items-center gap-1">
+              <Link to={"/story"} className="">
                 {/* <FaHome className="text-blue-700 " /> */}
                 <span>OUR STORY</span>
               </Link>
             </div>
 
             <div>
-              <Link to={"/about"} className="flex items-center gap-1">
+              <Link to={"/about"} className="">
                 <span>SHOP</span>
               </Link>
             </div>
 
             <div>
-              <Link to={"/about"} className="flex items-center gap-1">
+              <Link to={"/about"} className="">
                 <span>BLOGS</span>
               </Link>
             </div>
 
             <div>
-              <Link to={"/about"} className="flex items-center gap-1">
+              <Link to={"/about"} className="">
                 <span>REVIEWS</span>
               </Link>
             </div>
 
             <div>
-              <Link to={"/about"} className="flex items-center gap-1">
+              <Link to={"/about"} className="">
                 <span>CONTACTS</span>
               </Link>
             </div>
 
             <div>
               <div>
-                <Link to={"/about"} className="flex items-center gap-1">
-                  <CiSearch className="text-blue-700" />
+                <Link to={"/about"} className="">
+                  <CiSearch className="" />
                 </Link>
               </div>
               <div>
-                <Link to={"/about"} className="flex items-center gap-1">
-                  <IoCartOutline className="text-blue-700" />
+                <Link to={"/about"} className="">
+                  <IoCartOutline className="" />
                 </Link>
               </div>
             </div>

@@ -1,81 +1,120 @@
-import React from 'react'
-
+import React, { useState } from "react";
 
 const Signup = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [createPassword, setCreatePassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    if (createPassword !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    console.log("Full Name:", fullName);
+    console.log("Email:", email);
+    console.log("Password:", createPassword);
+
+    
+  };
+
+  const handleClear = () => {
+    setFullName("");
+    setEmail("");
+    setCreatePassword("");
+    setConfirmPassword("");
+  };
+
   return (
     <>
-    <div className="m-15  w-fit p-5 rounded-xl border grid gap-4 justify-between mx-auto ">
-        <h1 className="text-5xl">SignUp</h1>
+      <form
+        onSubmit={handleSignup}
+        className="m-15 w-100 p-5 h-110 rounded-xl border-3 grid gap-4 justify-between mx-auto"
+      >
+        <h1 className="text-4xl font-serif mb-4">SignUp</h1>
+
         <div>
-          <label htmlFor="fullName">Full Name: </label>
+          <label className="font-serif" htmlFor="fullName">
+            Full Name:
+          </label>
           <input
             type="text"
-            name="fullName"
             id="fullName"
-            // value={fullName}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Enter your fullName"
-            className="text-primary"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            placeholder=" Enter your full name"
+            className="text-primary font-serif border rounded"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="email">Email: </label>
+          <label className="font-serif" htmlFor="email">
+            Email:
+          </label>
           <input
             type="email"
-            name="email"
             id="email"
-            // value={email}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Enter your email"
-            className="text-primary"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder=" Enter your email"
+            className="text-primary font-serif border rounded"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="createPassword"> Create password: </label>
+          <label className="font-serif" htmlFor="createPassword">
+            Create password:
+          </label>
           <input
             type="password"
-            name="createPassword"
             id="createPassword"
-            // value={password}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Create your password"
-            className="text-primary"
+            value={createPassword}
+            onChange={(e) => setCreatePassword(e.target.value)}
+            placeholder=" Create your password"
+            className="text-primary font-serif border rounded"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="confirmPassword"> Confirm password: </label>
+          <label className="font-serif" htmlFor="confirmPassword">
+            Confirm password:
+          </label>
           <input
             type="password"
-            name="confirmPassword"
             id="confirmPassword"
-            // value={password}
-            // onChange={(event) => setName(event.target.value)}
-            placeholder="  Confirm your password"
-            className="text-primary"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder=" Confirm your password"
+            className="text-primary font-serif border rounded"
             required
           />
         </div>
 
-
-        <div className="flex gap-18 w-max">
-          <button className="bg-blue-700 rounded-xl w-20 border hover:bg-blue-500 ">
+        <div className="flex gap-6 w-max m-2 ms-7">
+          <button
+            type="submit"
+            className="bg-blue-700 h-10 rounded-xl w-20 border hover:bg-blue-500 text-white"
+          >
             SignUp
           </button>
-          <button className="bg-blue-700 rounded-xl w-20 border hover:bg-blue-500 ">
+
+          <button
+            type="button"
+            onClick={handleClear}
+            className="bg-blue-700 h-10 rounded-xl w-20 border hover:bg-blue-500 text-white"
+          >
             Clear
           </button>
         </div>
-      </div>
-    
-    
+      </form>
     </>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
