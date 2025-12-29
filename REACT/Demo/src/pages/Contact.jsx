@@ -70,6 +70,8 @@ const Contact = () => {
                 required
               />
             </div>
+
+            
             <div>
               <label htmlFor="message">Message</label>
               <textarea
