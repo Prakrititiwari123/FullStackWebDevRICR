@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 // import Contact1 from "./pages/Contact1";
 import Product from "./pages/Product";
 import About from "./pages/About";
+import Login from "./pages/Login";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/product" element={<Product/>}/>
         <Route path="/contact" element={<Contact/>}/>
         {/* <Route path="/contact1" element={<Contact1/>}/> */}
+       
       </Routes>
 
       <Footer/>

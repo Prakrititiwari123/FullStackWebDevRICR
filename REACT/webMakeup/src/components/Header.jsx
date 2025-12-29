@@ -2,6 +2,9 @@ import React from "react";
 import { DiDebian } from "react-icons/di";
 import { FaHome } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
+import { CiLogin } from "react-icons/ci";
+import { IoMdCreate } from "react-icons/io";
+
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
@@ -29,6 +32,30 @@ const Header = () => {
               <span>About</span>
             </Link>
           </div>
+
+
+
+          <div>
+            <Link
+              to={"/login"}
+              className="flex items-center gap-1"
+            >
+                <CiLogin  className="text-blue-700"/>
+              <span>Login</span>
+            </Link>
+          </div>
+
+          <div>
+            <Link
+              to={"/signup"}
+              className="flex items-center gap-1"
+            >
+                <IoMdCreate   className="text-blue-700"/>
+              <span>Signup</span>
+            </Link>
+          </div>
+
+
         </div>
       </div>
     </>
