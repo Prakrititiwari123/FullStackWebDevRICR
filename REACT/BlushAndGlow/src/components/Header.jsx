@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-        <div className="">
-          <div className="">
+        <div className=" ">
+          <div className=" ">
             <Link to={"/"} className="">
                 <span>Brush & Glow</span>
               </Link>
           </div>
 
-          <div className="">
+          <div className=" flex justify-evenly gap-1 font-medium">
             <div>
               
             </div>
@@ -47,7 +47,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <div>
+            <div className="flex justify-evenly gap-5 font-bold">
               <div>
                 <Link to={"/about"} className="">
                   <CiSearch className="" />
