@@ -6,16 +6,19 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <navbar className="bg-red">
         <div className="">
           <div className="">
-            <span className="">Blush&Glow </span>
+            <Link to={"/"} className="">
+                <span>Brush & Glow</span>
+              </Link>
           </div>
 
           <div className="">
             <div>
+              
+            </div>
+            <div>
               <Link to={"/story"} className="">
-                {/* <FaHome className="text-blue-700 " /> */}
                 <span>OUR STORY</span>
               </Link>
             </div>
@@ -58,7 +61,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </navbar>
     </>
   );
 };
