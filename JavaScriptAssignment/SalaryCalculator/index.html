@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salary Calculator</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div
+        class="container-fluid bg-primary text-center text-light fw-bold display-6 py-2"
+      >
+        Salary Calculator
+      </div>
+    </header>
+
+    <main>
+      <div
+        class="w-50 h-75 rounded-3 mt-4 p-3 shadow mx-auto bg-primary-subtle"
+      >
+        <div class="d-flex justify-content-between ">
+          <div>
+            <label for="basic" class="fs-4 d-flex justify-content-center mb-2"
+              >Basic Salary</label
+            >
+            <input
+              type="number"
+              name="basic"
+              id="basic"
+              placeholder="Enter Basic Salary"
+              class="form-control text-center mx-auto w-100"
+            />
+          </div>
+
+          <div>
+            <button
+              class="btn btn-primary mt-5 fw-bold py-2 w-100"
+              onclick="grosssal()"
+            >
+              Calculate Gross Salary
+            </button>
+          </div>
+        </div>
+        <h3
+          class="w-100 text-center mt-2 bg-success text-light rounded-3 border border-1"
+        >
+          OUTPUT
+        </h3>
+        <div class="mt-4 d-grid justify-content-center">
+          <label for="basicSalary" class="fs-6 mb-1">Basic Salary</label>
+          <input
+            disabled
+            type="number"
+            name="basicSalary"
+            id="basicSalary"
+            class="form-control w-100 fw-bold"
+          />
+
+          <label for="HRA" class="fs-6 mb-1">HRA</label>
+          <input
+            disabled
+            type="number"
+            name="HRA"
+            id="HRA"
+            class="form-control w-100 fw-bold"
+          />
+
+          <label for="DA" class="fs-6 mb-1">DA</label>
+          <input
+            disabled
+            type="number"
+            name="DA"
+            id="DA"
+            class="form-control w-100 fw-bold"
+          />
+
+          <label for="grossSalary" class="fs-6 mb-1">Gross Salary</label>
+          <input
+            disabled
+            type="number"
+            name="grossSalary"
+            id="grossSalary"
+            class="form-control fw-bold"
+          />
+
+          <button
+            class="btn btn-danger fw-bold py-2 w-25 mt-3"
+            onclick="resett()"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

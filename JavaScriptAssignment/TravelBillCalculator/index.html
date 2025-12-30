@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Bill Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body class="bg-light">
+    <header>
+      <div
+        class="container-fluid bg-primary text-center shadow text-light fw-bold display-6 w-50 mx-auto mt-5 rounded-top-3 py-2"
+      >
+        Travel Bill Calculator
+      </div>
+    </header>
+
+    <main>
+      <div
+        class="rounded-bottom-3 h-100 p-3 shadow mt-2 w-50 mx-auto bg-primary-subtle"
+      >
+        <div>
+          <label for="km" class="fs-4 mb-1">Kilometers covered</label>
+          <input
+            type="number"
+            name="km"
+            id="km"
+            placeholder="Enter the Kilometers"
+            class="form-control w-"
+          />
+        </div>
+        <div class="mt-4 d-flex gap-5">
+          <button class="btn btn-primary fw-bold py-2 w-25" onclick="calBill()">
+            Calculate Bill
+          </button>
+        </div>
+        <h3
+          class="w-100 text-center mt-2 bg-success text-light rounded-3 border border-1 p-2"
+        >
+          OUTPUT
+        </h3>
+
+        <div class="d-flex justify-content-center mt-1 mx-auto p-3">
+          <div class="h-25 w-50 rounded-3 shadow p-2 px-4 bg-success-subtle">
+            <h1 class="text-center">Total Bill</h1>
+
+            <p class="fw-bold text-primary" id="total">First 10 km = 0 ₹</p>
+            <p class="fw-bold text-primary" id="sur">10-100 km = 0 ₹</p>
+            <p class="fw-bold text-primary" id="gnfinl">After 100 km = 0 ₹</p>
+            <p class="fw-bold fs-5 text-primary" id="fnnll">
+              Total Amount = 0 ₹
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
