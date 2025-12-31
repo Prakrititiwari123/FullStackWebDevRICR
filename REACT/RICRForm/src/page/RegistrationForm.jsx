@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const RegistrationForm = () => {
   const [registerData, setRegisterData] = useState({
@@ -74,7 +75,7 @@ const RegistrationForm = () => {
         <form
           onSubmit={handleSubmit}
           onReset={handleClearForm}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-2 gap-5"
         >
       
           <div>
@@ -211,7 +212,7 @@ const RegistrationForm = () => {
               {["morning", "afternoon", "evening", "weekends"].map((b) => (
                 <label key={b} className="flex items-center gap-2">
                   <input
-                    type="checkbox"
+                    type="checkbox" 
                     name="batch"
                     value={b}
                     checked={registerData.batch.includes(b)}

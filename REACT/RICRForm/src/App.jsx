@@ -4,11 +4,13 @@ import RegistrationForm from "./page/RegistrationForm";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Toaster} from "react-hot-toast";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+      <Toaster position='bottom-left' reverseOrder={true}/>
       <Header/>
 
       <Routes>
