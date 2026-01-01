@@ -10,7 +10,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
           <div>
-            <Link to={"/"} className="text-2xl font-extrabold tracking-wide text-pink-600 hover:text-pink-700 transition">
+            <Link to={"/"} className="text-3xl font-extrabold tracking-wide text-pink-600 hover:text-pink-700 transition">
               Blush & Glow
             </Link>
           </div>
