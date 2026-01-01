@@ -1,25 +1,18 @@
 import React from "react";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import Header from "./component/Header";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Toaster />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
+       <Routes>
+        <Route path="/" element={<Register/>}/>
+       </Routes>
       </BrowserRouter>
     </>
   );
 }
-
 export default App;
