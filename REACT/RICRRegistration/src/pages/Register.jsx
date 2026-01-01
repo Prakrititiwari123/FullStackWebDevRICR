@@ -74,6 +74,7 @@ const Register = () => {
     }
 
     // dob
+    
 
     //qualification
     if (!formData.lastQualification) {
@@ -172,7 +173,7 @@ const Register = () => {
                       placeholder="Full Name"
                       value={formData.fullName}
                       onChange={handleChange}
-                      required
+                      // required
                       className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     {validationError.fullName && (
@@ -189,7 +190,7 @@ const Register = () => {
                       placeholder="Email Address"
                       value={formData.email}
                       onChange={handleChange}
-                      required
+                      // required
                       className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     {validationError.email && (
@@ -207,7 +208,7 @@ const Register = () => {
                       maxLength="10"
                       value={formData.mobileNumber}
                       onChange={handleChange}
-                      required
+                      // required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     {validationError.mobileNumber && (
@@ -223,7 +224,7 @@ const Register = () => {
                       name="dateOfBirth"
                       value={formData.dateOfBirth}
                       onChange={handleChange}
-                      required
+                      // required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     {validationError.dateOfBirth && (
@@ -245,7 +246,7 @@ const Register = () => {
                     name="lastQualification"
                     value={formData.lastQualification}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
                   >
                     <option value="">Select Qualification</option>
@@ -260,7 +261,7 @@ const Register = () => {
                     placeholder="Percentage/Grade"
                     value={formData.percentageGrade}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                 </div>
@@ -276,7 +277,7 @@ const Register = () => {
                     name="preferredCourse"
                     value={formData.preferredCourse}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
                   >
                     <option value="">Select Course</option>
@@ -289,7 +290,7 @@ const Register = () => {
                     name="batchTiming"
                     value={formData.batchTiming}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
                   >
                     <option value="">Select Batch Timing</option>
@@ -313,7 +314,7 @@ const Register = () => {
                     rows="3"
                     value={formData.residentialAddress}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
                   ></textarea>
                   <div className="grid grid-cols-2 gap-6">
@@ -323,7 +324,7 @@ const Register = () => {
                       placeholder="City"
                       value={formData.city}
                       onChange={handleChange}
-                      required
+                      // required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     <input
@@ -333,7 +334,7 @@ const Register = () => {
                       maxLength="6"
                       value={formData.pinCode}
                       onChange={handleChange}
-                      required
+                      // required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                   </div>
@@ -352,7 +353,7 @@ const Register = () => {
                     placeholder="Guardian's Full Name"
                     value={formData.guardianName}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                   <input
@@ -362,7 +363,7 @@ const Register = () => {
                     maxLength="10"
                     value={formData.guardianContact}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                 </div>
@@ -378,7 +379,7 @@ const Register = () => {
                     name="hearAboutUs"
                     value={formData.hearAboutUs}
                     onChange={handleChange}
-                    required
+                    // required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
                   >
                     <option value="">How did you hear about us?</option>
