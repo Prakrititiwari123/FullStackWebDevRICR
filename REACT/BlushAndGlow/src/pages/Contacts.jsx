@@ -86,14 +86,41 @@ const Contacts = () => {
               6391 Elgin St. Celina, Delaware 10299
             </div>
           </div>
-          
         </div>
 
         {/* <div className=" flex">
           <div className=" h-10 w-40 border"></div>
           <div className=" h-10 w-40 border"></div>
       </div> */}
-
+      </div>
+      <div className="h-52 w-full bg-pink-200 flex p-15 gap-45">
+        <div>
+          <p>Global Reach</p>
+          <div className="flex gap-2 mt-2">
+            <span className="text-4xl">20+</span>
+            <span>
+              Serving customers in over 20+ countries <br /> worldwide.
+            </span>
+          </div>
+        </div>
+        <div>
+          <p>Customer Satisfaction</p>
+          <div className="flex gap-2 mt-2">
+            <span className="text-4xl">95%</span>
+          <span>
+            Trusted by thousands for exceptional <br /> results.
+          </span>
+          </div>
+        </div>
+        <div>
+          <p>High-Quality Ingredients</p>
+          <div className="flex gap-2 mt-2">
+            <span className="text-4xl">80%</span>
+          <span>
+            Made with premium ingredients for <br /> maximum impact.
+          </span>
+          </div>
+        </div>
       </div>
     </>
   );
