@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CountryData from "../assets/CountryData.json";
+import image from "../assets/image.png"
 import toast from "react-hot-toast";
 import axios from "axios";
 import { AiOutlineSwap } from "react-icons/ai";
@@ -41,8 +42,9 @@ const Currency = () => {
 
   return (
     <>
-      <div className="bg-amber-50 h-screen p-5">
-        <div className="w-3xl bg-white rounded shadow border p-3 mx-auto space-y-5">
+      <div className="min-h-screen w-full bg-center bg-no-repeat bg-cover p-5"
+  style={{ backgroundImage: `url(${image})` }}>
+        <div className="w-3xl bg-blue-300 rounded shadow border p-3 mx-auto space-y-5 mt-35">
           <div className="relative grid grid-cols-2 gap-10">
             <div className="flex gap-2 border rounded px-3">
               {from && (
@@ -95,7 +97,7 @@ const Currency = () => {
             </div>
             <div className="absolute left-1/2 -translate-x-[50%] top-3">
               <button
-                className="text-2xl hover:scale-150 hover:duration-300 scale-100 duration-300 hover:text-green-500"
+                className="text-2xl hover:scale-150 hover:duration-300 scale-100 duration-300 hover:text-blue-500"
                 onClick={swap}
               >
                 <AiOutlineSwap />
@@ -110,12 +112,12 @@ const Currency = () => {
               value={fromAmt}
               onChange={(e) => setFromAmt(e.target.value)}
               placeholder="Enter the Amount to Convert"
-              className="border rounded p-3 w-full"
+              className="border rounded p-3 w-full border-blue-600 border-2"
             />
           </div>
 
           <button
-            className="bg-green-300 text-green-900 hover:bg-green-600 hover:text-white px-4 py-2 border rounded hover:shadow-md w-full"
+            className="bg-blue-300 text-blue-900 hover:bg-blue-600 border-blue-600 border-2 hover:text-white px-4 py-2 border rounded hover:shadow-md w-full"
             onClick={Convert}
           >
             Convert

@@ -7,12 +7,12 @@ import { HiMiniCurrencyPound } from "react-icons/hi2";
 const Header = () => {
   return (
     <>
-      <div className="bg-blue-500 px-4 py-2 text-3xl text-white text-center flex justify-center items-center gap-4">
+      <div className="bg-blue-900 px-4 py-2 text-3xl text-white text-center flex justify-center items-center gap-4">
         <HiCurrencyRupee className="animate-bounce" />
         <HiMiniCurrencyDollar className="animate-spin"/>
         <span className="font-bold">Currency Convertor</span>
-        <HiMiniCurrencyEuro className="animate-pulse"/>
-        <HiMiniCurrencyPound className="animate-ping"/>
+        <HiMiniCurrencyEuro className="animate-spin"/>
+        <HiMiniCurrencyPound className="animate-bounce"/>
       </div>
     </>
   );
