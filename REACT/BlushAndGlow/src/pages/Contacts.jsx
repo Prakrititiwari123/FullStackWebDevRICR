@@ -93,33 +93,45 @@ const Contacts = () => {
           <div className=" h-10 w-40 border"></div>
       </div> */}
       </div>
-      <div className="h-52 w-full bg-pink-200 flex p-15 gap-45">
+      <div className="h-65 w-full bg-pink-200 flex p-15 gap-45">
+
         <div>
-          <p>Global Reach</p>
-          <div className="flex gap-2 mt-2">
+          <p className="mb-4">Global Reach</p>
+          <hr />
+          <div className="flex gap-2 mt-4">
             <span className="text-4xl">20+</span>
             <span>
               Serving customers in over 20+ countries <br /> worldwide.
             </span>
           </div>
+          <div className=" mt-4">
+            <hr />
+          </div>
         </div>
+
         <div>
-          <p>Customer Satisfaction</p>
-          <div className="flex gap-2 mt-2">
+          <p className="mb-4">Customer Satisfaction</p>
+          <hr />
+          <div className="flex gap-2 mt-4">
             <span className="text-4xl">95%</span>
           <span>
             Trusted by thousands for exceptional <br /> results.
           </span>
           </div>
+          <div className=" mt-4"><hr /></div>
         </div>
+
         <div>
-          <p>High-Quality Ingredients</p>
-          <div className="flex gap-2 mt-2">
+          <p className="mb-4">High-Quality Ingredients</p>
+          <hr />
+          <div className="flex gap-2 mt-4">
             <span className="text-4xl">80%</span>
           <span>
             Made with premium ingredients for <br /> maximum impact.
           </span>
           </div>
+          <div className=" mt-4"><hr /></div>
+
         </div>
       </div>
     </>
