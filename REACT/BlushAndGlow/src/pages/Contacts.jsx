@@ -1,5 +1,7 @@
 import React from "react";
 import { IoIosArrowDropright } from "react-icons/io";
+import { IoCallOutline } from "react-icons/io5";
+import { MdOutlineMessage } from "react-icons/md";
 
 const Contacts = () => {
   return (
@@ -94,7 +96,6 @@ const Contacts = () => {
       </div> */}
       </div>
       <div className="h-65 w-full bg-pink-200 flex p-15 gap-45">
-
         <div>
           <p className="mb-4">Global Reach</p>
           <hr />
@@ -114,11 +115,13 @@ const Contacts = () => {
           <hr />
           <div className="flex gap-2 mt-4">
             <span className="text-4xl">95%</span>
-          <span>
-            Trusted by thousands for exceptional <br /> results.
-          </span>
+            <span>
+              Trusted by thousands for exceptional <br /> results.
+            </span>
           </div>
-          <div className=" mt-4"><hr /></div>
+          <div className=" mt-4">
+            <hr />
+          </div>
         </div>
 
         <div>
@@ -126,16 +129,47 @@ const Contacts = () => {
           <hr />
           <div className="flex gap-2 mt-4">
             <span className="text-4xl">80%</span>
-          <span>
-            Made with premium ingredients for <br /> maximum impact.
-          </span>
+            <span>
+              Made with premium ingredients for <br /> maximum impact.
+            </span>
           </div>
-          <div className=" mt-4"><hr /></div>
-
+          <div className=" mt-4">
+            <hr />
+          </div>
         </div>
       </div>
 
-      
+      <div>
+        <div className="">
+          <div></div>
+          <p>Frequently Asked Questions</p>
+          <p>
+            Find answers to our most common questions and learn <br /> more
+            about our product.
+          </p>
+          <div className="flex">
+            <div className="h-40 w-50 border p-2 mt-5 pt-5 ps-4">
+              <p>
+                <IoCallOutline />
+              </p>
+              <p>
+                Need support? Give us <br /> a call anytime.
+              </p>
+              <p>+1 (239) 555-0108</p>
+            </div>
+            <div className=" h-40 w-50 border p-2 mt-5 pt-5 ps-4">
+              <p>
+                <MdOutlineMessage />
+              </p>
+              <p>
+                Send us an email for <br /> quick support.
+              </p>
+              <p>info@example.com</p>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
     </>
   );
 };
