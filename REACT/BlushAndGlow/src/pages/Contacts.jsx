@@ -140,35 +140,59 @@ const Contacts = () => {
       </div>
 
       <div>
-        <div className="">
-          <div></div>
-          <p>Frequently Asked Questions</p>
-          <p>
-            Find answers to our most common questions and learn <br /> more
-            about our product.
-          </p>
-          <div className="flex">
-            <div className="h-40 w-50 border p-2 mt-5 pt-5 ps-4">
-              <p>
-                <IoCallOutline />
-              </p>
-              <p>
-                Need support? Give us <br /> a call anytime.
-              </p>
-              <p>+1 (239) 555-0108</p>
+        <div className=" p-25 h-220 bg-pink-100">
+          <div>
+            <div className="flex text-2xl gap-3 font-semibold text-black items-center hover:text-pink-500">
+              <span>
+                <IoIosArrowDropright className="text-2xl" />
+              </span>
+              <span>FAQ'S</span>
             </div>
-            <div className=" h-40 w-50 border p-2 mt-5 pt-5 ps-4">
-              <p>
-                <MdOutlineMessage />
-              </p>
-              <p>
-                Send us an email for <br /> quick support.
-              </p>
-              <p>info@example.com</p>
+            <div className="p-3 font-medium text-black text-5xl hover:text-pink-500">
+              Frequently Asked Questions
+            </div>
+            <p className="mt-5 ms-4 text-lg">
+              Find answers to our most common questions and learn <br /> more
+              about our product.
+            </p>
+            <div className="flex p-8 gap-8">
+              <div className="h-45 w-50 border p-2 mt-5 pt-5 ps-4 rounded-2xl bg-white">
+                <p className="pb-3">
+                  <IoCallOutline className=" text-3xl hover:text-pink-500 border-2 rounded-2xl p-1" />
+                </p>
+                <p>
+                  Need support? Give us <br /> a call anytime.
+                </p>
+                <p className="pt-4 underline hover:-underline-offset-0">
+                  +1 (239) 555-0108
+                </p>
+              </div>
+              <div className=" h-45 w-50 border p-2 mt-5 pt-5 ps-4 rounded-2xl bg-white">
+                <p className="pb-3">
+                  <MdOutlineMessage className=" text-3xl hover:text-pink-500 border-2 rounded-2xl p-1" />
+                </p>
+                <p>
+                  Send us an email for <br /> quick support.
+                </p>
+                <p className="pt-4 underline hover:-underline-offset-0">
+                  info@example.com
+                </p>
+              </div>
             </div>
           </div>
+
+          <div className="">
+            <div>
+              <p>What is BLUSH&GLOW return's policy?</p>
+              <p> Are BLUSH&GLOW products safe for sensitive skin?</p>
+              <p>How do I know which products are suitable for my skin type?</p>
+              <p>Are BLUSH&GLOW products available in stores?</p>
+              <p>Which payment methods do you accept for customer orders?</p>
+              <p>How can I reach your customer support team?</p>
+            </div>
+          </div>
+          
         </div>
-        <div></div>
       </div>
     </>
   );
