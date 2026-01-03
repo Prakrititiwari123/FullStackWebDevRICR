@@ -28,6 +28,7 @@
 
 import React, { useState } from 'react'
 import Form from './FormHandling/form'
+import TwoWayBinding from './assets/two-way-Binding/TwoWayBinding'
 
 const App = () => {
 
@@ -68,6 +69,7 @@ const App = () => {
     <button className='border p-2 mx-5 my-5 rounded bg-amber-400 hover:bg-blue-900 hover:text-white' onClick={clickMe}>Click</button>
     </div> */}
     <Form/>
+    <TwoWayBinding/>
     
     </>
   )
