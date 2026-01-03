@@ -8,11 +8,13 @@ const App = () => {
   const arr=[10,20,30]
   return (
     <>
-      <div className="parents">
+      {/* <div className="parents">
         {arr.map(function(e){
           return <Cards/>
         })}
+      </div> */}
 
+      <div>
         <LocalStorage/>
       </div>
     </>

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const LocalStorage = () => {
-  return (
-    <div>LocalStorage</div>
-  )
-}
+  return <div>LocalStorage</div>;
+};
 
-export default LocalStorage
+export default LocalStorage;
