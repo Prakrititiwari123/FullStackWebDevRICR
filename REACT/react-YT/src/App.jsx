@@ -3,6 +3,7 @@ import React from "react";
 import Cards from "./components/Cards";
 import User from "./components/User"
 import LocalStorage from "./components/LocalStorage";
+import UseEffect from "./components/UseEffect";
 
 const App = () => {
   const arr=[10,20,30]
@@ -14,8 +15,12 @@ const App = () => {
         })}
       </div> */}
 
-      <div>
+      {/* <div>
         <LocalStorage/>
+      </div> */}
+
+      <div>
+        <UseEffect />
       </div>
     </>
   );
