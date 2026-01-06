@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CountryData from "../assets/CountryData.json";
-import image from "../assets/image.png"
+import image from "../assets/image.png";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { AiOutlineSwap } from "react-icons/ai";
@@ -42,8 +42,10 @@ const Currency = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full bg-center bg-no-repeat bg-cover p-5"
-  style={{ backgroundImage: `url(${image})` }}>
+      <div
+        className="min-h-screen w-full bg-center bg-no-repeat bg-cover p-5"
+        style={{ backgroundImage: `url(${image})` }}
+      >
         <div className="w-3xl bg-blue-300 rounded shadow border p-3 mx-auto space-y-5 mt-35">
           <div className="relative grid grid-cols-2 gap-10">
             <div className="flex gap-2 border rounded px-3">
