@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { FaArrowRight ,FaCommentDots } from 'react-icons/fa'
 
 const Hero = () => {
   return (
@@ -37,11 +38,34 @@ const Hero = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, reprehenderit.
             </motion.p>
 
+            <motion.div 
+            initial={{opacity:0, y:20}}
+            whileInView={{opacity:1, y:0}}
+            transition={{delay:0.3, duration:0.8}}
+            viewport={{once:false, amount:0.3}}
+            
+            className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start '>
+              <motion.a
+              whileHover={{scale:1.06}}
+              whileTap={{scale:0.95}}
+              href='#work'
+              className=' neo-btn px-8 py-4 rounded-full font-bold flex items-center cursor-pointer'>
+                View My Work
+                <FaArrowRight className='ml-2'/>
+              </motion.a>
+
+              <motion.a
+              whileHover={{scale:1.06}}
+              href='#contact'
+              className='px-8 py-4 rounded-full font-bold border-2 border-neo-primary flex items-center hover:bg-neo-primary/20 cursor-pointer'>
+                Get In Touch
+                <FaCommentDots className='ml-2'/>
+              </motion.a>
+            </motion.div>
+
 
             <motion.div>
-              <motion.a>
-                View My Work
-              </motion.a>
+              
             </motion.div>
           </div>
 
