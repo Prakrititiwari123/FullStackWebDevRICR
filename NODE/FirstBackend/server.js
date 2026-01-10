@@ -21,6 +21,16 @@ app.get("/",(req,res)=>{
     res.json({message:"Server is running successfully"})
 })
 
+
+app.use((err,req,res,next)=>{
+    const ErrorMessage=err.message || "Internal Server Error";
+    const StatusCode=err.statusCode || 500;
+
+    res.status(StatusCode).json({ message:ErrorMessage});
+});
+
+
+
 const port = process.env.PORT || 5000;
 app.listen(port,()=>{
     console.log('Server started at port ', port);
