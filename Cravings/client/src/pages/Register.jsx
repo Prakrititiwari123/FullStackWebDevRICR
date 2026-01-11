@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import api from "../config/Api"
+import api from "../config/Api";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ const Register = () => {
     email: "",
     mobileNumber: "",
     password: "",
-    confirmPassword:"",
+    confirmPassword: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [validationError, setValidationError] = useState({});
@@ -21,10 +21,10 @@ const Register = () => {
   const handleClearForm = () => {
     setFormData({
       fullName: "",
-    email: "",
-    mobileNumber: "",
-    password: "",
-    confirmPassword:"",
+      email: "",
+      mobileNumber: "",
+      password: "",
+      confirmPassword: "",
     });
   };
 
@@ -56,7 +56,7 @@ const Register = () => {
     return Object.keys(Error).length > 0 ? false : true;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -67,7 +67,7 @@ const Register = () => {
     }
 
     try {
-      const res= await api.post("/auth/register",formData)
+      const res = await api.post("/auth/register",formData)
       toast.success(res.data.message);
       handleClearForm();
     } catch (error) {
@@ -81,19 +81,19 @@ const Register = () => {
   return (
     <>
       <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Registration
             </h1>
             <p className="text-lg text-gray-600">
-              You are 1 step away to stop your cravings
+              You are 1 step away to stop your Cavings
             </p>
           </div>
 
           {/* Form Container */}
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden ">
+          <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
             <form
               onSubmit={handleSubmit}
               onReset={handleClearForm}
@@ -101,8 +101,7 @@ const Register = () => {
             >
               {/* Personal Information */}
               <div className="mb-10">
-                
-                <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-4">
                   <div>
                     <input
                       type="text"
@@ -142,13 +141,15 @@ const Register = () => {
                     type="password"
                     name="password"
                     value={formData.password}
+                    placeholder="Create Password"
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                   <input
-                    type="confirmPassword"
+                    type="password"
                     name="confirmPassword"
+                    placeholder="Confirm Password"
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     required
@@ -156,8 +157,6 @@ const Register = () => {
                   />
                 </div>
               </div>
-
-
 
               {/* Submit Button */}
               <div className="flex gap-4 pt-8 border-t-2 border-gray-200">
