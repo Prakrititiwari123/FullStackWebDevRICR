@@ -3,7 +3,9 @@ import { initTheme } from "./utils/theme";
 import AnimatedBackground from "./components/AnimatedBackground";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Work from "./components/Hero";
+import Work from "./components/Work";
+import Skills from "./components/Skills";
+import About from "./components/About";
 
 const App = () => {
 
@@ -17,6 +19,9 @@ const App = () => {
       <Header/>
       <main>
         <Hero/>
+        <Work/>
+        <Skills/>
+        <About/>
       </main>
     </div>
 

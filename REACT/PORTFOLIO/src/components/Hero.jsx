@@ -123,7 +123,7 @@ const Hero = () => {
                 className=" absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl glass
                dark:glass border border-neo-primary/20 overflow-hidden p-4"
               >
-                <p className=" font-bold text-lg text-neo-accent p-3">
+                <p className=" font-bold text-lg text-neo-accent">
                   Fresher
                 </p>
                 <Lottie animationData={lottieJson} play loop />

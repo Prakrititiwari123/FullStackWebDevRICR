@@ -115,7 +115,7 @@ export const projects = [
         youtube: '#'
     },
      {
-        id: 7,
+        id: 8,
         title: "Web Development",
         description: "Web Development, frontend and backend",
         category: "WEB APP",
