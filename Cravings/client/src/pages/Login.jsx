@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -119,6 +120,15 @@ const Login = () => {
                   Clear Form
                 </button>
               </div>
+              <div className="flex gap-3 mt-5 justify-center">
+                <span>Don't have an account?</span> <span><Link
+                    to={"/register"}
+                    className="text-decoration-none text-blue-500 hover:text-blue-700"
+                  >
+                    Register Now
+                  </Link></span>
+              </div>
+              
             </form>
           </div>
 

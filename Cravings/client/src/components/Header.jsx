@@ -49,6 +49,7 @@ const Header = () => {
             Register
           </button>
         </div>
+        
       </div>
     </>
   );

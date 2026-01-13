@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ const Register = () => {
     return Object.keys(Error).length > 0 ? false : true;
   };
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -67,7 +68,7 @@ const Register = () => {
     }
 
     try {
-      const res = await api.post("/auth/register",formData)
+      const res = await api.post("/auth/register", formData);
       toast.success(res.data.message);
       handleClearForm();
     } catch (error) {
@@ -165,7 +166,6 @@ const Register = () => {
 
               {/* Submit Button */}
               <div className="flex gap-4 pt-8 border-t-2 border-gray-200">
-                
                 <button
                   type="reset"
                   disabled={isLoading}
@@ -180,8 +180,19 @@ const Register = () => {
                   className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg
                    hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
-                  {isLoading?"submitting":"Submit"} 
+                  {isLoading ? "submitting" : "Submit"}
                 </button>
+              </div>
+              <div className="flex gap-3 mt-5 justify-center">
+                <span>Already have an account?</span>{" "}
+                <span>
+                  <Link
+                    to={"/login"}
+                    className="text-decoration-none text-blue-500 hover:text-blue-700"
+                  >
+                    Login Now
+                  </Link>
+                </span>
               </div>
             </form>
           </div>
