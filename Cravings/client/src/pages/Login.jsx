@@ -69,7 +69,7 @@ const Login = () => {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Login</h1>
             <p className="text-lg text-gray-600">
-              You are 1 step away to stop your Cavings
+              Let's Login Together.
             </p>
           </div>
 
