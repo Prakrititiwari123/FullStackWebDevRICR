@@ -1,3 +1,13 @@
+// let song=new Audio("");
+// let Btn1=new Audio("");
+// let clearAudio=new Audio("");
+// let success=new Audio("");
+// let volume=true;
+// const states = [...
+
+// ];
+
+
 function search() {
   const text = document.getElementById("state").value;
   const img = document.getElementById("div");
@@ -244,6 +254,9 @@ function resetFlags() {
 
   // Reset dropdown
   document.getElementById("state").value = "-";
+
+
+  song.play();
 }
 
 
