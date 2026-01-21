@@ -64,7 +64,12 @@ export const checkAuth = (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { profilePic, bio, fullName } = req.body;
-    const uderId = req.user._id;
+    const userId = req.user._id;
+
+    console.log("UserID:", userId);
+    console.log("bio:", bio, "fullName:", fullName, "profilePic:", profilePic);
+
+    
     let updatedUser;
 
     if (!profilePic) {
@@ -81,9 +86,9 @@ export const updateProfile = async (req, res) => {
         { new: true },
       );
     }
-    res.json({ succes: true, user: updatedUser });
+    res.json({ success: true, user: updatedUser });
   } catch (error) {
     console.log(error.message);
-    res.json({ succes: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
