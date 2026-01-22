@@ -40,10 +40,12 @@ export const AuthProvider = ({ children }) => {
         toast.error(data.message);
       }
     } catch (error) {
-    //   toast.headers(error.message);
-    toast.error(error.response?.data?.message || error.message);
+        toast.error(error.message);
+      // toast.error(error.response?.data?.message || error.message);
     }
   };
+
+
 
   const logout = async () => {
     localStorage.removeItem("token");
@@ -55,7 +57,8 @@ export const AuthProvider = ({ children }) => {
     socket.disconnect();
   };
 
-  
+
+
   const updateProfile = async (body) => {
     try {
       const { data } = await axios.put("/api/auth/update-profile", body);
@@ -69,10 +72,6 @@ export const AuthProvider = ({ children }) => {
   };
 
 
-
-
-
-
   const connectSocket = (userData) => {
     if (!userData || socket?.connected) return;
     const newSocket = io(backendUrl, {
@@ -82,10 +81,9 @@ export const AuthProvider = ({ children }) => {
     });
     newSocket.connect();
     setSocket(newSocket);
-    // newSocket.on("getOnlineUser", (userId) => {
-    //   setOnlineUser(userId);
-    newSocket.on("getOnlineUser", (users) => {
-      setOnlineUser(users);
+    newSocket.on("getOnlineUser", (userId) => {
+      setOnlineUser(userId);
+    
     });
   };
 

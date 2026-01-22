@@ -61,6 +61,9 @@ export const checkAuth = (req, res) => {
   res.json({ success: true, user: req.user });
 };
 
+
+
+
 export const updateProfile = async (req, res) => {
   try {
     const { profilePic, bio, fullName } = req.body;
