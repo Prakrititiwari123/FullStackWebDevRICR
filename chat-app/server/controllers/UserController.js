@@ -65,6 +65,7 @@ export const checkAuth = (req, res) => {
 
 
 export const updateProfile = async (req, res) => {
+ 
   try {
     const { profilePic, bio, fullName } = req.body;
     const userId = req.user._id;
