@@ -4,7 +4,7 @@ import EditProfileModal from "./modals/EditProfileModal";
 
 const UserProfile = () => {
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
-  const { user } = useAuth();
+  const { user,isLogin } = useAuth();
 
   return (
     <>
