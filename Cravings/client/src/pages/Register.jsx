@@ -16,7 +16,7 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-   
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -74,8 +74,6 @@ const Register = () => {
     }
 
     console.log(formData);
-
-    
 
     try {
       const res = await api.post("/auth/register", formData);
@@ -150,7 +148,7 @@ const Register = () => {
                         <label htmlFor="customer">Customer</label>
                       </div>
                     </div>
-                     {validationError.role && (
+                    {validationError.role && (
                       <span className="text-xs text-red-500">
                         {validationError.role}
                       </span>
