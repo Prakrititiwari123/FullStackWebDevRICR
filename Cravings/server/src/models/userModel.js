@@ -139,8 +139,6 @@
 // const User = mongoose.model("User", userSchema);
 // export default User;
 
-
-
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
@@ -148,7 +146,12 @@ const userSchema = new mongoose.Schema(
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     mobileNumber: { type: String, required: true },
-    gender: { type: String, enum: ["Male", "Female", "Other"], default: "" },
+    password: { 
+    type: String, 
+    required: true, 
+    select: false    
+  },
+    gender: { type: String, enum: ["Male", "Female", "Other",""], default: "" },
     dob: { type: Date, default: null },
     address: { type: String, default: "" },
     city: { type: String, default: "" },
@@ -173,9 +176,14 @@ const userSchema = new mongoose.Schema(
       },
       publicID: { type: String, default: "" },
     },
+    role: {
+      type: String,
+      enum: ["customer", "delivery", "restaurant", "admin"],
+      default: "customer",
+    },
     // ... any other existing fields
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const User = mongoose.model("User", userSchema);

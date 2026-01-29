@@ -12,6 +12,11 @@ import RiderDashboard from "./pages/dashboards/RiderDashboard";
 import ResturantDashboard from "./pages/dashboards/ResturantDashboard";
 import AdminDashboard from "./pages/dashboards/AdminDashboard";
 
+
+
+
+
+
 const App = () => {
   return (
     <>
