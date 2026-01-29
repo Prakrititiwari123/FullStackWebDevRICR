@@ -1,4 +1,4 @@
-import api from "./config/api";
+import api from "./Api.jsx";
 
 // Register as Restaurant Owner
 export const registerRestaurant = async (data) => {
