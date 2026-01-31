@@ -29,7 +29,7 @@ const UserDashboard = () => {
               ⊗
             </div>
             <div className="text-xl">
-              You are not login as Customer. Please Login again.
+              You are not login as Customer. Please  Login again.
             </div>
           </div>
         </div>
