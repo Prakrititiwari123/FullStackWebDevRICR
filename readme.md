@@ -2,7 +2,7 @@
 🌟 Overview
 Welcome to my personal coding playground where I'm documenting my complete web development journey! This repository contains everything I'm learning and building as I progress from absolute beginner to proficient developer. From my very first "Hello World" in HTML to complex JavaScript applications - it's all here, raw and real.
 
-📌 What You'll Find Here
+📌 What You'll Find Here.
 
 This isn't just another tutorial repository. This is my hands-on learning lab where I:
 
