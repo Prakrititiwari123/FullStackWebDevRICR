@@ -50,7 +50,7 @@ const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
             </button>{" "}
             {!isCollapsed && (
               <span className="overflow-hidden text-nowrap">
-                User Dashboard
+                User  Dashboard
               </span>
             )}
           </div>
