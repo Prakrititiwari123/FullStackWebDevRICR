@@ -3,7 +3,7 @@ import UserSideBar from "../../components/userDashboard/UserSideBar";
 import UserOverview from "../../components/userDashboard/userOverview";
 import UserProfile from "../../components/userDashboard/UserProfile";
 import UserOrders from "../../components/userDashboard/UserOrders";
-import UserTransaction from "../../components/userDashboard/userTransaction";
+import UserTransactions from "../../components/userDashboard/userTransactions";
 import UserHelpDesk from "../../components/userDashboard/UserHelpDesk";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +29,7 @@ const UserDashboard = () => {
               ⊗
             </div>
             <div className="text-xl">
-              You are not login as Customer. Please Login  again.
+              You are not login as Customer. Please Login again.
             </div>
           </div>
         </div>

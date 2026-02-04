@@ -9,10 +9,7 @@ import Login from "./pages/Login";
 import { Toaster } from "react-hot-toast";
 import UserDashboard from "./pages/dashboards/UserDashboard";
 import RiderDashboard from "./pages/dashboards/RiderDashboard";
-import ResturantDashboard from "./pages/dashboards/RestaurantDashboard";
-import RestaurantProfile from "./pages/restaurant/RestaurantProfile";
-import RestaurantRegister from "./pages/restaurant/RestaurantRegister";
-import RestaurantAnalytics from "./pages/restaurant/RestaurantAnalytics";
+import ResturantDashboard from "./pages/dashboards/ResturantDashboard";
 import AdminDashboard from "./pages/dashboards/AdminDashboard";
 
 const App = () => {
@@ -31,9 +28,6 @@ const App = () => {
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/rider-dashboard" element={<RiderDashboard />} />
           <Route path="/resturant-dashboard" element={<ResturantDashboard />} />
-          <Route path="/restaurant/profile" element={<RestaurantProfile />} />
-          <Route path="/restaurant/register" element={<RestaurantRegister />} />
-          <Route path="/restaurant/analytics" element={<RestaurantAnalytics />}/>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>

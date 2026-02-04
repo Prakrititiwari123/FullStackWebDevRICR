@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
-import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +10,6 @@ const Contact = () => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [validationError, setValidationError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,20 +25,18 @@ const Contact = () => {
     });
   };
 
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-
+    console.log(formData);
     try {
       const res = await api.post("/public/new-contact", formData);
       toast.success(res.data.message);
       handleClearForm();
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      toast.error(error?.response?.data?.message || "Unknown Error");
     } finally {
       setIsLoading(false);
     }
@@ -53,9 +49,9 @@ const Contact = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Post your query
+              Post your Query
             </h1>
-            
+          
           </div>
 
           {/* Form Container */}
@@ -68,23 +64,17 @@ const Contact = () => {
               {/* Personal Information */}
               <div className="mb-10">
                 <div className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Full Name"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      disabled={isLoading}
-                      className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
-                    />
-                    {validationError.fullName && (
-                      <span className="text-xs text-red-500">
-                        {validationError.fullName}
-                      </span>
-                    )}
-                  </div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full Name"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                    className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
+                  />
+
                   <input
                     type="email"
                     name="email"
@@ -109,13 +99,12 @@ const Contact = () => {
                   <textarea
                     name="message"
                     value={formData.message}
-                    placeholder="Write your message"
+                    placeholder="Write your Message"
                     onChange={handleChange}
                     required
                     disabled={isLoading}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
-                  
                 </div>
               </div>
 
@@ -124,30 +113,17 @@ const Contact = () => {
                 <button
                   type="reset"
                   disabled={isLoading}
-                  className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg
-                   hover:bg-gray-400 transition duration-300 transform hover:scale-105 disabled:cursor-not-allowed disabled:scale-100 disabled:bg-gray-300"
+                  className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-gray-400 transition duration-300 transform hover:scale-105 disabled:scale-100 disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   Clear Form
                 </button>
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg
-                   hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300  disabled:cursor-not-allowed"
                 >
-                  {isLoading ? "submitting" : "Submit"}
+                  {isLoading ? "Submitting" : "Submit"}
                 </button>
-              </div>
-              <div className="flex gap-3 mt-5 justify-center">
-                <span>Already have an account?</span>{" "}
-                <span>
-                  <Link
-                    to={"/login"}
-                    className="text-decoration-none text-blue-500 hover:text-blue-700"
-                  >
-                    Login Now
-                  </Link>
-                </span>
               </div>
             </form>
           </div>
