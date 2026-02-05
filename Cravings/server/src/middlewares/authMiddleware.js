@@ -62,10 +62,12 @@ export const ManagerProtect = async (req, res, next) => {
       error.statusCode = 401;
       return next(error);
     }
+
     next();
   } catch (error) {
     next(error);
   }
+  
 };
 export const CustomerProtect = async (req, res, next) => {
   try {
