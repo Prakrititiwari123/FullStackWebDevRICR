@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import EditRestaurantProfileModal from "./modals/EditRestaurantProfileModal";
 import UserImage from "../../assets/userImage.png";
+
 import {
   FaCamera,
   FaMapLocationDot,
@@ -35,6 +36,7 @@ const RestaurantProfile = () => {
     }
   };
 
+  
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
