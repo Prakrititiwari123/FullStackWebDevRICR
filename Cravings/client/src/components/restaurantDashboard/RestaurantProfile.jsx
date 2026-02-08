@@ -55,7 +55,9 @@ const RestaurantProfile = () => {
         {value && value !== "N/A" ? (
           value
         ) : (
+
           <span className="text-gray-400">Not provided</span>
+          
         )}
       </span>
     </div>
