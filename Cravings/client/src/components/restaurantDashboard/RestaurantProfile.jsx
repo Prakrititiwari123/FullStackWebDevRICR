@@ -3,11 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import EditRestaurantProfileModal from "./modals/EditRestaurantProfileModal";
 import UserImage from "../../assets/userImage.png";
 
-import {
-  FaCamera,
-  FaMapLocationDot,
-  FaWallet,
-} from "react-icons/fa6";
+import { FaCamera, FaMapLocationDot, FaWallet } from "react-icons/fa6";
 import { FaFileAlt } from "react-icons/fa";
 import { BiSolidBank } from "react-icons/bi";
 import api from "../../config/Api";
@@ -36,7 +32,6 @@ const RestaurantProfile = () => {
     }
   };
 
-  
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -55,9 +50,7 @@ const RestaurantProfile = () => {
         {value && value !== "N/A" ? (
           value
         ) : (
-
           <span className="text-gray-400">Not provided</span>
-          
         )}
       </span>
     </div>
