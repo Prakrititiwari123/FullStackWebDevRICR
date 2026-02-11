@@ -14,3 +14,4 @@ const RestaurantEarnings = () => {
 };
 
 export default RestaurantEarnings;
+

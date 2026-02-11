@@ -125,6 +125,7 @@ const Login = () => {
                 <div className="w-full flex justify-end">
                   <button
                     className="text-(--color-primary) hover:text-(--color-secondary) cursor-pointer"
+                    type="button"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsForgetPasswordModelOpen(true);

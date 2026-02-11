@@ -1,4 +1,6 @@
 import Menu from "../models/menuSchema.js";
+import cloudinary from "../config/cloudinary.js";
+import bcrypt from "bcrypt";
 import { UploadMultipleToCloudinary } from "../utils/imageUploader.js";
 
 export const RestaurantAddMenuItem = async (req, res, next) => {
