@@ -70,7 +70,7 @@ const Contacts = () => {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-16">
+      <div className="bg-pink-400 text-white py-16">
         <div className="max-w-6xl mx-auto px-8">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Get In Touch</h1>
           <p className="text-xl">
@@ -176,7 +176,7 @@ const Contacts = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-8">Contact Information</h2>
 
               {/* Phone Card */}
-              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
+              <div className="bg-linear-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
                 <div className="flex items-start gap-4">
                   <div className="bg-pink-500 text-white p-4 rounded-full">
                     <IoCallOutline size={24} />
@@ -194,7 +194,7 @@ const Contacts = () => {
               </div>
 
               {/* Email Card */}
-              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
+              <div className="bg-linear-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
                 <div className="flex items-start gap-4">
                   <div className="bg-rose-500 text-white p-4 rounded-full">
                     <MdOutlineMessage size={24} />
@@ -212,7 +212,7 @@ const Contacts = () => {
               </div>
 
               {/* Address Card */}
-              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
+              <div className="bg-linear-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
                 <div className="flex items-start gap-4">
                   <div className="bg-pink-500 text-white p-4 rounded-full">
                     <MdLocationOn size={24} />
@@ -229,7 +229,7 @@ const Contacts = () => {
               </div>
 
               {/* Hours Card */}
-              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
+              <div className="bg-linear-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 hover:shadow-lg transition">
                 <div className="flex items-start gap-4">
                   <div className="bg-rose-500 text-white p-4 rounded-full">
                     <MdAccessTime size={24} />
@@ -253,7 +253,7 @@ const Contacts = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-gradient-to-r from-pink-100 to-rose-100 py-20">
+      <div className="bg-linear-to-r from-pink-100 to-rose-100 py-20">
         <div className="max-w-6xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">

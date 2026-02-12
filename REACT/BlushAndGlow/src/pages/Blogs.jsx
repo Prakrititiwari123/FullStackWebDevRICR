@@ -148,7 +148,7 @@ const Blogs = () => {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-16">
+      <div className="bg-pink-400 text-white py-16">
         <div className="max-w-6xl mx-auto px-8">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Beauty Blog</h1>
           <p className="text-xl">
@@ -219,7 +219,7 @@ const Blogs = () => {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
                         {/* Blog Image */}
-                        <div className="bg-gradient-to-br from-pink-100 to-rose-100 h-64 md:h-auto flex items-center justify-center text-6xl">
+                        <div className="bg-linear-to-br from-pink-100 to-rose-100 h-64 md:h-auto flex items-center justify-center text-6xl">
                           {blog.image}
                         </div>
 
@@ -282,7 +282,7 @@ const Blogs = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-16">
+      <div className="bg-linear-to-r from-pink-500 to-rose-500 text-white py-16">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">Stay Updated</h2>
           <p className="text-lg mb-8">
@@ -292,7 +292,7 @@ const Blogs = () => {
             <input
               type="email"
               placeholder="Your email"
-              className="flex-1 px-6 py-3 rounded-full focus:outline-none text-gray-900"
+              className="flex-1 px-6 py-3 rounded-full border border-pink-300 focus:outline-none text-gray-900 "
             />
             <button className="flex items-center justify-center gap-2 bg-white text-pink-500 hover:bg-gray-100 transition px-8 py-3 rounded-full font-semibold whitespace-nowrap">
               Subscribe

@@ -175,7 +175,8 @@ const Shop = () => {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-16">
+      {/* <div className="bg-linear-to-r from-pink-500 to-rose-500 text-white py-16"> */}
+      <div className="bg-pink-400 text-white py-16">
         <div className="max-w-6xl mx-auto px-8">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Shop</h1>
           <p className="text-xl">
@@ -259,7 +260,7 @@ const Shop = () => {
                       className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
                     >
                       {/* Product Image */}
-                      <div className="relative bg-gradient-to-br from-pink-100 to-rose-100 h-64 flex items-center justify-center text-6xl overflow-hidden group">
+                      <div className="relative bg-linear-to-br from-pink-100 to-rose-100 h-64 flex items-center justify-center text-6xl overflow-hidden group">
                         {product.image}
                         <button
                           onClick={() => toggleWishlist(product.id)}
@@ -327,7 +328,7 @@ const Shop = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-16">
+      <div className="bg-linear-to-r from-pink-500 to-rose-500 text-white py-16">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">Exclusive Member Benefits</h2>
           <p className="text-lg mb-8">
