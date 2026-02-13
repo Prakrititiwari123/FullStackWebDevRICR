@@ -4,12 +4,11 @@ import bgImage from "../assets/bgImage.png";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
 
   const handleShopNow = () => {
-    const navigate = useNavigate();
     navigate("/shop");
   };
-
 
   return (
     <>
@@ -31,8 +30,8 @@ const Home = () => {
               crafted to celebrate your natural charm.
             </p>
 
-            <div className="mt-6 flex items-center gap-2 text-black border border-white/70 rounded-full px-2 py-2 w-max hover:bg-pink-500 hover:text-white transition" onClick={handleShopNow}>
-              <button>View Collection</button>
+            <div className="mt-6 flex items-center gap-2 text-black border border-white/70 rounded-full px-2 py-2 w-max hover:bg-pink-500 hover:text-white transition cursor-pointer" onClick={handleShopNow}>
+              <button className="hover:text-white">View Collection</button>
               <GoArrowUpRight />
             </div>
           </div>

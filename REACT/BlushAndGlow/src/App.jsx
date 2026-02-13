@@ -9,25 +9,28 @@ import Blogs from "./pages/Blogs";
 import Shop from "./pages/Shop";
 import Story from "./pages/Story";
 import Home from "./pages/Home";
+import { CartProvider } from "./context/CartContext";
 
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Header />
+      <CartProvider>
+        <BrowserRouter>
+          <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/story" element={<Story />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/story" element={<Story />} />
+          </Routes>
 
-        <Footer />
-      </BrowserRouter>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 };

@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GoArrowUpRight, GoHeart, GoHeartFill } from "react-icons/go";
 import { AiOutlineShopping } from "react-icons/ai";
+import { CartContext } from "../context/CartContext";
+import { useSearchParams } from "react-router-dom";
 
 const Shop = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("popular");
   const [wishlist, setWishlist] = useState([]);
+  const [addedToCart, setAddedToCart] = useState(null);
+  const { addToCart } = useContext(CartContext);
+
+  useEffect(() => {
+    const search = searchParams.get("search");
+    if (search) {
+      setSearchTerm(search);
+    }
+  }, [searchParams]);
 
   // Product Data
   const products = [
@@ -298,8 +310,19 @@ const Shop = () => {
                           <span className="text-2xl font-bold text-pink-500">
                             ${product.price.toFixed(2)}
                           </span>
-                          <button className="bg-pink-500 hover:bg-pink-600 transition text-white p-3 rounded-full">
-                            <AiOutlineShopping size={20} />
+                          <button 
+                            onClick={() => {
+                              addToCart(product);
+                              setAddedToCart(product.id);
+                              setTimeout(() => setAddedToCart(null), 2000);
+                            }}
+                            className={`transition text-white p-3 rounded-full font-semibold text-sm ${
+                              addedToCart === product.id
+                                ? "bg-green-500 hover:bg-green-600"
+                                : "bg-pink-500 hover:bg-pink-600"
+                            }`}
+                          >
+                            {addedToCart === product.id ? "✓ Added!" : <AiOutlineShopping size={20} />}
                           </button>
                         </div>
                       </div>
@@ -335,7 +358,10 @@ const Shop = () => {
             Join our loyalty program for exclusive discounts and early access to 
             new products.
           </p>
-          <button className="flex items-center justify-center gap-2 mx-auto text-pink-500 bg-white hover:bg-gray-100 transition px-8 py-3 rounded-full font-semibold">
+          <button 
+            onClick={() => alert("Welcome to the Loyalty Program! 🎉\n\nCheck your email for membership details and exclusive discount codes.")}
+            className="flex items-center justify-center gap-2 mx-auto text-pink-500 bg-white hover:bg-gray-100 transition px-8 py-3 rounded-full font-semibold cursor-pointer"
+          >
             Join Now
             <GoArrowUpRight />
           </button>
