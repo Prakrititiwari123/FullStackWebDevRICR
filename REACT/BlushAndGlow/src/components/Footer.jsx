@@ -29,12 +29,14 @@ const Footer = () => {
 
         <div className="text-white text-lg leading-10">
           <div className=" flex gap-5 justify-baseline"><span>About us</span> <span className=" "><MdArrowOutward /></span></div> <hr />
-          <div>Categories</div> <hr />
-          <div>Shop</div> <hr />
-          <div>Blogs</div> <hr />
-          <div>Reviews</div> <hr />
-          <div>Contact us</div> <hr />
-          <div>Store Locator</div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>Categories</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>Shop</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>About us</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>Blog</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>Reviews</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>Contact us</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+          <div className=" flex gap-5 justify-baseline"><span>Store Location</span> <span className=" "><MdArrowOutward /></span></div> <hr />
+        
         </div>
 
         <div className="text-white text-lg leading-10">
