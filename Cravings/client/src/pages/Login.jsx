@@ -4,6 +4,7 @@ import api from "../config/Api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import ForgetPasswordModal from "../components/publicModals/ForgetPasswordModal";
+import Loading from "../components/Loading";
 
 const Login = () => {
   const { setUser, setIsLogin, setRole } = useAuth();
@@ -76,6 +77,14 @@ const Login = () => {
     }
   };
 
+  if (isLoading) {
+    return (
+      <div className="w-100 h-100 flex items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 px-4">
@@ -125,7 +134,6 @@ const Login = () => {
                 <div className="w-full flex justify-end">
                   <button
                     className="text-(--color-primary) hover:text-(--color-secondary) cursor-pointer"
-                    type="button"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsForgetPasswordModelOpen(true);

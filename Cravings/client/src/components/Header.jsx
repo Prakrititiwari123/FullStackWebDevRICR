@@ -59,6 +59,7 @@ const Header = () => {
           >
             Contact
           </Link>
+          
         </div>
         <div className="flex gap-4">
           {isLogin ? (
