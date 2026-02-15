@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import { useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
+
 const OrderNow = () => {
   const [loading, setLoading] = useState(false);
   const [restaurant, setRestaurant] = useState();
