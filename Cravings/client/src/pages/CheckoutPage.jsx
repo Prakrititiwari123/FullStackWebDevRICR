@@ -188,7 +188,7 @@ const CheckoutPage = () => {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 py-8">
+      <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-red-50 py-8">
         <div className="w-7xl mx-auto px-4">
           {/* Header */}
           <div className="mb-8 animate-fade-in">
@@ -199,7 +199,7 @@ const CheckoutPage = () => {
               <span className="text-xl">←</span>
               <span className="font-semibold">Back</span>
             </button>
-            <h1 className="text-4xl font-black bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-black bg-linear-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">
               Checkout
             </h1>
             <p className="text-gray-600 mt-2">
@@ -227,7 +227,7 @@ const CheckoutPage = () => {
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       {/* Item Image */}
-                      <div className="relative flex-shrink-0">
+                      <div className="relative shrink-0">
                         <img
                           src={item.images[0].url}
                           alt={item.itemName}
@@ -274,7 +274,7 @@ const CheckoutPage = () => {
                           >
                             -
                           </button>
-                          <span className="font-bold text-gray-800 min-w-[20px] text-center">
+                          <span className="font-bold text-gray-800 min-w-5 text-center">
                             {item.quantity}
                           </span>
                           <button
@@ -464,7 +464,7 @@ const CheckoutPage = () => {
             <div className="lg:col-span-1">
               <div className="sticky top-4 space-y-6">
                 {/* Coupon Section */}
-                <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-lg p-6 text-white animate-fade-in">
+                <div className="bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl shadow-lg p-6 text-white animate-fade-in">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-3xl">🎟️</span>
                     <h3 className="text-xl font-bold">Apply Coupon</h3>
@@ -584,7 +584,7 @@ const CheckoutPage = () => {
                   className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 transform hover:scale-105 ${
                     isProcessing
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white animate-pulse-hover"
+                      : "bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white animate-pulse-hover"
                   }`}
                 >
                   {isProcessing ? (
@@ -601,7 +601,7 @@ const CheckoutPage = () => {
                 </button>
 
                 {/* Payment Mode Display */}
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl border-2 border-green-200">
+                <div className="bg-linear-to-r from-green-50 to-emerald-50 p-4 rounded-xl border-2 border-green-200">
                   <p className="text-sm text-gray-600 text-center">
                     Payment via:{" "}
                     <span className="font-bold text-green-700">

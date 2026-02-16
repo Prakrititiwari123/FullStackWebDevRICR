@@ -539,7 +539,7 @@ const RestaurantDisplayMenu = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowRestaurantInfo(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-2xl w-full mx-4 shadow-2xl transform transition-all animate-scale-in" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-start mb-6">
-              <h2 className="text-3xl font-black bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-black bg-linear-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                 Restaurant Information
               </h2>
               <button 
@@ -582,7 +582,7 @@ const RestaurantDisplayMenu = () => {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-xl mt-4">
+              <div className="bg-linear-to-r from-orange-50 to-red-50 p-4 rounded-xl mt-4">
                 <p className="text-sm text-gray-600 font-semibold mb-2">✨ Specialties</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600">Multi-Cuisine</span>
@@ -594,7 +594,7 @@ const RestaurantDisplayMenu = () => {
               
               <button 
                 onClick={() => setShowRestaurantInfo(false)}
-                className="w-full mt-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold hover:shadow-xl transition-all duration-300"
+                className="w-full mt-6 py-3 bg-linear-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold hover:shadow-xl transition-all duration-300"
               >
                 Close
               </button>
@@ -608,7 +608,7 @@ const RestaurantDisplayMenu = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowQuickView(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-3xl w-full mx-4 shadow-2xl transform transition-all animate-scale-in" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-start mb-6">
-              <h2 className="text-3xl font-black bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-black bg-linear-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                 {selectedItem.itemName}
               </h2>
               <button 
@@ -677,11 +677,11 @@ const RestaurantDisplayMenu = () => {
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-xl">
+                <div className="bg-linear-to-r from-orange-50 to-red-50 p-4 rounded-xl">
                   <div className="flex justify-between items-center">
                     <div>
                       <p className="text-sm text-gray-500 line-through">₹{Math.floor(selectedItem.price * 1.3)}</p>
-                      <p className="text-3xl font-black bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                      <p className="text-3xl font-black bg-linear-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                         ₹{selectedItem.price}
                       </p>
                       <p className="text-xs text-green-600 font-semibold">Save ₹{Math.floor(selectedItem.price * 0.3)}</p>
@@ -697,7 +697,7 @@ const RestaurantDisplayMenu = () => {
                         setShowQuickView(false);
                       }}
                       disabled={cartFlag.includes(selectedItem._id)}
-                      className="flex-1 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold hover:shadow-xl transition-all duration-300 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed"
+                      className="flex-1 py-3 bg-linear-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold hover:shadow-xl transition-all duration-300 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed"
                     >
                       {cartFlag.includes(selectedItem._id) ? "✓ Added to Cart" : "🛒 Add to Cart"}
                     </button>
