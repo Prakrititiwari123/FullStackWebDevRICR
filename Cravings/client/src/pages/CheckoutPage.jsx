@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
-  const { isLogin, role } = useAuth();
+  const { user, isLogin, role } = useAuth();
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
-  const [paymentMode, setPaymentMode] = useState("cod");
+  const [paymentMethod, setPaymentMethod] = useState("cod");
   const [deliveryAddress, setDeliveryAddress] = useState({
     street: "",
     city: "",
@@ -17,67 +18,64 @@ const CheckoutPage = () => {
   });
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
-  const [tip, setTip] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Calculate prices
-  const subtotal = cart?.cartValue || 0;
-  const deliveryFee = subtotal > 500 ? 0 : 40;
-  const gst = Math.floor(subtotal * 0.05); // 5% GST
-  const platformFee = 5;
-  const total = subtotal + deliveryFee + gst + platformFee - discount + tip;
+  // Tax and charges calculation
+  const TAX_RATE = 0.05; // 5% GST
+  const DELIVERY_CHARGE = 40;
 
-  console.log("CheckoutPage", cart);
+  // Calculate prices
+  const calculatePrices = () => {
+    const subtotal = cart?.cartValue || 0;
+    const tax = subtotal * TAX_RATE;
+    const deliveryFee = subtotal > 500 ? 0 : DELIVERY_CHARGE;
+    const total = subtotal + tax + deliveryFee - discount;
+    return { subtotal, tax, deliveryFee, total };
+  };
+
+  const { subtotal, tax, deliveryFee, total } = calculatePrices();
 
   // Update cart quantity
-  const updateQuantity = (itemId, action) => {
-    const updatedCart = { ...cart };
-    const itemIndex = updatedCart.cartItem.findIndex(
-      (item) => item._id === itemId
-    );
-
-    if (itemIndex !== -1) {
-      if (action === "increase") {
-        updatedCart.cartItem[itemIndex].quantity += 1;
-        updatedCart.cartValue += updatedCart.cartItem[itemIndex].price;
-      } else if (action === "decrease") {
-        if (updatedCart.cartItem[itemIndex].quantity > 1) {
-          updatedCart.cartItem[itemIndex].quantity -= 1;
-          updatedCart.cartValue -= updatedCart.cartItem[itemIndex].price;
+  const handleQuantityChange = (itemId, change) => {
+    setCart((prev) => {
+      const updatedItems = prev.cartItem.map((item) => {
+        if (item._id === itemId) {
+          const newQuantity = Math.max(1, item.quantity + change);
+          return { ...item, quantity: newQuantity };
         }
-      }
-    }
+        return item;
+      });
 
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+      const newTotal = updatedItems.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+
+      const updatedCart = { ...prev, cartItem: updatedItems, cartValue: newTotal };
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
   };
 
   // Remove item from cart
-  const removeItem = (itemId) => {
-    const updatedCart = { ...cart };
-    const itemIndex = updatedCart.cartItem.findIndex(
-      (item) => item._id === itemId
-    );
+  const handleRemoveItem = (itemId) => {
+    setCart((prev) => {
+      const itemToRemove = prev.cartItem.find((item) => item._id === itemId);
+      const newTotal = prev.cartValue - itemToRemove.price * itemToRemove.quantity;
+      const updatedItems = prev.cartItem.filter((item) => item._id !== itemId);
 
-    if (itemIndex !== -1) {
-      const itemPrice =
-        updatedCart.cartItem[itemIndex].price *
-        updatedCart.cartItem[itemIndex].quantity;
-      updatedCart.cartValue -= itemPrice;
-      updatedCart.cartItem.splice(itemIndex, 1);
-
-      if (updatedCart.cartItem.length === 0) {
+      if (updatedItems.length === 0) {
         localStorage.removeItem("cart");
-        setCart(null);
-        toast.success("Cart is now empty");
+        toast.success("Cart is now empty!");
         navigate("/order-now");
-        return;
+        return prev;
       }
 
-      setCart(updatedCart);
+      const updatedCart = { ...prev, cartItem: updatedItems, cartValue: newTotal };
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       toast.success("Item removed from cart");
-    }
+      return updatedCart;
+    });
   };
 
   // Apply coupon
@@ -112,13 +110,20 @@ const CheckoutPage = () => {
 
     setIsProcessing(true);
 
-    // Simulate order placement
-    setTimeout(() => {
+    try {
+      // Here you would integrate payment gateway (Razorpay, Stripe, etc.)
+      // Simulate order placement
+      setTimeout(() => {
+        setIsProcessing(false);
+        toast.success("Order placed successfully! 🎉");
+        localStorage.removeItem("cart");
+        navigate("/user-dashboard");
+      }, 2000);
+    } catch (error) {
+      console.error("Order placement error:", error);
+      toast.error(error?.response?.data?.message || "Failed to place order");
       setIsProcessing(false);
-      toast.success("Order placed successfully! 🎉");
-      localStorage.removeItem("cart");
-      navigate("/user-dashboard");
-    }, 2000);
+    }
   };
 
   useEffect(() => {
@@ -261,32 +266,34 @@ const CheckoutPage = () => {
                       {/* Quantity Controls */}
                       <div className="flex flex-col items-end justify-between">
                         <button
-                          onClick={() => removeItem(item._id)}
-                          className="text-red-500 hover:text-red-700 transition-colors"
+                          onClick={() => handleRemoveItem(item._id)}
+                          className="text-red-500 hover:text-red-700 transition-colors p-2"
+                          title="Remove item"
                         >
-                          <span className="text-xl">🗑️</span>
+                          <FaTrash />
                         </button>
 
                         <div className="flex items-center gap-3 bg-orange-50 rounded-lg px-3 py-2">
                           <button
-                            onClick={() => updateQuantity(item._id, "decrease")}
+                            onClick={() => handleQuantityChange(item._id, -1)}
                             className="w-7 h-7 bg-white rounded-full flex items-center justify-center text-orange-600 font-bold hover:bg-orange-100 transition-colors shadow-sm"
+                            disabled={item.quantity === 1}
                           >
-                            -
+                            <FaMinus size={12} />
                           </button>
                           <span className="font-bold text-gray-800 min-w-5 text-center">
                             {item.quantity}
                           </span>
                           <button
-                            onClick={() => updateQuantity(item._id, "increase")}
+                            onClick={() => handleQuantityChange(item._id, 1)}
                             className="w-7 h-7 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold hover:bg-orange-700 transition-colors shadow-sm"
                           >
-                            +
+                            <FaPlus size={12} />
                           </button>
                         </div>
 
                         <p className="text-sm text-gray-600 font-semibold">
-                          Total: ₹{item.price * item.quantity}
+                          Total: ₹{(item.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
                     </div>
@@ -379,9 +386,9 @@ const CheckoutPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Cash on Delivery */}
                   <div
-                    onClick={() => setPaymentMode("cod")}
+                    onClick={() => setPaymentMethod("cod")}
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMode === "cod"
+                      paymentMethod === "cod"
                         ? "border-orange-500 bg-orange-50 shadow-md"
                         : "border-gray-200 hover:border-orange-300"
                     }`}
@@ -399,9 +406,9 @@ const CheckoutPage = () => {
 
                   {/* Credit/Debit Card */}
                   <div
-                    onClick={() => setPaymentMode("card")}
+                    onClick={() => setPaymentMethod("card")}
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMode === "card"
+                      paymentMethod === "card"
                         ? "border-orange-500 bg-orange-50 shadow-md"
                         : "border-gray-200 hover:border-orange-300"
                     }`}
@@ -419,9 +426,9 @@ const CheckoutPage = () => {
 
                   {/* UPI */}
                   <div
-                    onClick={() => setPaymentMode("upi")}
+                    onClick={() => setPaymentMethod("upi")}
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMode === "upi"
+                      paymentMethod === "upi"
                         ? "border-orange-500 bg-orange-50 shadow-md"
                         : "border-gray-200 hover:border-orange-300"
                     }`}
@@ -439,9 +446,9 @@ const CheckoutPage = () => {
 
                   {/* Wallet */}
                   <div
-                    onClick={() => setPaymentMode("wallet")}
+                    onClick={() => setPaymentMethod("wallet")}
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMode === "wallet"
+                      paymentMethod === "wallet"
                         ? "border-orange-500 bg-orange-50 shadow-md"
                         : "border-gray-200 hover:border-orange-300"
                     }`}
@@ -489,31 +496,6 @@ const CheckoutPage = () => {
                   </p>
                 </div>
 
-                {/* Tip Section */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 animate-fade-in">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">⭐</span>
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Tip Your Delivery Partner
-                    </h3>
-                  </div>
-                  <div className="grid grid-cols-4 gap-2">
-                    {[0, 10, 20, 30].map((amount) => (
-                      <button
-                        key={amount}
-                        onClick={() => setTip(amount)}
-                        className={`py-2 rounded-lg font-semibold transition-all ${
-                          tip === amount
-                            ? "bg-orange-600 text-white shadow-md"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                      >
-                        {amount === 0 ? "No" : `₹${amount}`}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Bill Details */}
                 <div className="bg-white rounded-2xl shadow-lg p-6 animate-fade-in">
                   <div className="flex items-center gap-3 mb-6">
@@ -526,7 +508,11 @@ const CheckoutPage = () => {
                   <div className="space-y-3">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal</span>
-                      <span className="font-semibold">₹{subtotal}</span>
+                      <span className="font-semibold">₹{subtotal.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-gray-600">
+                      <span>Tax (5%)</span>
+                      <span className="font-semibold">₹{tax.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span>Delivery Fee</span>
@@ -534,43 +520,28 @@ const CheckoutPage = () => {
                         {deliveryFee === 0 ? (
                           <span className="text-green-600">FREE</span>
                         ) : (
-                          `₹${deliveryFee}`
+                          `₹${deliveryFee.toFixed(2)}`
                         )}
                       </span>
-                    </div>
-                    <div className="flex justify-between text-gray-600">
-                      <span>GST (5%)</span>
-                      <span className="font-semibold">₹{gst}</span>
-                    </div>
-                    <div className="flex justify-between text-gray-600">
-                      <span>Platform Fee</span>
-                      <span className="font-semibold">₹{platformFee}</span>
                     </div>
                     {discount > 0 && (
                       <div className="flex justify-between text-green-600">
                         <span>Discount</span>
-                        <span className="font-semibold">-₹{discount}</span>
-                      </div>
-                    )}
-                    {tip > 0 && (
-                      <div className="flex justify-between text-gray-600">
-                        <span>Tip</span>
-                        <span className="font-semibold">₹{tip}</span>
+                        <span className="font-semibold">-₹{discount.toFixed(2)}</span>
                       </div>
                     )}
 
                     <div className="border-t-2 border-dashed pt-3">
                       <div className="flex justify-between text-xl font-bold text-gray-800">
-                        <span>Total</span>
-                        <span className="text-orange-600">₹{total}</span>
+                        <span>Total Amount</span>
+                        <span className="text-orange-600">₹{total.toFixed(2)}</span>
                       </div>
                     </div>
 
                     {deliveryFee > 0 && (
                       <div className="bg-blue-50 p-3 rounded-lg">
                         <p className="text-xs text-blue-800">
-                          💡 Add items worth ₹{500 - subtotal} more to get FREE
-                          delivery
+                          💡 Add items worth ₹{(500 - subtotal).toFixed(2)} more to get FREE delivery
                         </p>
                       </div>
                     )}
@@ -595,7 +566,7 @@ const CheckoutPage = () => {
                   ) : (
                     <span className="flex items-center justify-center gap-2">
                       <span>🚀</span>
-                      Place Order - ₹{total}
+                      Place Order - ₹{total.toFixed(2)}
                     </span>
                   )}
                 </button>
@@ -605,10 +576,10 @@ const CheckoutPage = () => {
                   <p className="text-sm text-gray-600 text-center">
                     Payment via:{" "}
                     <span className="font-bold text-green-700">
-                      {paymentMode === "cod" && "Cash on Delivery"}
-                      {paymentMode === "card" && "Credit/Debit Card"}
-                      {paymentMode === "upi" && "UPI"}
-                      {paymentMode === "wallet" && "Wallet"}
+                      {paymentMethod === "cod" && "Cash on Delivery"}
+                      {paymentMethod === "card" && "Credit/Debit Card"}
+                      {paymentMethod === "upi" && "UPI"}
+                      {paymentMethod === "wallet" && "Wallet"}
                     </span>
                   </p>
                 </div>

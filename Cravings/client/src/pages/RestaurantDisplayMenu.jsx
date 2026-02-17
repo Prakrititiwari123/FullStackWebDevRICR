@@ -1,9 +1,7 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { FaRegTrashAlt } from "react-icons/fa";
 import api from "../config/Api";
 import toast from "react-hot-toast";
 
@@ -13,8 +11,8 @@ const RestaurantDisplayMenu = () => {
   const data = useLocation().state;
   // console.log("Resturant Menu Page", data);
 
-  const [loading, setLoading] = useState(false);
-  const [menuItems, setMenuItems] = useState();
+  const [loading, setLoading] = useState(false);   
+  const [menuItems, setMenuItems] = useState();    
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [cartFlag, setCartFlag] = useState([]);
   const [showRestaurantInfo, setShowRestaurantInfo] = useState(false);
@@ -24,7 +22,7 @@ const RestaurantDisplayMenu = () => {
   const fetchMenuItems = async () => {
     setLoading(true);
     try {
-      const res = await api.get(`/public/restaurant/menu/${data._id}`);
+      const res = await api.get(`/public/restaurant/menu/${data._id}`); 
       setMenuItems(res.data.data);
     } catch (error) {
       console.log(error);
@@ -32,6 +30,13 @@ const RestaurantDisplayMenu = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleClearCart = () => {
+    localStorage.removeItem("cart");
+    setCart();
+    setCartFlag([]);
+    toast.success("Cart cleared successfully!");
   };
 
   const handleAddToCart = (NewItem) => {
@@ -726,6 +731,13 @@ const RestaurantDisplayMenu = () => {
                   <p className="text-xs opacity-80">Total Items</p>
                   <p className="text-xl">{cart.cartItem.length}</p>
                 </div>
+                <button
+                  className="ml-2 text-white px-3 py-3 rounded-xl hover:bg-white/20 transition hover:scale-110 transform duration-300"
+                  onClick={handleClearCart}
+                  title="Clear Cart"
+                >
+                  <FaRegTrashAlt className="text-lg" />
+                </button>
               </div>
               <div className="h-12 w-px bg-white/30"></div>
               <div className="text-white font-bold flex gap-6 items-center">
