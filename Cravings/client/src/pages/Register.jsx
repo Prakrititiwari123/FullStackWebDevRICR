@@ -96,6 +96,7 @@ const Register = () => {
     }
   };
 
+  
   return (
     <>
       {/* Keyframe Animations */}
