@@ -1,41 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
+import api from "../config/Api";
+
+const PromoCode = {
+  NEW50: 50,
+  SAVE20: 20,
+  CRAVE10: 10,
+};
 
 const CheckoutPage = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
-  const { user, isLogin, role } = useAuth();
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
-  const [paymentMethod, setPaymentMethod] = useState("cod");
-  const [deliveryAddress, setDeliveryAddress] = useState({
-    street: "",
-    city: "",
-    state: "",
-    pincode: "",
-    phone: "",
-  });
-  const [couponCode, setCouponCode] = useState("");
-  const [discount, setDiscount] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [promoCode, setPromoCode] = useState("");
+  const [appliedPromo, setAppliedPromo] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState("pending");
 
   // Tax and charges calculation
-  const TAX_RATE = 0.05; // 5% GST
-  const DELIVERY_CHARGE = 40;
+  const TAX_RATE = 0.05; // 5% tax
+  const DELIVERY_CHARGE = 50;
 
-  // Calculate prices
-  const calculatePrices = () => {
-    const subtotal = cart?.cartValue || 0;
-    const tax = subtotal * TAX_RATE;
-    const deliveryFee = subtotal > 500 ? 0 : DELIVERY_CHARGE;
-    const total = subtotal + tax + deliveryFee - discount;
-    return { subtotal, tax, deliveryFee, total };
-  };
+  useEffect(() => {
+    if (!user || !cart || cart.cartItem.length === 0) {
+      toast.error("Cart is empty or session expired");
+      navigate("/order-now");
+    }
+  }, []);
 
-  const { subtotal, tax, deliveryFee, total } = calculatePrices();
-
-  // Update cart quantity
   const handleQuantityChange = (itemId, change) => {
     setCart((prev) => {
       const updatedItems = prev.cartItem.map((item) => {
@@ -48,552 +44,426 @@ const CheckoutPage = () => {
 
       const newTotal = updatedItems.reduce(
         (sum, item) => sum + item.price * item.quantity,
-        0
+        0,
       );
 
-      const updatedCart = { ...prev, cartItem: updatedItems, cartValue: newTotal };
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      return updatedCart;
+      return { ...prev, cartItem: updatedItems, cartValue: newTotal };
     });
   };
 
-  // Remove item from cart
   const handleRemoveItem = (itemId) => {
     setCart((prev) => {
       const itemToRemove = prev.cartItem.find((item) => item._id === itemId);
-      const newTotal = prev.cartValue - itemToRemove.price * itemToRemove.quantity;
+      const newTotal =
+        prev.cartValue - itemToRemove.price * itemToRemove.quantity;
       const updatedItems = prev.cartItem.filter((item) => item._id !== itemId);
 
       if (updatedItems.length === 0) {
-        localStorage.removeItem("cart");
-        toast.success("Cart is now empty!");
+        toast.error("Cart is now empty!");
         navigate("/order-now");
         return prev;
       }
 
-      const updatedCart = { ...prev, cartItem: updatedItems, cartValue: newTotal };
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      toast.success("Item removed from cart");
-      return updatedCart;
+      return { ...prev, cartItem: updatedItems, cartValue: newTotal };
     });
   };
 
-  // Apply coupon
-  const applyCoupon = () => {
-    const validCoupons = {
-      SAVE10: 10,
-      SAVE50: 50,
-      FIRST100: 100,
-      WELCOME20: 20,
-    };
+  const calculatePrices = () => {
+    const subtotal = cart?.cartValue || 0;
+    const tax = subtotal * TAX_RATE;
+    const total = subtotal + tax + DELIVERY_CHARGE;
+    return { subtotal, tax, total };
+  };
 
-    if (validCoupons[couponCode.toUpperCase()]) {
-      setDiscount(validCoupons[couponCode.toUpperCase()]);
-      toast.success(`Coupon applied! ₹${validCoupons[couponCode.toUpperCase()]} off`);
+  const handlePromoCodeApply = () => {
+    const discountPercent = PromoCode[promoCode.toUpperCase()];
+    if (discountPercent) {
+      const { subtotal } = calculatePrices();
+      const discountAmount = (subtotal * discountPercent) / 100;
+      const newSubTotal = subtotal - discountAmount;
+
+      console.log("Applying promo code:", {
+        promoCode,
+        discountPercent,
+        discountAmount,
+        oldSubTotal: subtotal,
+        newSubTotal: newSubTotal,
+      });
+      setCart((prev) => ({
+        ...prev,
+        cartValue: newSubTotal,
+      }));
+      toast.success(
+        `Promo code applied! You saved ₹${discountAmount.toFixed(2)}`,
+      );
+      setAppliedPromo(true);
     } else {
-      toast.error("Invalid coupon code");
+      toast.error("Invalid promo code");
     }
   };
 
-  // Place order
-  const handlePlaceOrder = async () => {
-    if (!isLogin || role !== "customer") {
-      toast.error("Please login as customer");
-      navigate("/login");
-      return;
-    }
+  const GeneratePayload = () => {
+    const { subtotal, tax, total } = calculatePrices();
+    return {
+      restaurantId: cart.resturantID,
+      userId: user._id,
+      items: [...cart.cartItem],
+      orderValue: {
+        subtotal,
+        tax,
+        total,
+        promoCode,
+        deliveryFee: 50,
+        discountPercentage: PromoCode[promoCode.toUpperCase()],
+        paymentMethod,
+        paymentStatus,
+      },
+      status: "pending",
+      review: {},
+    };
+  };
+  
+  const handlePayment = async () => {
+    try {
 
-    if (!deliveryAddress.street || !deliveryAddress.city || !deliveryAddress.pincode || !deliveryAddress.phone) {
-      toast.error("Please fill all delivery address fields");
+      //call Payment gateway API
+      setPaymentStatus("paid");
+    } catch (error) {
+      setPaymentStatus("failed");
+    }
+  };
+
+  const handlePlaceOrder = async () => {
+    if (!user || !cart) {
+      toast.error("Session expired. Please login again.");
+      navigate("/login");
       return;
     }
 
     setIsProcessing(true);
 
+    handlePayment();
+
+    const payload = GeneratePayload();
+    console.log(payload);
+
     try {
-      // Here you would integrate payment gateway (Razorpay, Stripe, etc.)
-      // Simulate order placement
-      setTimeout(() => {
-        setIsProcessing(false);
-        toast.success("Order placed successfully! 🎉");
-        localStorage.removeItem("cart");
-        navigate("/user-dashboard");
-      }, 2000);
+      const res = await api.post("/user/placeorder", payload);
+      toast.success(res.data.message);
+      localStorage.removeItem("cart");
+      navigate("/user-dashboard", { state: { tab: "orders" } });
     } catch (error) {
       console.error("Order placement error:", error);
       toast.error(error?.response?.data?.message || "Failed to place order");
+    } finally {
       setIsProcessing(false);
     }
   };
 
-  useEffect(() => {
-    if (!cart || cart.cartItem.length === 0) {
-      toast.error("Your cart is empty");
-      navigate("/order-now");
-    }
-  }, []);
+  if (!user || !cart) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-xl text-gray-600">Loading...</div>
+      </div>
+    );
+  }
 
-  if (!cart) return null;
+  const { subtotal, tax, total } = calculatePrices();
 
   return (
-    <>
-      {/* Animations CSS */}
-      <style jsx="true">{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+    <div className="min-h-screen bg-gray-50 py-8 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-8">
+          <h1
+            className="text-4xl font-bold"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Order Checkout
+          </h1>
+          <p className="text-gray-600 mt-2">
+            Review your order and complete the payment
+          </p>
+        </div>
 
-        @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left Section - Order Items */}
+          <div className="lg:col-span-2">
+            {/* Order Items Card */}
+            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+              <h2
+                className="text-2xl font-bold mb-6"
+                style={{ color: "var(--color-primary)" }}
+              >
+                Order Summary
+              </h2>
 
-        @keyframes pulse {
-          0%,
-          100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            background-position: -1000px 0;
-          }
-          100% {
-            background-position: 1000px 0;
-          }
-        }
-
-        .animate-fade-in {
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        .animate-slide-in {
-          animation: slideIn 0.5s ease-out forwards;
-        }
-
-        .animate-pulse-hover:hover {
-          animation: pulse 0.6s ease-in-out;
-        }
-      `}</style>
-
-      <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-red-50 py-8">
-        <div className="w-7xl mx-auto px-4">
-          {/* Header */}
-          <div className="mb-8 animate-fade-in">
-            <button
-              onClick={() => navigate(-1)}
-              className="flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-colors mb-4"
-            >
-              <span className="text-xl">←</span>
-              <span className="font-semibold">Back</span>
-            </button>
-            <h1 className="text-4xl font-black bg-linear-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">
-              Checkout
-            </h1>
-            <p className="text-gray-600 mt-2">
-              Complete your order and get it delivered
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Section - Main Content */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Cart Items Section */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 animate-slide-in">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">🛒</span>
-                  <h2 className="text-2xl font-bold text-gray-800">
-                    Your Items ({cart.cartItem.length})
-                  </h2>
-                </div>
-
-                <div className="space-y-4">
-                  {cart.cartItem.map((item, index) => (
+              {/* Items List */}
+              <div className="space-y-4">
+                {cart.cartItem && cart.cartItem.length > 0 ? (
+                  cart.cartItem.map((item, idx) => (
                     <div
-                      key={index}
-                      className="flex gap-4 p-4 border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:border-orange-300 group"
-                      style={{ animationDelay: `${index * 0.1}s` }}
+                      key={idx}
+                      className="flex gap-4 border-b pb-4 hover:bg-gray-50 p-3 rounded transition"
                     >
                       {/* Item Image */}
-                      <div className="relative shrink-0">
+                      <div className="shrink-0">
                         <img
-                          src={item.images[0].url}
+                          src={item.images?.[0]?.url || "🍔"}
                           alt={item.itemName}
-                          className="w-24 h-24 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                          className="w-24 h-24 object-cover rounded-lg"
                         />
-                        {/* Type Badge */}
-                        <div
-                          className="absolute -top-2 -right-2 px-2 py-1 rounded-full text-white text-xs font-bold shadow-lg"
-                          style={{
-                            backgroundColor:
-                              item.type === "veg" ? "#22c55e" : "#ef4444",
-                          }}
-                        >
-                          {item.type === "veg" ? "🥬" : "🍖"}
-                        </div>
                       </div>
 
                       {/* Item Details */}
                       <div className="flex-1">
-                        <h3 className="font-bold text-lg text-gray-800">
+                        <h3
+                          className="text-lg font-bold"
+                          style={{ color: "var(--color-primary)" }}
+                        >
                           {item.itemName}
                         </h3>
-                        <p className="text-sm text-gray-500 mt-1">
-                          {item.cuisine}
+                        <p className="text-sm text-gray-600 mt-1">
+                          {item.cuisine} • {item.type}
                         </p>
-                        <p className="text-orange-600 font-bold text-lg mt-2">
+                        <div className="flex gap-2 mt-2">
+                          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                            {item.servingSize}
+                          </span>
+                          <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">
+                            {item.preparationTime}
+                          </span>
+                        </div>
+                        <div className="text-lg font-semibold text-green-600 mt-2">
                           ₹{item.price}
-                        </p>
+                        </div>
                       </div>
 
                       {/* Quantity Controls */}
                       <div className="flex flex-col items-end justify-between">
                         <button
                           onClick={() => handleRemoveItem(item._id)}
-                          className="text-red-500 hover:text-red-700 transition-colors p-2"
+                          className="text-red-500 hover:text-red-700 transition p-2"
                           title="Remove item"
                         >
                           <FaTrash />
                         </button>
 
-                        <div className="flex items-center gap-3 bg-orange-50 rounded-lg px-3 py-2">
+                        <div
+                          className="flex items-center border rounded-lg overflow-hidden"
+                          style={{
+                            borderColor: "var(--color-secondary)",
+                          }}
+                        >
                           <button
                             onClick={() => handleQuantityChange(item._id, -1)}
-                            className="w-7 h-7 bg-white rounded-full flex items-center justify-center text-orange-600 font-bold hover:bg-orange-100 transition-colors shadow-sm"
+                            className="p-2 hover:bg-gray-100 transition"
+                            style={{
+                              backgroundColor:
+                                item.quantity === 1 ? "#f3f4f6" : "white",
+                            }}
                             disabled={item.quantity === 1}
                           >
                             <FaMinus size={12} />
                           </button>
-                          <span className="font-bold text-gray-800 min-w-5 text-center">
+                          <span className="px-4 font-bold text-lg w-12 text-center">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => handleQuantityChange(item._id, 1)}
-                            className="w-7 h-7 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold hover:bg-orange-700 transition-colors shadow-sm"
+                            className="p-2 hover:bg-gray-100 transition"
                           >
                             <FaPlus size={12} />
                           </button>
                         </div>
 
-                        <p className="text-sm text-gray-600 font-semibold">
-                          Total: ₹{(item.price * item.quantity).toFixed(2)}
-                        </p>
+                        {/* Item Total */}
+                        <div className="text-right mt-2">
+                          <p className="text-sm text-gray-600">Subtotal</p>
+                          <p
+                            className="text-lg font-bold"
+                            style={{ color: "var(--color-secondary)" }}
+                          >
+                            ₹{(item.price * item.quantity).toFixed(2)}
+                          </p>
+                        </div>
                       </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-gray-600 text-lg">Your cart is empty</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Delivery Address Card */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2
+                className="text-2xl font-bold mb-6"
+                style={{ color: "var(--color-primary)" }}
+              >
+                Delivery Address
+              </h2>
+
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                <p
+                  className="font-bold text-lg"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  {user.fullName}
+                </p>
+                <p className="text-gray-700 mt-2">{user.address}</p>
+                <p className="text-gray-700">
+                  {user.city}, {user.pin}
+                </p>
+                <p className="text-gray-700 mt-2">📞 {user.mobileNumber}</p>
+              </div>
+
+              <button
+                onClick={() =>
+                  navigate("/user-dashboard", { state: { tab: "profile" } })
+                }
+                className="mt-4 px-4 py-2 text-blue-600 hover:text-blue-800 font-semibold transition"
+              >
+                ✎ Edit Address
+              </button>
+            </div>
+          </div>
+
+          {/* Right Section - Price Summary & Payment */}
+          <div className="lg:col-span-1">
+            {/* Price Summary */}
+            <div className="bg-white rounded-lg shadow-md p-6 sticky top-8">
+              <h2
+                className="text-xl font-bold mb-6"
+                style={{ color: "var(--color-primary)" }}
+              >
+                Price Details
+              </h2>
+
+              <div className="space-y-4 mb-6">
+                <div className="flex justify-between">
+                  <span className="text-gray-700">Subtotal</span>
+                  <span className="font-semibold">₹{subtotal.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-700">Tax (5%)</span>
+                  <span className="font-semibold">₹{tax.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-700">Delivery Charge</span>
+                  <span className="font-semibold">
+                    ₹{DELIVERY_CHARGE.toFixed(2)}
+                  </span>
+                </div>
+
+                <div className="border-t pt-4 flex justify-between">
+                  <span
+                    className="text-lg font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    Total Amount
+                  </span>
+                  <span
+                    className="text-2xl font-bold"
+                    style={{ color: "var(--color-secondary)" }}
+                  >
+                    ₹{total.toFixed(2)}
+                  </span>
+                </div>
+              </div>
+
+              {/* Promo Code Section */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3
+                  className="font-bold mb-3"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Promo Code
+                </h3>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Enter code"
+                    name="promo"
+                    value={promoCode}
+                    onChange={(e) => setPromoCode(e.target.value)}
+                    className="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none disabled:bg-gray-100"
+                    style={{ borderColor: "var(--color-secondary)" }}
+                    disabled={appliedPromo}
+                  />
+                  <button
+                    style={{ backgroundColor: "var(--color-secondary)" }}
+                    className="text-white px-4 py-2 rounded hover:opacity-90 transition disabled:opacity-50"
+                    onClick={handlePromoCodeApply}
+                    disabled={appliedPromo}
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              {/* Payment Method Selection */}
+              <div className="mb-6 border-t pt-6 mt-6">
+                <h3
+                  className="font-bold mb-4"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Payment Method
+                </h3>
+
+                <div className="space-y-3">
+                  {[
+                    { id: "credit-card", label: "💳 Credit/Debit Card" },
+                    { id: "upi", label: "📱 UPI" },
+                    { id: "wallet", label: "👛 Digital Wallet" },
+                    { id: "cod", label: "🏠 Cash on Delivery" },
+                  ].map((method) => (
+                    <label
+                      key={method.id}
+                      className="flex items-center cursor-pointer"
+                    >
+                      <input
+                        type="radio"
+                        name="payment"
+                        value={method.id}
+                        checked={paymentMethod === method.id}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        className="w-4 h-4"
+                      />
+                      <span className="ml-3 text-gray-700">{method.label}</span>
+                    </label>
                   ))}
                 </div>
               </div>
 
-              {/* Delivery Address Section */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 animate-slide-in">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">📍</span>
-                  <h2 className="text-2xl font-bold text-gray-800">
-                    Delivery Address
-                  </h2>
-                </div>
+              {/* Place Order Button */}
+              <button
+                onClick={handlePlaceOrder}
+                disabled={isProcessing}
+                style={{
+                  backgroundColor: "var(--color-secondary)",
+                }}
+                className="w-full text-white font-bold py-3 rounded-lg hover:opacity-90 transition disabled:opacity-50"
+              >
+                {isProcessing ? "Processing..." : "Place Order"}
+              </button>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Street Address"
-                    value={deliveryAddress.street}
-                    onChange={(e) =>
-                      setDeliveryAddress({
-                        ...deliveryAddress,
-                        street: e.target.value,
-                      })
-                    }
-                    className="md:col-span-2 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
-                  />
-                  <input
-                    type="text"
-                    placeholder="City"
-                    value={deliveryAddress.city}
-                    onChange={(e) =>
-                      setDeliveryAddress({
-                        ...deliveryAddress,
-                        city: e.target.value,
-                      })
-                    }
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
-                  />
-                  <input
-                    type="text"
-                    placeholder="State"
-                    value={deliveryAddress.state}
-                    onChange={(e) =>
-                      setDeliveryAddress({
-                        ...deliveryAddress,
-                        state: e.target.value,
-                      })
-                    }
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Pincode"
-                    value={deliveryAddress.pincode}
-                    onChange={(e) =>
-                      setDeliveryAddress({
-                        ...deliveryAddress,
-                        pincode: e.target.value,
-                      })
-                    }
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={deliveryAddress.phone}
-                    onChange={(e) =>
-                      setDeliveryAddress({
-                        ...deliveryAddress,
-                        phone: e.target.value,
-                      })
-                    }
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
-                  />
-                </div>
-              </div>
-
-              {/* Payment Mode Section */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 animate-slide-in">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">💳</span>
-                  <h2 className="text-2xl font-bold text-gray-800">
-                    Payment Method
-                  </h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Cash on Delivery */}
-                  <div
-                    onClick={() => setPaymentMethod("cod")}
-                    className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMethod === "cod"
-                        ? "border-orange-500 bg-orange-50 shadow-md"
-                        : "border-gray-200 hover:border-orange-300"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl">💵</span>
-                      <div>
-                        <p className="font-bold text-gray-800">
-                          Cash on Delivery
-                        </p>
-                        <p className="text-sm text-gray-500">Pay when delivered</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Credit/Debit Card */}
-                  <div
-                    onClick={() => setPaymentMethod("card")}
-                    className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMethod === "card"
-                        ? "border-orange-500 bg-orange-50 shadow-md"
-                        : "border-gray-200 hover:border-orange-300"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl">💳</span>
-                      <div>
-                        <p className="font-bold text-gray-800">
-                          Credit/Debit Card
-                        </p>
-                        <p className="text-sm text-gray-500">Visa, Mastercard, etc.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* UPI */}
-                  <div
-                    onClick={() => setPaymentMethod("upi")}
-                    className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMethod === "upi"
-                        ? "border-orange-500 bg-orange-50 shadow-md"
-                        : "border-gray-200 hover:border-orange-300"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl">📱</span>
-                      <div>
-                        <p className="font-bold text-gray-800">UPI</p>
-                        <p className="text-sm text-gray-500">
-                          GPay, PhonePe, Paytm
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Wallet */}
-                  <div
-                    onClick={() => setPaymentMethod("wallet")}
-                    className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                      paymentMethod === "wallet"
-                        ? "border-orange-500 bg-orange-50 shadow-md"
-                        : "border-gray-200 hover:border-orange-300"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl">👛</span>
-                      <div>
-                        <p className="font-bold text-gray-800">Wallet</p>
-                        <p className="text-sm text-gray-500">
-                          Paytm, PhonePe Wallet
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Section - Order Summary */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-4 space-y-6">
-                {/* Coupon Section */}
-                <div className="bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl shadow-lg p-6 text-white animate-fade-in">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">🎟️</span>
-                    <h3 className="text-xl font-bold">Apply Coupon</h3>
-                  </div>
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      placeholder="Enter coupon code"
-                      value={couponCode}
-                      onChange={(e) => setCouponCode(e.target.value)}
-                      className="flex-1 px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
-                    />
-                    <button
-                      onClick={applyCoupon}
-                      className="px-4 py-2 bg-white text-purple-600 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                  <p className="text-xs mt-2 opacity-80">
-                    Try: SAVE10, SAVE50, FIRST100, WELCOME20
-                  </p>
-                </div>
-
-                {/* Bill Details */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 animate-fade-in">
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="text-3xl">📋</span>
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Bill Details
-                    </h3>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-gray-600">
-                      <span>Subtotal</span>
-                      <span className="font-semibold">₹{subtotal.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-gray-600">
-                      <span>Tax (5%)</span>
-                      <span className="font-semibold">₹{tax.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-gray-600">
-                      <span>Delivery Fee</span>
-                      <span className="font-semibold">
-                        {deliveryFee === 0 ? (
-                          <span className="text-green-600">FREE</span>
-                        ) : (
-                          `₹${deliveryFee.toFixed(2)}`
-                        )}
-                      </span>
-                    </div>
-                    {discount > 0 && (
-                      <div className="flex justify-between text-green-600">
-                        <span>Discount</span>
-                        <span className="font-semibold">-₹{discount.toFixed(2)}</span>
-                      </div>
-                    )}
-
-                    <div className="border-t-2 border-dashed pt-3">
-                      <div className="flex justify-between text-xl font-bold text-gray-800">
-                        <span>Total Amount</span>
-                        <span className="text-orange-600">₹{total.toFixed(2)}</span>
-                      </div>
-                    </div>
-
-                    {deliveryFee > 0 && (
-                      <div className="bg-blue-50 p-3 rounded-lg">
-                        <p className="text-xs text-blue-800">
-                          💡 Add items worth ₹{(500 - subtotal).toFixed(2)} more to get FREE delivery
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Place Order Button */}
-                <button
-                  onClick={handlePlaceOrder}
-                  disabled={isProcessing}
-                  className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 transform hover:scale-105 ${
-                    isProcessing
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white animate-pulse-hover"
-                  }`}
-                >
-                  {isProcessing ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <span className="animate-spin">⏳</span>
-                      Processing...
-                    </span>
-                  ) : (
-                    <span className="flex items-center justify-center gap-2">
-                      <span>🚀</span>
-                      Place Order - ₹{total.toFixed(2)}
-                    </span>
-                  )}
-                </button>
-
-                {/* Payment Mode Display */}
-                <div className="bg-linear-to-r from-green-50 to-emerald-50 p-4 rounded-xl border-2 border-green-200">
-                  <p className="text-sm text-gray-600 text-center">
-                    Payment via:{" "}
-                    <span className="font-bold text-green-700">
-                      {paymentMethod === "cod" && "Cash on Delivery"}
-                      {paymentMethod === "card" && "Credit/Debit Card"}
-                      {paymentMethod === "upi" && "UPI"}
-                      {paymentMethod === "wallet" && "Wallet"}
-                    </span>
-                  </p>
-                </div>
-              </div>
+              {/* Continue Shopping Link */}
+              <button
+                onClick={() => navigate(-1)}
+                className="w-full mt-3 text-blue-600 font-semibold py-2 rounded-lg hover:text-blue-800 transition"
+              >
+                ← Continue Shopping
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default CheckoutPage;
-
-
-
-
