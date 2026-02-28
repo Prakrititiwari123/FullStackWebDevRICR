@@ -55,11 +55,13 @@ export const About = () => {
       description: "Our riders are trained to deliver your food hot and fresh in record time.",
       icon: <FaMotorcycle className="text-2xl text-orange-500" />
     },
+    
     {
       title: "Safety & Hygiene",
       description: "We maintain strict safety protocols for both food preparation and delivery.",
       icon: <FaShieldAlt className="text-2xl text-orange-500" />
     },
+
     {
       title: "Customer Love",
       description: "Your satisfaction is our priority. We're always here to help.",
