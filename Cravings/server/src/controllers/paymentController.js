@@ -1,7 +1,24 @@
-import razorpay from "../config/razorpay.js";
+import razorpay, { isRazorpayConfigured } from "../config/razorpay.js";
+
+const ensureRazorpayConfigured = (next) => {
+  if (isRazorpayConfigured) {
+    return true;
+  }
+
+  const error = new Error(
+    "Payment service is not configured. Set Razorpay API credentials in server/.env"
+  );
+  error.statusCode = 503;
+  next(error);
+  return false;
+};
 
 export const RazorpayGetKey = async (req, res, next) => {
   try {
+    if (!ensureRazorpayConfigured(next)) {
+      return;
+    }
+
     res.status(200).json({ key: process.env.RAZORPAY_TEST_API_KEY });
   } catch (error) {
     next(error);
@@ -10,6 +27,10 @@ export const RazorpayGetKey = async (req, res, next) => {
 
 export const RazorPayCreateOrder = async (req, res, next) => {
   try {
+    if (!ensureRazorpayConfigured(next)) {
+      return;
+    }
+
     const { amount } = req.body;
 
     if (!amount) {

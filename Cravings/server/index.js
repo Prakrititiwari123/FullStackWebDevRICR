@@ -10,7 +10,10 @@ import UserRouter from "./src/routers/userRouter.js";
 import RestaurantRouter from "./src/routers/restaurantRouter.js";
 import RiderRouter from "./src/routers/riderRouter.js";
 import PaymentRouter from "./src/routers/paymentRouter.js";
-import { verifyRazorPayConnect } from "./src/config/razorpay.js";
+import {
+  isRazorpayConfigured,
+  verifyRazorPayConnect,
+} from "./src/config/razorpay.js";
 
 const app = express();
 
@@ -49,10 +52,16 @@ app.listen(port, async () => {
   } catch (error) {
     console.error("Error Connecting Clodinary API :", error);
   }
-  try {
-    const res = await verifyRazorPayConnect();
-    console.log("Razor Pay connected", res);
-  } catch (error) {
-    console.error("Error Connecting RazorPay API :", error);
+  if (isRazorpayConfigured) {
+    try {
+      const res = await verifyRazorPayConnect();
+      console.log("Razor Pay connected", res);
+    } catch (error) {
+      console.error("Error Connecting RazorPay API :", error);
+    }
+  } else {
+    console.warn(
+      "Razorpay credentials are missing. Payment endpoints will return 503 until configured."
+    );
   }
 });

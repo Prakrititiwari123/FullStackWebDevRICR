@@ -38,35 +38,35 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-8 font-medium text-gray-700">
             <Link
               to={"/story"}
-              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
+              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
             >
               OUR STORY
             </Link>
 
             <Link
               to={"/shop"}
-              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
+              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
             >
               SHOP
             </Link>
 
             <Link
               to={"/blogs"}
-              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
+              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
             >
               BLOGS
             </Link>
 
             <Link
               to={"/reviews"}
-              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
+              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
             >
               REVIEWS
             </Link>
 
             <Link
               to={"/contacts"}
-              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
+              className="relative hover:text-pink-600 transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-pink-500 hover:after:w-full after:transition-all"
             >
               CONTACTS
             </Link>
