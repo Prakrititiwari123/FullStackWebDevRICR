@@ -14,27 +14,278 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --glass: rgba(5, 16, 35, 0.52);
+        --glass-border: rgba(255, 255, 255, 0.22);
+        --text-main: #f6f9ff;
+        --text-soft: #d7e1f7;
+        --accent: #00c2ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Sora", sans-serif;
+        background-image: url("image.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        margin: 0;
+        color: var(--text-main);
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(0, 194, 255, 0.28), transparent 35%),
+          radial-gradient(circle at 80% 80%, rgba(255, 193, 7, 0.2), transparent 35%),
+          linear-gradient(120deg, rgba(0, 0, 0, 0.56), rgba(8, 14, 45, 0.62));
+        z-index: -1;
+      }
+
+      .app-header {
+        background: linear-gradient(90deg, rgba(4, 32, 79, 0.75), rgba(16, 114, 182, 0.55));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        padding: 0.8rem 1rem;
+      }
+
+      .title-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .title-wrap > span {
+        font-weight: 800;
+        letter-spacing: 0.4px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      }
+
+      .weather-chip {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        animation: bob 2.6s ease-in-out infinite;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+      }
+
+      .weather-chip:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .weather-chip:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      .weather-chip:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+
+      .weather-chip:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+
+      .app-main {
+        padding: 2rem 1rem;
+      }
+
+      .weather-card {
+        width: min(760px, 94vw);
+        margin: 0 auto;
+        border-radius: 1.2rem;
+        border: 1px solid var(--glass-border);
+        background: var(--glass);
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.33);
+        backdrop-filter: blur(14px);
+        animation: riseIn 700ms ease-out;
+      }
+
+      .search-row {
+        display: flex;
+        gap: 0.8rem;
+      }
+
+      #city {
+        background: rgba(255, 255, 255, 0.9);
+        border: 0;
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      #city:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 0 0 0.25rem rgba(0, 194, 255, 0.25);
+      }
+
+      #searchBtn {
+        position: relative;
+        border: 0;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        background: linear-gradient(135deg, #00a6ff, #12c997);
+        transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+      }
+
+      #searchBtn:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 8px 26px rgba(0, 166, 255, 0.36);
+      }
+
+      #searchBtn:disabled {
+        opacity: 0.85;
+        cursor: not-allowed;
+      }
+
+      #statusMsg {
+        color: var(--text-soft);
+        min-height: 20px;
+        margin: 0.7rem 0 0;
+        font-size: 0.92rem;
+      }
+
+      .weather-content {
+        margin-top: 1rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        align-items: center;
+        animation: fadeIn 450ms ease;
+      }
+
+      .weather-stats p {
+        margin: 0.32rem 0;
+      }
+
+      .weather-icon {
+        width: 125px;
+        animation: pulse 1.7s ease-in-out infinite;
+      }
+
+      .skeleton {
+        height: 110px;
+        border-radius: 0.9rem;
+        margin-top: 1rem;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 255, 255, 0.3),
+          rgba(255, 255, 255, 0.12)
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.2s infinite linear;
+      }
+
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      @keyframes riseIn {
+        from {
+          opacity: 0;
+          transform: translateY(14px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes shimmer {
+        from {
+          background-position: -200% 0;
+        }
+        to {
+          background-position: 200% 0;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .search-row {
+          flex-direction: column;
+        }
+
+        #searchBtn {
+          width: 100%;
+        }
+
+        .weather-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .weather-icon {
+          margin: 0 auto;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- <div class="bg-image">
-      <img src="image.png" alt="" /> -->
-
-      <div
-        class="bg-primary p-2 fs-4 fw-bold text-light text-center d-flex justify-content-center"
-      >
-        <span>Mausam ka Haal </span>
-        <div class="d-flex">
-          <div title="Sunny">🌞</div>
-          <div title="Winter">❄️</div>
-          <div title="Fog">🌫️</div>
-          <div title="Rainy">⛈️</div>
-          <div title="Cloudy">⛅</div>
+    <header class="app-header">
+      <div class="title-wrap fs-4 text-light text-center">
+        <span>Mausam ka Haal</span>
+        <div class="d-flex gap-2">
+          <div class="weather-chip" title="Sunny">🌞</div>
+          <div class="weather-chip" title="Winter">❄️</div>
+          <div class="weather-chip" title="Fog">🌫️</div>
+          <div class="weather-chip" title="Rainy">⛈️</div>
+          <div class="weather-chip" title="Cloudy">⛅</div>
         </div>
       </div>
+    </header>
 
-      <main>
-        <div class="container w-50 border p-3 rounded shadow mt-3">
-          <div class="d-flex gap-3">
+      <main class="app-main">
+        <div class="weather-card p-3 p-md-4">
+          <div class="search-row">
             <input
               type="text"
               name="city"
@@ -42,18 +293,19 @@
               placeholder="City Name"
               class="form-control"
             />
-            <button class="btn btn-primary w-50" onclick="getWeather()">
-              Get Weather
+            <button id="searchBtn" class="btn btn-primary px-4" onclick="getWeather()">
+              <span class="btn-text">Get Weather</span>
             </button>
           </div>
 
+          <p id="statusMsg"></p>
+
           <div
-            class="p-3 d-flex justify-content-between"
+            class="result-wrap"
             id="WeatherData"
           ></div>
         </div>
       </main>
-    <!-- </div> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
