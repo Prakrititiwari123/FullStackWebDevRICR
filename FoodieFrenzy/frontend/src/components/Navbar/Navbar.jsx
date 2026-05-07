@@ -10,6 +10,7 @@ import {
   FiLogOut,
   FiKey,
 } from "react-icons/fi";
+import { useCart } from "../../context/CartContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,8 +88,11 @@ const Navbar = () => {
             <div className=" flex items-center space-x-2 md:space-x-3 lg:spaa-x-4 ml-3 md:ml-3 lg:ml-6 md:mr-3 lg:mr-4">
                 <NavLink to='/cart' className='p-2 md:p-2.0 lg:p-3 text-amber-100 rounded-xl transition-all relative border-2 border-amber-900/30 hover:border-amber-600/50 group hover:bg-amber-900/20 hover:shadow-lg hover:shadow-amber-500/30 shadow-md shadow-amber-900/20'>
                     <FiShoppingCart className="text-base md:text-lg lg:text-lg"/>
-                    {}
-                    
+                    {totalItems > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                        {totalItems}
+                      </span>
+                    )}
                 </NavLink>
 
             </div>
