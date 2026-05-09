@@ -59,6 +59,7 @@ const AboutPage = () => {
         <section className="mt-12 space-y-6">
           
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-amber-300/80">What we do best</p>
               <h2 className="mt-2 font-serif text-3xl text-amber-100 sm:text-4xl">A service built around speed, quality, and consistency.</h2>
@@ -66,6 +67,7 @@ const AboutPage = () => {
             <p className="max-w-xl text-sm leading-6 text-amber-100/70 sm:text-right">
               From the kitchen to your doorstep, every part of the experience is designed to stay reliable, easy to use, and memorable.
             </p>
+            
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
