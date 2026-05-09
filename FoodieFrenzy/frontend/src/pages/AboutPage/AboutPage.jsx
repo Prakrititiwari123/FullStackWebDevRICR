@@ -57,6 +57,7 @@ const AboutPage = () => {
         </section>
 
         <section className="mt-12 space-y-6">
+          
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-amber-300/80">What we do best</p>
