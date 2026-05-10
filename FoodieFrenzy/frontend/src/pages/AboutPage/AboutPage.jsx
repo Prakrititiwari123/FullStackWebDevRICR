@@ -88,6 +88,7 @@ const AboutPage = () => {
         </section>
 
         <section className="mt-12 rounded-4xl border border-amber-500/15 bg-[#241509]/75 px-6 py-10 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.8)] lg:px-10">
+
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-amber-300/80">Our team</p>
@@ -112,6 +113,7 @@ const AboutPage = () => {
               </article>
             ))}
           </div>
+          
         </section>
       </main>
     </div>
